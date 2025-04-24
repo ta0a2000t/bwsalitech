@@ -1,0 +1,33 @@
+name: Validate JSON
+
+on: [pull_request]
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Validate companies.json
+        run: |
+          npm install -g ajv-cli
+          ajv validate -s data/schema.json -d data/companies.json
+      - name: Check for duplicate IDs
+        run: |
+          echo "Checking for duplicate company IDs..."
+          node -e "
+            const fs = require('fs');
+            const companies = JSON.parse(fs.readFileSync('data/companies.json', 'utf8'));
+            const ids = companies.map(c => c.id);
+            const uniqueIds = new Set(ids);
+            if (ids.length !== uniqueIds.size) {
+              const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+              console.error('Error: Found duplicate IDs: ' + duplicates.join(', '));
+              process.exit(1);
+            } else {
+              console.log('No duplicate IDs found. Good to go!');
+            }
+          "
