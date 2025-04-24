@@ -23,10 +23,13 @@
             "twitter": { "type": "string", "format": "uri" },
             "linkedin": { "type": "string", "format": "uri" },
             "facebook": { "type": "string", "format": "uri" },
-            "instagram": { "type": "string", "format": "uri" }
+            "instagram": { "type": "string", "format": "uri" },
+            "github": { "type": "string", "format": "uri" },
+            "blog": { "type": "string", "format": "uri" }
           },
-          "additionalProperties": false
+          "additionalProperties": true
         }
       }
-    }
+    },
+    "uniqueItems": true
   }

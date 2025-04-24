@@ -1,6 +1,6 @@
-# Contributing to بوصلةك (Bwsalitech )
+# Contributing to بوصلةك (Bawsalatuk)
 
-Thank you for your interest in contributing to بوصلةك! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to بوصلةك (Bawsalatuk)! This document provides guidelines and instructions for contributing to the project.
 
 ## Ways to Contribute
 
@@ -86,6 +86,6 @@ Please use the following guidelines for tags:
 
 ## Questions?
 
-If you have any questions about contributing, please open an issue or contact the maintainers at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions about contributing, please open an issue on GitHub.
 
-Thank you for helping build بوصلةك into a valuable resource for the Arab tech community!
+Thank you for helping build بوصلةك (Bawsalatuk) into a valuable resource for the Arab tech community!

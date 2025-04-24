@@ -1,4 +1,4 @@
-# بوصلةك (Bwsalitech ) - Tech Companies Directory
+# بوصلةك (Bawsalatuk) - Arab Tech Companies Directory
 
 بوصلةك (Your Compass) is an open-source directory of technology companies in the Arab world. The project aims to create a comprehensive, community-maintained resource for job seekers, investors, and anyone interested in the Arab tech ecosystem.
 
@@ -12,14 +12,14 @@
 
 ## 🚀 Quick Start
 
-You can view the live directory at: [https://yourusername.github.io/bwsalitech ](https://yourusername.github.io/bwsalitech )
+You can view the live directory at: [https://bawsalatuk.github.io](https://bawsalatuk.github.io)
 
 ### Running Locally
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/bwsalitech .git
-   cd bwsalitech 
+   git clone https://github.com/bawsalatuk/bawsalatuk.git
+   cd bawsalatuk
    ```
 
 2. Open `index.html` in your browser
@@ -54,6 +54,26 @@ Companies are stored in `data/companies.json` with the following structure:
 }
 ```
 
+## 🔍 How the App Works
+
+The app works by:
+
+1. Loading company data from `data/companies.json`
+2. Creating a search index with FlexSearch for bilingual search
+3. Rendering the companies as cards with filters
+4. Providing instant search and tag filtering
+
+Example of loading data:
+
+```javascript
+// Fetch companies data from JSON file
+const response = await fetch('./data/companies.json');
+if (response.ok) {
+  const companies = await response.json();
+  // Process and display companies
+}
+```
+
 ## 🤝 Contributing
 
 We welcome contributions from everyone! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to add or update company information.
@@ -77,4 +97,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 📬 Contact
 
-If you have any questions or suggestions, please open an issue or reach out to [your-email@example.com](mailto:your-email@example.com).
+If you have any questions or suggestions, please open an issue or reach out to us through GitHub.
