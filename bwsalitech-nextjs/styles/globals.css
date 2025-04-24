@@ -1,0 +1,111 @@
+/* Keep your CSS variables */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --danger-color: #e74c3c;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Basic Reset and Body styles */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: #f5f7fa;
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 16px; /* Base font size */
+}
+
+/* Global Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Link styles */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Button Reset (optional, good practice) */
+button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+}
+
+
+/* Remove component-specific styles that are now in modules */
+/* e.g., remove .company-card, .company-info, .company-name etc. */
+/* Keep general layout styles if needed globally, or move them to Home.module.css */
+
+
+/* RTL/LTR Base Styles (Keep these global) */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+html[dir="ltr"] {
+  text-align: left;
+}
+
+/* Keep spinner styles if you add a loading indicator */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto; /* Center spinner */
+  }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles for the Download button in footer to look like a link */
+.footerLinkButton {
+    background: none;
+    border: none;
+    color: white;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.footerLinkButton:hover {
+    color: var(--primary-color);
+}
+.footerLinkButton i {
+    margin-right: 0.3rem;
+}
+html[dir="rtl"] .footerLinkButton i {
+    margin-left: 0.3rem;
+    margin-right: 0;
+}

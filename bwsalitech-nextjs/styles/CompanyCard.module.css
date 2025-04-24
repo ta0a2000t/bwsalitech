@@ -1,0 +1,164 @@
+/* Styles specifically for the CompanyCard component */
+.companyCard {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex; /* Ensure card takes full height if needed in grid */
+    flex-direction: column;
+  }
+  
+  .companyCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .companyInfo {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allow info section to grow */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header: Logo + Name */
+  .companyHeader {
+    display: flex;
+    align-items: center; /* Vertically align logo and name */
+    gap: 0.75rem; /* Space between logo and name */
+    margin-bottom: 1rem; /* Space below the header */
+  }
+  
+  .logoWrapper {
+      /* Ensures the image container doesn't shrink */
+      flex-shrink: 0;
+      width: 40px; /* Match image width */
+      height: 40px; /* Match image height */
+      border-radius: 50%; /* Make the wrapper circular */
+      overflow: hidden; /* Clip the image if it's not perfectly square/circular */
+      background-color: var(--light-color); /* Fallback bg */
+      border: 1px solid #eee; /* Optional subtle border */
+      display: flex; /* Center image inside if needed */
+      justify-content: center;
+      align-items: center;
+  }
+  
+  /* Style the Next Image component if needed, but size is controlled via props */
+  .companyHeaderLogo {
+    /* display: block; */ /* Default */
+    object-fit: contain; /* Use contain to prevent stretching, or cover if you prefer */
+    border-radius: 50%; /* Ensure image itself is round if needed */
+  }
+  
+  
+  .companyName {
+    font-size: 1.4rem;
+    margin-bottom: 0; /* Reset margin */
+    color: var(--dark-color);
+    font-weight: 700;
+  }
+  
+  /* Description */
+  .companyDesc {
+    margin-bottom: 1rem;
+    color: #666;
+    flex-grow: 1; /* Allow description to take available space */
+    font-size: 0.95rem; /* Slightly smaller */
+    line-height: 1.5;
+  }
+  
+  /* Meta: Location + Year */
+  .companyMeta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  .companyMeta i {
+      margin-right: 0.3rem; /* Space icon and text */
+      margin-left: 0.3rem; /* Space for RTL */
+  }
+  html[dir="rtl"] .companyMeta i {
+      margin-left: 0.3rem;
+      margin-right: 0;
+  }
+  
+  /* Tags */
+  .companyTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .companyTag {
+    background-color: var(--light-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    color: #555;
+  }
+  
+  /* Action Buttons */
+  .companyActions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; /* Push actions to the bottom */
+    padding-top: 1rem; /* Add space above buttons */
+    border-top: 1px solid #eee; /* Optional separator */
+    margin-bottom: 1rem; /* Space before social links */
+  }
+  
+  /* Base button styles (can be global or defined here) */
+  .btn {
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+    flex: 1;
+    font-size: 0.9rem;
+    border: none; /* Reset border */
+    cursor: pointer;
+  }
+  
+  .btnPrimary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btnPrimary:hover {
+    background-color: var(--dark-color);
+  }
+  
+  .btnSecondary {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border: 1px solid #ddd; /* Add subtle border */
+  }
+  
+  .btnSecondary:hover {
+    background-color: #ddd;
+  }
+  
+  /* Social Links */
+  .socialLinksContainer {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem; /* Reduced margin */
+      padding-top: 0.5rem;
+      /* border-top: 1px solid #eee; */ /* Optional: remove border if actions have one */
+  }
+  
+  .socialLink {
+    color: #888;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    line-height: 1; /* Ensure consistent vertical alignment */
+  }
+  
+  .socialLink:hover {
+    color: var(--primary-color);
+  }
