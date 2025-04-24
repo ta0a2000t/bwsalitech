@@ -35,8 +35,8 @@ async function initApp() {
   }
 }
 
+
 // Initialize the FlexSearch index for bilingual search
-// Fixed FlexSearch initialization
 function initSearchIndex() {
     searchIndex = new FlexSearch.Document({
       document: {
@@ -153,32 +153,33 @@ function renderTagFilters(companiesToRender) {
     }).join('');
 }
 
-function renderLogo(name, logoUrl) {
-    const placeholderUrl = `https://via.placeholder.com/150?text=${encodeURIComponent(name)}`;
+  function renderLogoImage(logoUrl, companyName) {
+    if (!logoUrl) {
+      return ''; // Return empty string if no logo URL
+    }
+    
+    // Use company name for alt text if logo exists
+    const altText = `${companyName} logo`; 
     
     return `
-      <div class="company-logo">
-        <picture>
-          <source srcset="${logoUrl || ''}" />
-          <img
-            src="${placeholderUrl}"
-            alt="${name} logo"
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
-      </div>
+      <img 
+        src="${logoUrl}" 
+        alt="${altText}" 
+        class="company-header-logo" 
+        loading="lazy" 
+        decoding="async"
+        onerror="this.style.display='none'" // Hide if image fails to load
+      />
     `;
   }
 
-// Updated company card rendering function with the improved logo handling
 function renderCompanyCards(companiesToRender) {
     if (companiesToRender.length === 0) {
       return `
         <div class="no-results">
           ${currentLanguage === 'ar' 
-            ? 'لا توجد نتائج مطابقة للبحث.' 
-            : 'No matching results found.'}
+            ? 'لا توجد نتائج مطابقة للبحث أو التصفية.' 
+            : 'No matching results found for your search or filters.'}
         </div>
       `;
     }
@@ -187,13 +188,20 @@ function renderCompanyCards(companiesToRender) {
       const name = currentLanguage === 'ar' ? company.name_ar : company.name_en;
       const description = currentLanguage === 'ar' 
         ? company.description_ar 
-        : (company.description_en || company.description_ar);
+        : (company.description_en || company.description_ar); // Fallback to AR desc if EN missing
       
+      // Generate logo image tag (will be empty string if no logo_url)
+      const logoImgTag = renderLogoImage(company.logo_url, name);
+  
       return `
         <div class="company-card" data-id="${company.id}">
-          ${renderLogo(name, company.logo_url)}
           <div class="company-info">
-            <h3 class="company-name">${name}</h3>
+            
+            <div class="company-header">
+              ${logoImgTag} 
+              <h3 class="company-name">${name}</h3>
+            </div>
+  
             <p class="company-desc">${description}</p>
             
             <div class="company-meta">
@@ -212,11 +220,11 @@ function renderCompanyCards(companiesToRender) {
             </div>
             
             <div class="company-actions">
-              <a href="${company.website}" class="btn btn-primary" target="_blank">
+              <a href="${company.website}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                 ${currentLanguage === 'ar' ? 'زيارة الموقع' : 'Visit Website'}
               </a>
               ${company.links && company.links.careers ? `
-                <a href="${company.links.careers}" class="btn btn-secondary" target="_blank">
+                <a href="${company.links.careers}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
                   ${currentLanguage === 'ar' ? 'الوظائف' : 'Careers'}
                 </a>
               ` : ''}
@@ -233,31 +241,37 @@ function renderCompanyCards(companiesToRender) {
 
 // Render social media links
 function renderSocialLinks(links) {
-  if (!links) return '';
-  
-  const socialIcons = {
-    twitter: 'fab fa-twitter',
-    linkedin: 'fab fa-linkedin',
-    facebook: 'fab fa-facebook',
-    instagram: 'fab fa-instagram',
-    github: 'fab fa-github',
-    blog: 'fas fa-blog'
-  };
-  
-  let html = '';
-  
-  for (const [platform, url] of Object.entries(links)) {
-    if (platform !== 'careers' && socialIcons[platform]) {
-      html += `
-        <a href="${url}" class="social-link" target="_blank" title="${platform}">
-          <i class="${socialIcons[platform]}"></i>
-        </a>
-      `;
+    if (!links) return '';
+    
+    const socialIcons = {
+      twitter: 'fab fa-twitter',
+      linkedin: 'fab fa-linkedin',
+      facebook: 'fab fa-facebook',
+      instagram: 'fab fa-instagram',
+      github: 'fab fa-github',
+      blog: 'fas fa-blog'
+      // Add other platforms if needed
+    };
+    
+    let html = '';
+    
+    for (const [platform, url] of Object.entries(links)) {
+      // Exclude keys that are not social platforms (like 'careers')
+      if (socialIcons[platform]) { 
+        html += `
+          <a href="${url}" class="social-link" target="_blank" rel="noopener noreferrer" title="${platform}">
+            <i class="${socialIcons[platform]}"></i>
+          </a>
+        `;
+      }
     }
+    
+    return html;
   }
   
-  return html;
-}
+  
+  
+
 
 // Set up all event listeners
 // Updated event listeners setup
@@ -294,7 +308,7 @@ function setupEventListeners() {
       downloadJson.addEventListener('click', downloadCompaniesJson);
     }
   }
-  
+
 // Toggle between Arabic and English
 function toggleLanguage() {
   currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
