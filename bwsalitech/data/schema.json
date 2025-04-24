@@ -27,9 +27,8 @@
             "github": { "type": "string", "format": "uri" },
             "blog": { "type": "string", "format": "uri" }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         }
       }
-    },
-    "uniqueItems": true
+    }
   }
