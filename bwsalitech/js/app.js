@@ -70,45 +70,44 @@ function renderApp() {
           </button>
         </div>
       </header>
-  
+
       <section class="search-section">
         <div class="container search-container">
           <div class="search-bar">
-            <input 
-              type="text" 
-              id="search-input" 
-              class="search-input" 
+            <input
+              type="text"
+              id="search-input"
+              class="search-input"
               placeholder="${currentLanguage === 'ar' ? 'ابحث عن شركة...' : 'Search for a company...'}"
+              aria-label="${currentLanguage === 'ar' ? 'بحث عن شركة' : 'Search for company'}"
             >
-            <button class="search-button" id="search-button">
-              <i class="fas fa-search"></i>
-            </button>
+            <!-- Search button removed -->
           </div>
-          
+
           <div class="tag-filters" id="tag-filters">
             ${renderTagFilters(companies)}
           </div>
         </div>
       </section>
-  
+
       <section class="companies-section">
         <div class="container">
           <h2 class="company-count" id="company-count">
-            ${currentLanguage === 'ar' 
-              ? `عرض ${companies.length} شركة` 
+            ${currentLanguage === 'ar'
+              ? `عرض ${companies.length} شركة`
               : `Showing ${companies.length} companies`}
           </h2>
-          
+
           <div class="companies-grid" id="companies-grid">
             ${renderCompanyCards(companies)}
           </div>
         </div>
       </section>
-  
+
       <footer>
         <div class="container footer-content">
           <div class="footer-links">
-            <a href="https://github.com/yourusername/bawsalatuk" class="footer-link" target="_blank">
+            <a href="https://github.com/bawsalatuk/bawsalatuk" class="footer-link" target="_blank" rel="noopener noreferrer"> {/* Added rel */}
               <i class="fab fa-github"></i> GitHub
             </a>
             <a href="#" class="footer-link" id="download-json">
@@ -116,17 +115,17 @@ function renderApp() {
             </a>
           </div>
           <p>
-            ${currentLanguage === 'ar' 
-              ? 'مشروع مفتوح المصدر - شارك بمعلومات عن شركة' 
-              : 'Open Source Project - Contribute Company Information'}
+            ${currentLanguage === 'ar'
+              ? 'مشروع مفتوح المصدر - ساهم في بوصلتك!' // Example improved text
+              : 'Open Source Project - Contribute to Bawsalatuk!'} {/* Example improved text */}
           </p>
         </div>
       </footer>
     `;
-    
+
     // Make sure we attach the tag listeners after rendering
     attachTagListeners();
-  }
+}
 
 // Render all available tags as filter buttons
 function renderTagFilters(companiesToRender) {
@@ -153,20 +152,21 @@ function renderTagFilters(companiesToRender) {
     }).join('');
 }
 
-  function renderLogoImage(logoUrl, companyName) {
-    if (!logoUrl) {
-      return ''; // Return empty string if no logo URL
+function renderLogoImage(logoUrl, companyName) {
+    if (!logoUrl) { // Checks if logoUrl is falsy (null, undefined, empty string)
+      return ''; // Return empty string if no logo URL - THIS IS GOOD!
     }
-    
+  
     // Use company name for alt text if logo exists
-    const altText = `${companyName} logo`; 
-    
+    const altText = `${companyName} logo`;
+  
+    // The onerror handles cases where the URL exists but the image fails to load
     return `
-      <img 
-        src="${logoUrl}" 
-        alt="${altText}" 
-        class="company-header-logo" 
-        loading="lazy" 
+      <img
+        src="${logoUrl}"
+        alt="${altText}"
+        class="company-header-logo"
+        loading="lazy"
         decoding="async"
         onerror="this.style.display='none'" // Hide if image fails to load
       />
@@ -274,34 +274,30 @@ function renderSocialLinks(links) {
 
 
 // Set up all event listeners
-// Updated event listeners setup
 function setupEventListeners() {
     // Language toggle
     const languageToggle = document.getElementById('language-toggle');
     if (languageToggle) {
       languageToggle.addEventListener('click', toggleLanguage);
     }
-    
-    // Search input
+
+    // Search input - CHANGED HERE
     const searchInput = document.getElementById('search-input');
-    const searchButton = document.getElementById('search-button');
-    
     if (searchInput) {
+      // Use 'input' event and debounce handleSearch
       searchInput.addEventListener('input', debounce(handleSearch, 300));
-      searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          handleSearch();
-        }
-      });
+      // Removed keypress listener for Enter, as it's now live
     }
-    
-    if (searchButton) {
-      searchButton.addEventListener('click', () => handleSearch());
-    }
-    
+
+    // Search button listener removed
+    // const searchButton = document.getElementById('search-button');
+    // if (searchButton) {
+    //   searchButton.addEventListener('click', () => handleSearch());
+    // }
+
     // Tag filters - We handle this with attachTagListeners() now
     attachTagListeners();
-    
+
     // Download JSON
     const downloadJson = document.getElementById('download-json');
     if (downloadJson) {
@@ -320,54 +316,60 @@ function toggleLanguage() {
 // Search functionality
 function handleSearch() {
     const searchInput = document.getElementById('search-input');
+    // Ensure searchInput exists before accessing value (robustness)
     const query = searchInput ? searchInput.value.trim() : '';
-    
+
+    // console.log(`Searching for: "${query}"`); // Add for debugging if needed
+
+    // If query is empty, show all companies filtered by active tags
     if (!query) {
-      // If query is empty, show all companies (filtered by tags if any)
-      renderFilteredCompanies();
+      renderFilteredCompanies(); // This already handles tag filtering
       return;
     }
-    
+
     // Search in the FlexSearch index
-    searchIndex.search(query, { enrich: true }).then(results => {
-      // Flatten and deduplicate results
-      const matchedIds = new Set();
-      results.forEach(resultGroup => {
-        resultGroup.result.forEach(match => {
-          matchedIds.add(match.id);
-        });
+    // Added limit for potentially better perceived performance if index gets large
+    searchIndex.searchAsync(query, { enrich: true, limit: 50 }) // Using searchAsync is slightly better practice
+      .then(results => {
+          // Flatten and deduplicate results
+          const matchedIds = new Set();
+          // Flexsearch structure for enrich: true is [{ field: "name_ar", result: [{id: "...", doc: {...}}, ...] }, ...]
+          results.forEach(fieldResult => {
+              fieldResult.result.forEach(docInfo => {
+                  matchedIds.add(docInfo.id);
+              });
+          });
+
+          // Filter companies based on *both* search results and active tag filters
+          const searchFilteredCompanies = companies.filter(company => matchedIds.has(company.id));
+
+          // Now apply tag filters *to the search results*
+          const finalFilteredCompanies = activeFilters.size === 0
+              ? searchFilteredCompanies // No tags active, show all search results
+              : searchFilteredCompanies.filter(company =>
+                  company.tags.some(tag => activeFilters.has(tag))
+              );
+
+          // Update tag filters based ONLY on the companies matching the current search+tag filters
+          const tagFiltersElement = document.getElementById('tag-filters');
+          if (tagFiltersElement) {
+              tagFiltersElement.innerHTML = renderTagFilters(finalFilteredCompanies); // Render tags based on currently visible companies
+              attachTagListeners(); // Re-attach listeners to new tag buttons
+          }
+
+          // Update the company count
+          updateCompanyCount(finalFilteredCompanies.length);
+
+          // Render the filtered company cards
+          const companiesGrid = document.getElementById('companies-grid');
+          if (companiesGrid) {
+              companiesGrid.innerHTML = renderCompanyCards(finalFilteredCompanies);
+          }
+      }).catch(error => {
+          console.error('Search error:', error);
+          renderError('An error occurred during search. Please try again.');
       });
-      
-      // Filter companies by search results and active tag filters
-      const filteredCompanies = companies.filter(company => {
-        const matchesSearch = matchedIds.has(company.id);
-        const matchesTagFilters = activeFilters.size === 0 || 
-          company.tags.some(tag => activeFilters.has(tag));
-        
-        return matchesSearch && matchesTagFilters;
-      });
-      
-      // Update tag filters based on filtered companies
-      const tagFiltersElement = document.getElementById('tag-filters');
-      if (tagFiltersElement) {
-        tagFiltersElement.innerHTML = renderTagFilters(filteredCompanies);
-        // Re-attach tag event listeners
-        attachTagListeners();
-      }
-      
-      // Update the company count
-      updateCompanyCount(filteredCompanies.length);
-      
-      // Render the filtered company cards
-      const companiesGrid = document.getElementById('companies-grid');
-      if (companiesGrid) {
-        companiesGrid.innerHTML = renderCompanyCards(filteredCompanies);
-      }
-    }).catch(error => {
-      console.error('Search error:', error);
-      renderError('An error occurred during search. Please try again.');
-    });
-}  
+}
 
 // Handle tag filtering
 function handleTagFilter(event) {
@@ -391,34 +393,47 @@ function handleTagFilter(event) {
 }
 
 // Unified rendering function for filtered companies
+// IMPORTANT: This function needs to respect the current search query if there is one.
 function renderFilteredCompanies() {
-    let filteredCompanies;
-    
-    if (activeFilters.size === 0) {
-      // No active filters, show all companies
-      filteredCompanies = companies;
-    } else {
-      // Filter companies by active tags
-      filteredCompanies = companies.filter(company => 
-        company.tags.some(tag => activeFilters.has(tag))
-      );
+    const searchInput = document.getElementById('search-input');
+    const query = searchInput ? searchInput.value.trim() : '';
+
+    // If there's an active search query, re-run the search logic
+    // because handleTagFilter might call this function.
+    if (query) {
+        handleSearch(); // Re-trigger search to apply tags correctly to search results
+        return;
     }
-    
-    // Update tag filters based on filtered companies
+
+    // --- Code below only runs if search query is empty ---
+
+    let filteredCompanies;
+
+    if (activeFilters.size === 0) {
+        // No active filters, show all companies
+        filteredCompanies = companies;
+    } else {
+        // Filter companies by active tags
+        filteredCompanies = companies.filter(company =>
+            company.tags.some(tag => activeFilters.has(tag))
+        );
+    }
+
+    // Update tag filters based on filtered companies (relevant when search is empty)
     const tagFiltersElement = document.getElementById('tag-filters');
     if (tagFiltersElement) {
-      tagFiltersElement.innerHTML = renderTagFilters(filteredCompanies);
-      // Re-attach tag event listeners
-      attachTagListeners();
+        // When search is empty, render tags based on the tag-filtered list
+        tagFiltersElement.innerHTML = renderTagFilters(filteredCompanies);
+        attachTagListeners(); // Re-attach tag event listeners
     }
-    
+
     // Update company count
     updateCompanyCount(filteredCompanies.length);
-    
+
     // Render filtered companies
     const companiesGrid = document.getElementById('companies-grid');
     if (companiesGrid) {
-      companiesGrid.innerHTML = renderCompanyCards(filteredCompanies);
+        companiesGrid.innerHTML = renderCompanyCards(filteredCompanies);
     }
 }
 
