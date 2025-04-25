@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ currentLanguage, onDownloadJson }) => {
         </div>
         <p>
           {currentLanguage === 'ar'
-            ? 'مشروع مفتوح المصدر - ساهم في بوصلةك!'
+            ? 'مشروع مفتوح المصدر - ساهم في بوصلة➝ك!'
             : 'Open Source Project - Contribute to Bawsalatuk!'}
         </p>
       </div>

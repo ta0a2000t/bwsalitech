@@ -13,45 +13,56 @@
   padding-bottom: 3rem; /* Space before footer */
 }
 
-
 /* --- Header Styles --- */
 .header {
   background-color: var(--header-bg);
   box-shadow: var(--box-shadow);
-  /* REMOVED padding: 1rem 0; - Padding handled by headerContent */
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--border-color);
-  width: 100%; /* Ensure header itself spans full width */
+  width: 100%;
 }
 
-/* --- NEW STYLE for the inner container --- */
-/* This replaces the global .container logic specifically for the header */
+/* Inner container - Now the positioning context */
 .headerContent {
-  /* Replicate basic container centering and padding */
-  max-width: 1200px; /* Or your desired site max-width */
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem 20px; /* Apply padding here */
+  /* Horizontal padding sets the space from viewport edges */
+  padding-left: 20px;
+  padding-right: 20px;
+  /* Vertical padding (or min-height) ensures container has space */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   width: 100%;
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box;
 
-  /* Flexbox layout properties */
-  display: flex;
-  align-items: center;          /* Vertically center items */
-  justify-content: space-between; /* Push items to opposite ends */
+  /* --- MODIFICATION START --- */
+  /* Make it a positioning context for absolute children */
+  position: relative;
+  /* Remove flex display properties, not needed for this layout */
+  /* display: flex; */
+  /* align-items: center; */
+
+  /* Set a min-height roughly equal to your expected header height */
+  /* This ensures the container doesn't collapse if children are absolute */
+  min-height: 60px; /* Adjust as needed based on button/logo size */
+  /* --- MODIFICATION END --- */
 }
-/* --- END NEW STYLE --- */
 
-.logo {
+.logo { /* Positioned absolutely to the right */
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary-color);
   text-decoration: none;
   /* --- MODIFICATION START --- */
   margin: 0; /* Reset margins */
-  order: 2;  /* Visually place second (right) */
+  position: absolute;
+  /* Pin to the right edge, respecting the container's padding */
+  right: 20px;
+  top: 50%; /* Position top edge at the middle */
+  transform: translateY(-50%); /* Shift up by half its height to vertically center */
   /* --- MODIFICATION END --- */
 }
 .logo:hover {
@@ -59,7 +70,7 @@
   opacity: 0.9;
 }
 
-.languageToggle {
+.languageToggle { /* Positioned absolutely to the left */
   background: none;
   border: 1px solid var(--primary-color);
   padding: 0.5rem 1rem;
@@ -69,8 +80,13 @@
   transition: var(--transition);
   font-size: 0.9rem;
   /* --- MODIFICATION START --- */
+  /* REMOVED margin-right: auto; */
   margin: 0; /* Reset margins */
-  order: 1;  /* Visually place first (left) */
+  position: absolute;
+  /* Pin to the left edge, respecting the container's padding */
+  left: 20px;
+  top: 50%; /* Position top edge at the middle */
+  transform: translateY(-50%); /* Shift up by half its height to vertically center */
   /* --- MODIFICATION END --- */
 }
 

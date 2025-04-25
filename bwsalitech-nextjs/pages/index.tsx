@@ -173,7 +173,7 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
   }, [filteredCompanies]); // Dependency is now filteredCompanies
 
   // --- Render ---
-  const pageTitle = language === 'ar' ? 'بوصلةك | دليل شركات التقنية العربية' : 'Bawsalatuk | Arab Tech Companies Directory';
+  const pageTitle = language === 'ar' ? 'بوصلة➝ك | دليل شركات التقنية العربية' : 'Bawsalatuk | Arab Tech Companies Directory';
   const metaDescription = language === 'ar' ? 'دليل مفتوح المصدر لشركات التقنية في العالم العربي' : 'Open-source directory of tech companies in the Arab world';
 
   return (
