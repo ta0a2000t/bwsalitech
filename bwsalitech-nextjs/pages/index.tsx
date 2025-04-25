@@ -1,3 +1,4 @@
+// bwsalitech-nextjs/pages/index.tsx
 import Head from 'next/head';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
@@ -12,7 +13,7 @@ import type { Company, Language } from '../interfaces';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CompanyCard from '../components/CompanyCard';
-import TagFilter from '../components/TagFilter'; // Make sure this import is correct
+import TagFilter from '../components/TagFilter';
 
 // Import Styles
 import styles from '../styles/Home.module.css';
@@ -41,6 +42,33 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   };
 };
 
+// --- Helper Function for Grammatically Correct Count ---
+const getCompanyCountText = (count: number, language: Language): string => {
+  if (language === 'ar') {
+    if (count === 0) {
+      return 'لا توجد شركات لعرضها';
+    } else if (count === 1) {
+      return 'عرض شركة واحدة'; // Singular
+    } else if (count === 2) {
+      return 'عرض شركتان'; // Dual
+    } else if (count >= 3 && count <= 10) {
+      // Numbers 3-10 take plural noun, number itself is used
+      return `عرض ${count} شركات`; // Plural (sound feminine plural is common here)
+    } else {
+      // Numbers 11+ typically take singular noun in accusative, but using plural is common in modern usage/simplification
+      // Sticking to the user's requested format 'x شركات' for simplicity above 2.
+       return `عرض ${count} شركات`;
+    }
+  } else { // language === 'en'
+    if (count === 1) {
+      return `Showing 1 company`; // English singular
+    } else {
+      return `Showing ${count} companies`; // English plural (handles 0 too)
+    }
+  }
+};
+
+
 // --- Main Page Component ---
 const Home: NextPage<HomeProps> = ({ allCompanies }) => {
   // --- State Variables ---
@@ -55,12 +83,10 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     const index = new FlexSearch.Document<Company, true>({
       document: {
         id: 'id',
-        // *** MODIFICATION: Added 'headquarters' to the index ***
         index: ['name_ar', 'name_en', 'description_ar', 'description_en', 'tags', 'headquarters'],
       },
-      tokenize: 'forward', // Use 'forward' for prefix searching
-      cache: 100, // Enable caching
-      // Consider adding context if needed for more complex relevance scoring
+      tokenize: 'forward',
+      cache: 100,
     });
     allCompanies.forEach(company => index.add(company));
     setSearchIndex(index);
@@ -83,25 +109,23 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     setSearchQuery(query);
 
     if (!query) {
-      setSearchResults(null); // Clear search results when query is empty
+      setSearchResults(null);
       return;
     }
 
     if (searchIndex) {
       try {
-        // Use search options: limit results, suggest for potential typos
         const results = await searchIndex.searchAsync(query, { limit: allCompanies.length, suggest: true });
         const matchedIds = new Set<string>();
         results.forEach(fieldResult => {
             fieldResult.result.forEach(id => {
-                // FlexSearch Document returns the ID directly
                 matchedIds.add(id.toString());
             });
         });
         setSearchResults(matchedIds);
       } catch (e) {
         console.error("Search failed:", e);
-        setSearchResults(new Set()); // Set to empty set on error
+        setSearchResults(new Set());
       }
     }
   }, [searchIndex, allCompanies.length]);
@@ -114,16 +138,13 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
       } else {
         newFilters.add(tag);
       }
-      // Don't reset search when toggling filters, let them combine
       return newFilters;
     });
   }, []);
 
-  // --- MODIFICATION START: Handler for clearing filters ---
   const clearAllFilters = useCallback(() => {
       setActiveFilters(new Set());
   }, []);
-  // --- MODIFICATION END ---
 
 
   const downloadJson = useCallback(() => {
@@ -140,13 +161,10 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
   const filteredCompanies = useMemo(() => {
     let companiesToShow = allCompanies;
 
-    // Apply search results first if available
     if (searchResults !== null) {
-      // If search has run (even if it found 0 results), filter by the result IDs
       companiesToShow = companiesToShow.filter(company => searchResults.has(company.id));
     }
 
-    // Then apply active tag filters to the (potentially search-filtered) list
     if (activeFilters.size > 0) {
       const filters = Array.from(activeFilters);
       companiesToShow = companiesToShow.filter(company =>
@@ -155,12 +173,11 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     }
 
     return companiesToShow;
-  }, [allCompanies, searchResults, activeFilters]); // Depends on search and filters
+  }, [allCompanies, searchResults, activeFilters]);
 
   // --- Calculate tag counts based on CURRENTLY VISIBLE companies ---
   const currentVisibleTagsWithCounts = useMemo<TagWithCount[]>(() => {
     const counts: { [tag: string]: number } = {};
-    // Use filteredCompanies here
     filteredCompanies.forEach(company => {
       company.tags.forEach(tag => {
         counts[tag] = (counts[tag] || 0) + 1;
@@ -169,12 +186,15 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
 
     return Object.entries(counts)
       .map(([tag, count]) => ({ tag, count }))
-      .sort((a, b) => b.count - a.count); // Sort descending by count
-  }, [filteredCompanies]); // Dependency is now filteredCompanies
+      .sort((a, b) => b.count - a.count);
+  }, [filteredCompanies]);
 
   // --- Render ---
   const pageTitle = language === 'ar' ? 'بوصلة➝ك | دليل شركات التقنية العربية' : 'Bawsalatuk | Arab Tech Companies Directory';
   const metaDescription = language === 'ar' ? 'دليل مفتوح المصدر لشركات التقنية في العالم العربي' : 'Open-source directory of tech companies in the Arab world';
+
+  // --- MODIFICATION: Use the helper function ---
+  const companyCountText = getCompanyCountText(filteredCompanies.length, language);
 
   return (
     <div className={styles.container}>
@@ -195,28 +215,25 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
                 value={searchQuery}
                 onChange={handleSearchChange}
                 className={styles.searchInput}
-                placeholder={language === 'ar' ? 'ابحث (شركة، وسم، مقر)...' : 'Search (company, tag, HQ)...'} // Updated placeholder
+                placeholder={language === 'ar' ? 'ابحث (شركة، وسم، مقر)...' : 'Search (company, tag, HQ)...'}
                 aria-label={language === 'ar' ? 'بحث عن شركة أو وسم أو مقر' : 'Search for company, tag, or headquarters'}
               />
             </div>
-            {/* --- MODIFICATION: Pass the new clear handler --- */}
             <TagFilter
-              tagsWithCounts={currentVisibleTagsWithCounts} // Pass the dynamic list
+              tagsWithCounts={currentVisibleTagsWithCounts}
               activeFilters={activeFilters}
               onToggleFilter={toggleFilter}
-              onClearFilters={clearAllFilters} // Pass the new handler
+              onClearFilters={clearAllFilters}
               language={language}
              />
-             {/* --- MODIFICATION END --- */}
           </div>
         </section>
 
         <section className={styles.companiesSection}>
             <div className="container">
+                {/* --- MODIFICATION: Display the result from the helper function --- */}
                 <h2 className={styles.companyCount}>
-                    {language === 'ar'
-                        ? `عرض ${filteredCompanies.length} شركة`
-                        : `Showing ${filteredCompanies.length} companies`}
+                    {companyCountText}
                 </h2>
 
                 {!searchIndex && searchQuery && (
@@ -233,7 +250,6 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
                             />
                         ))
                     ) : (
-                        // Show "no results" if filtering/searching is active OR if the initial data is empty
                         (searchQuery || activeFilters.size > 0 || allCompanies.length === 0) && (
                              <div className={styles.noResults}>
                                 {allCompanies.length === 0
