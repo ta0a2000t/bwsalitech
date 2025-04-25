@@ -38,32 +38,36 @@
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 
-  /* --- Dark Mode Variables (Define overrides below) --- */
-  --dm-primary-color: #5dade2;        /* Lighter blue for dark bg */
+  /* --- Dark Mode Variables (Refined for "Really Dark" Premium Feel) --- */
+  /* Using a very dark base, slightly lighter surfaces, and ensuring high contrast */
+  --dm-primary-color: #64b5f6;        /* Material Blue 400 - good vibrancy on dark */
   --dm-secondary-color: #58d68d;
   --dm-danger-color: #f1948a;         /* Lighter red */
-  --dm-bg-color: #2c3e50;            /* Dark background */
-  --dm-card-bg: #34495e;            /* Slightly lighter dark for cards */
-  --dm-header-bg: #34495e;           /* Dark header */
-  --dm-text-color: #ecf0f1;          /* Primary light text */
-  --dm-text-secondary-color: #bdc3c7; /* Secondary light text */
-  --dm-text-muted-color: #95a5a6;   /* Muted light text */
+
+  --dm-bg-color: #121212;            /* Very dark (Material Design dark bg) */
+  --dm-surface-color: #1e1e1e;       /* Slightly lighter surface (cards, headers) */
+  --dm-card-bg: var(--dm-surface-color);
+  --dm-header-bg: var(--dm-surface-color);
+
+  --dm-text-color: #e0e0e0;          /* Primary light text (high contrast) */
+  --dm-text-secondary-color: #b0b0b0; /* Secondary light text */
+  --dm-text-muted-color: #8a8a8a;   /* Muted light text */
   --dm-link-color: var(--dm-primary-color);
-  --dm-border-color: #4b6073;        /* Darker borders */
-  --dm-input-bg: #4b6073;           /* Dark input bg */
+  --dm-border-color: #333333;        /* Darker borders, subtle */
+  --dm-input-bg: #2a2a2a;           /* Dark input bg, distinct */
   --dm-tag-border-color: var(--dm-primary-color);
   --dm-tag-text-color: var(--dm-primary-color);
   --dm-tag-bg-color: transparent;
   --dm-tag-active-bg: var(--dm-primary-color);
-  --dm-tag-active-text: #2c3e50;     /* Dark text on active tag */
+  --dm-tag-active-text: #121212;     /* Very dark text on active tag */
   --dm-button-primary-bg: var(--dm-primary-color);
-  --dm-button-primary-text: #2c3e50;  /* Dark text for contrast */
-  --dm-button-secondary-bg: #4b6073; /* Using dark border color */
+  --dm-button-primary-text: #121212;  /* Very dark text for contrast */
+  --dm-button-secondary-bg: #333333; /* Using border color for subtle secondary */
   --dm-button-secondary-text: var(--dm-primary-color);
   --dm-button-secondary-border: #5dade2; /* Use primary for border */
   --dm-button-secondary-hover-bg: #5dade2; /* Use primary for hover */
-  --dm-logo-wrapper-bg: #4b6073;
-  --dm-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --dm-logo-wrapper-bg: #333333; /* Match subtle secondary */
+  --dm-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* More noticeable shadow */
 }
 
 /* --- Dark Mode Media Query --- */
@@ -97,8 +101,8 @@
     --button-secondary-hover-bg: var(--dm-button-secondary-hover-bg);
     --logo-wrapper-bg: var(--dm-logo-wrapper-bg);
 
-    /* --- Footer Specific Overrides (Keep it Dark) --- */
-    --footer-bg: #212f3d; /* Make it slightly different from main dark bg if desired, or use var(--dm-bg-color) */
+    /* --- Footer Specific Overrides (Use a distinct dark shade) --- */
+    --footer-bg: #1a1a1a; /* Make it slightly different from main dark bg if desired, or use var(--dm-bg-color) */
     --footer-text-color: var(--dm-text-secondary-color); /* Use secondary light text */
     --footer-link-hover-color: var(--dm-primary-color);
 

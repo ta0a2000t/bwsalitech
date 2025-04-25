@@ -17,7 +17,8 @@
 }
 @media (prefers-color-scheme: dark) {
   .companyCard:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    /* Enhance shadow visibility on very dark background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
   }
 }
 
