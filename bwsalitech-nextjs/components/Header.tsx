@@ -1,42 +1,36 @@
 // File: bwsalitech-nextjs/components/Header.tsx
 import Link from 'next/link';
 import React from 'react';
-import type { Language } from '../interfaces'; // Import Language type
-import styles from '../styles/Home.module.css'; // Assuming styles are here
+import type { Language } from '../interfaces';
+// Ensure the correct CSS module is imported
+import styles from '../styles/Home.module.css';
 
-// Define props interface
 interface HeaderProps {
   currentLanguage: Language;
-  onToggleLanguage: () => void; // Function prop type
+  onToggleLanguage: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ currentLanguage, onToggleLanguage }) => {
   return (
-    // Apply the main header style from the module
+    // Apply the main header style
     <header className={styles.header}>
-      {/*
-         This div uses BOTH a global 'container' class (from globals.css)
-         AND a 'header-content' class defined within Home.module.css.
-         While this works, mixing global and module classes like this
-         can sometimes be confusing. Often, you'd nest the module styles
-         or handle layout purely within the module if possible.
-         e.g., <div className={styles.headerContentWrapper}>
-                  <div className={styles.headerContentInner}>...</div>
-               </div>
-         But the current structure is functional.
-      */}
-      <div className="container header-content"> {/* Uses global 'container' and module 'header-content' */}
+      {/* Apply the specific header content style from the module */}
+      <div className={styles.headerContent}> {/* MODIFIED: Use styles.headerContent */}
+
+        {/* Logo Link (will be ordered to the right) */}
         <Link href="/" className={styles.logo}>
           بوصلةك
         </Link>
+
+        {/* Language Toggle Button (will be ordered to the left) */}
         <button
-          className={styles.languageToggle} // Style comes from Home.module.css
+          className={styles.languageToggle}
           onClick={onToggleLanguage}
           aria-label={currentLanguage === 'ar' ? 'Switch to English' : 'التحويل إلى العربية'}
          >
-          {/* This logic correctly shows 'English' when Arabic is active, and 'العربية' when English is active */}
           {currentLanguage === 'ar' ? 'English' : 'العربية'}
         </button>
+
       </div>
     </header>
   );

@@ -13,30 +13,46 @@
   padding-bottom: 3rem; /* Space before footer */
 }
 
+
 /* --- Header Styles --- */
 .header {
-/* background-color: #fff; */ /* Use variable */
-background-color: var(--header-bg);
-box-shadow: var(--box-shadow);
-padding: 1rem 0;
-position: sticky;
-top: 0;
-z-index: 100;
-border-bottom: 1px solid var(--border-color); /* Add subtle border */
+  background-color: var(--header-bg);
+  box-shadow: var(--box-shadow);
+  /* REMOVED padding: 1rem 0; - Padding handled by headerContent */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+  width: 100%; /* Ensure header itself spans full width */
 }
 
-/* Styles for the inner div within the header */
-.header .header-content { /* Target nested class */
-display: flex;
-align-items: center;
-/* Removed justify-content: space-between; */
+/* --- NEW STYLE for the inner container --- */
+/* This replaces the global .container logic specifically for the header */
+.headerContent {
+  /* Replicate basic container centering and padding */
+  max-width: 1200px; /* Or your desired site max-width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 20px; /* Apply padding here */
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
+
+  /* Flexbox layout properties */
+  display: flex;
+  align-items: center;          /* Vertically center items */
+  justify-content: space-between; /* Push items to opposite ends */
 }
+/* --- END NEW STYLE --- */
 
 .logo {
-font-size: 1.8rem;
-font-weight: 700;
-color: var(--primary-color);
-text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  /* --- MODIFICATION START --- */
+  margin: 0; /* Reset margins */
+  order: 2;  /* Visually place second (right) */
+  /* --- MODIFICATION END --- */
 }
 .logo:hover {
   text-decoration: none;
@@ -44,22 +60,24 @@ text-decoration: none;
 }
 
 .languageToggle {
-background: none;
-border: 1px solid var(--primary-color);
-padding: 0.5rem 1rem;
-border-radius: var(--border-radius);
-cursor: pointer;
-color: var(--primary-color);
-transition: var(--transition);
-font-size: 0.9rem;
-margin-inline-start: auto; /* Pushes button to the end (right in LTR, left in RTL) */
+  background: none;
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: var(--transition);
+  font-size: 0.9rem;
+  /* --- MODIFICATION START --- */
+  margin: 0; /* Reset margins */
+  order: 1;  /* Visually place first (left) */
+  /* --- MODIFICATION END --- */
 }
 
 .languageToggle:hover {
-background-color: var(--primary-color);
-color: var(--button-primary-text); /* Use variable for text color on hover */
+  background-color: var(--primary-color);
+  color: var(--button-primary-text);
 }
-
 
 /* --- Search & Filter Section --- */
 .searchSection {
