@@ -55,15 +55,18 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     const index = new FlexSearch.Document<Company, true>({
       document: {
         id: 'id',
-        index: ['name_ar', 'name_en', 'description_ar', 'description_en', 'tags'],
+        // *** MODIFICATION: Added 'headquarters' to the index ***
+        index: ['name_ar', 'name_en', 'description_ar', 'description_en', 'tags', 'headquarters'],
       },
-      tokenize: 'forward',
-      cache: 100,
+      tokenize: 'forward', // Use 'forward' for prefix searching
+      cache: 100, // Enable caching
+      // Consider adding context if needed for more complex relevance scoring
     });
     allCompanies.forEach(company => index.add(company));
     setSearchIndex(index);
-    console.log('FlexSearch index initialized.');
+    console.log('FlexSearch index initialized with headquarters.');
   }, [allCompanies]);
+
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -86,10 +89,12 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
 
     if (searchIndex) {
       try {
-        const results = await searchIndex.searchAsync(query, { limit: allCompanies.length });
+        // Use search options: limit results, suggest for potential typos
+        const results = await searchIndex.searchAsync(query, { limit: allCompanies.length, suggest: true });
         const matchedIds = new Set<string>();
         results.forEach(fieldResult => {
             fieldResult.result.forEach(id => {
+                // FlexSearch Document returns the ID directly
                 matchedIds.add(id.toString());
             });
         });
@@ -113,6 +118,13 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
       return newFilters;
     });
   }, []);
+
+  // --- MODIFICATION START: Handler for clearing filters ---
+  const clearAllFilters = useCallback(() => {
+      setActiveFilters(new Set());
+  }, []);
+  // --- MODIFICATION END ---
+
 
   const downloadJson = useCallback(() => {
     const dataStr = JSON.stringify(allCompanies, null, 2);
@@ -145,10 +157,10 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     return companiesToShow;
   }, [allCompanies, searchResults, activeFilters]); // Depends on search and filters
 
-  // --- MODIFICATION START: Calculate tag counts based on CURRENTLY VISIBLE companies ---
+  // --- Calculate tag counts based on CURRENTLY VISIBLE companies ---
   const currentVisibleTagsWithCounts = useMemo<TagWithCount[]>(() => {
     const counts: { [tag: string]: number } = {};
-    // *** Use filteredCompanies here instead of allCompanies ***
+    // Use filteredCompanies here
     filteredCompanies.forEach(company => {
       company.tags.forEach(tag => {
         counts[tag] = (counts[tag] || 0) + 1;
@@ -158,8 +170,7 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     return Object.entries(counts)
       .map(([tag, count]) => ({ tag, count }))
       .sort((a, b) => b.count - a.count); // Sort descending by count
-  }, [filteredCompanies]); // *** Dependency is now filteredCompanies ***
-  // --- MODIFICATION END ---
+  }, [filteredCompanies]); // Dependency is now filteredCompanies
 
   // --- Render ---
   const pageTitle = language === 'ar' ? 'بوصلةك | دليل شركات التقنية العربية' : 'Bawsalatuk | Arab Tech Companies Directory';
@@ -184,15 +195,16 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
                 value={searchQuery}
                 onChange={handleSearchChange}
                 className={styles.searchInput}
-                placeholder={language === 'ar' ? 'ابحث عن شركة...' : 'Search for a company...'}
-                aria-label={language === 'ar' ? 'بحث عن شركة' : 'Search for company'}
+                placeholder={language === 'ar' ? 'ابحث (شركة، وسم، مقر)...' : 'Search (company, tag, HQ)...'} // Updated placeholder
+                aria-label={language === 'ar' ? 'بحث عن شركة أو وسم أو مقر' : 'Search for company, tag, or headquarters'}
               />
             </div>
-            {/* --- MODIFICATION: Pass the DYNAMICALLY calculated tags --- */}
+            {/* --- MODIFICATION: Pass the new clear handler --- */}
             <TagFilter
               tagsWithCounts={currentVisibleTagsWithCounts} // Pass the dynamic list
               activeFilters={activeFilters}
               onToggleFilter={toggleFilter}
+              onClearFilters={clearAllFilters} // Pass the new handler
               language={language}
              />
              {/* --- MODIFICATION END --- */}

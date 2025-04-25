@@ -101,51 +101,108 @@ color: var(--text-color); /* Use variable */
 /* Tag Filters Container */
 .tagFilters {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow items to wrap */
   justify-content: center;
-  gap: 0.75rem; /* Slightly more gap */
+  align-items: center; /* Vertically align items */
+  gap: 0.75rem;
   margin-top: 1rem;
 }
 
 /* Individual Tag Button */
 .tag {
-/* background-color: white; */ /* Use variable */
-background-color: var(--tag-bg-color);
-/* border: 1px solid var(--primary-color); */ /* Use variable */
-border: 1px solid var(--tag-border-color);
-padding: 0.5rem 1rem;
-border-radius: 2rem;
-cursor: pointer;
-transition: var(--transition);
-font-size: 0.9rem;
-/* color: var(--primary-color); */ /* Use variable */
-color: var(--tag-text-color);
-white-space: nowrap; /* Prevent wrapping inside button/span */
-}
-
-/* --- MODIFICATION START: Style for non-interactive 'Other' tag --- */
-.otherTag {
-  cursor: default; /* Indicate non-interactive */
-  /* Optional: slightly different appearance */
-  opacity: 0.8; /* Example: slightly faded */
+  background-color: var(--tag-bg-color);
+  border: 1px solid var(--tag-border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9rem;
+  color: var(--tag-text-color);
+  white-space: nowrap; /* Prevent wrapping inside button/span */
+  display: inline-flex; /* Helps align icon and text in clear button */
+  align-items: center; /* Vertically align icon and text */
+  gap: 0.4rem; /* Space between icon and text */
 }
 
 .tag:hover,
 .tag.active { /* Style active state - applied only to actual buttons */
-/* background-color: var(--primary-color); */ /* Use variable */
-background-color: var(--tag-active-bg);
-/* color: white; */ /* Use variable */
-color: var(--tag-active-text);
-border-color: var(--tag-active-bg); /* Match border */
-opacity: 1; /* Ensure active/hovered tags are fully opaque */
+  background-color: var(--tag-active-bg);
+  color: var(--tag-active-text);
+  border-color: var(--tag-active-bg); /* Match border */
+  opacity: 1; /* Ensure active/hovered tags are fully opaque */
 }
 
-/* Ensure the non-interactive span doesn't get button hover effects */
+/* --- MODIFICATION START: Styles for New Buttons and Container --- */
+
+/* Clear All Button Styling */
+.clearButton {
+  background-color: var(--danger-color); /* Use danger color for clear */
+  color: white;
+  border-color: var(--danger-color);
+  font-weight: 500;
+  opacity: 0.9;
+}
+.clearButton:hover {
+  background-color: var(--danger-color); /* Keep color on hover */
+  color: white;
+  border-color: var(--danger-color);
+  opacity: 1;
+}
+.clearButton i {
+  font-size: 0.8em; /* Make icon slightly smaller */
+}
+
+/* "Other" Toggle Button Styling */
+.otherToggle {
+  /* Slightly different style to indicate it's a toggle */
+  font-style: italic; /* Example difference */
+}
+/* Keep active state consistent */
+.otherToggle.active {
+    background-color: var(--tag-active-bg);
+    color: var(--tag-active-text);
+    border-color: var(--tag-active-bg);
+    font-style: normal; /* Remove italic when active */
+}
+.otherToggle:hover {
+    /* Define hover if different from active, otherwise inherits .tag:hover */
+    opacity: 0.85;
+}
+.otherToggle.active:hover {
+    opacity: 1; /* Ensure active hover is fully opaque */
+}
+
+
+/* Container for Expanded "Other" Tags */
+.otherTagsContainer {
+  /* Take full width on the next line */
+  flex-basis: 100%;
+  margin-top: 0.75rem; /* Space above the expanded tags */
+  padding: 0.75rem; /* Padding around the group */
+  background-color: rgba(0, 0, 0, 0.02); /* Subtle background */
+  border-radius: var(--border-radius);
+  border: 1px dashed var(--border-color); /* Dashed border to indicate group */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem; /* Same gap as main filter row */
+}
+@media (prefers-color-scheme: dark) {
+    .otherTagsContainer {
+        background-color: rgba(255, 255, 255, 0.03); /* Dark mode subtle background */
+    }
+}
+
+/* Non-interactive 'Other' tag (if needed elsewhere - kept from previous logic but not used by expandable) */
+.otherTag {
+  cursor: default;
+  opacity: 0.8;
+}
 .otherTag:hover {
-    background-color: var(--tag-bg-color); /* Keep original background */
-    color: var(--tag-text-color);          /* Keep original text color */
-    border-color: var(--tag-border-color); /* Keep original border color */
-    opacity: 0.8; /* Keep faded style */
+    background-color: var(--tag-bg-color);
+    color: var(--tag-text-color);
+    border-color: var(--tag-border-color);
+    opacity: 0.8;
 }
 /* --- MODIFICATION END --- */
 
