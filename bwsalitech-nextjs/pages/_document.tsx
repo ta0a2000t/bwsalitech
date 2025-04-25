@@ -2,12 +2,15 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    // lang and dir will be controlled dynamically in index.tsx based on state
-    <Html>
+    // --- MODIFICATION START ---
+    // Set the default language and direction here to match the initial state ('ar').
+    // This prevents the initial LTR flash and ensures correct button alignment on load.
+    <Html lang="ar" dir="rtl">
+    {/* --- MODIFICATION END --- */}
       <Head>
         {/* Preconnect for fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /> {/* Use anonymous instead of true */}
         {/* Cairo Font */}
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
         {/* Font Awesome */}
