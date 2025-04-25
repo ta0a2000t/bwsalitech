@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import type { Company, CompanyLinks, Language } from '../interfaces'; // Import types
+import type { Company, CompanyLinks, Language } from '../interfaces';
 import styles from '../styles/CompanyCard.module.css';
 
 // --- Props Interface ---
@@ -46,26 +46,28 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, language }) => {
   const name = language === 'ar' ? company.name_ar : company.name_en;
   const description = language === 'ar'
     ? company.description_ar
-    : (company.description_en || company.description_ar); // Fallback
+    : (company.description_en || company.description_ar);
+
+  // ← new fallback logic
+  const hostname = new URL(company.website).hostname;
+  const logoSrc =
+    company.logo_url ||
+    `https://s2.googleusercontent.com/s2/favicons?domain=${hostname}&sz=64`;
 
   return (
     <div className={styles.companyCard} data-id={company.id}>
       <div className={styles.companyInfo}>
         {/* Header */}
         <div className={styles.companyHeader}>
-          {company.logo_url && (
-            <div className={styles.logoWrapper}>
-                <Image
-                    src={company.logo_url}
-                    alt={`${name} logo`}
-                    width={40}
-                    height={40}
-                    className={styles.companyHeaderLogo}
-                    // Add other Image props if needed (quality, priority, etc.)
-                    // unoptimized={company.logo_url.endsWith('.svg')} // Consider unoptimizing SVGs
-                 />
-            </div>
-          )}
+          <div className={styles.logoWrapper}>
+            <Image
+              src={logoSrc}
+              alt={`${name} logo`}
+              width={40}
+              height={40}
+              className={styles.companyHeaderLogo}
+            />
+          </div>
           <h3 className={styles.companyName}>{name}</h3>
         </div>
 

@@ -143,8 +143,10 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     }
 
     if (activeFilters.size > 0) {
+      const filters = Array.from(activeFilters);
       companiesToShow = companiesToShow.filter(company =>
-        company.tags.some(tag => activeFilters.has(tag))
+        // only include if **every** active filter is in the company's tags
+        filters.every(f => company.tags.includes(f))
       );
     }
 

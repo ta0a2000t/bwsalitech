@@ -9,7 +9,7 @@
       "description_ar": "خدمة 'اشترِ الآن وادفع لاحقًا' بدون فوائد.",
       "description_en": "Buy now, pay later service with zero interest.",
       "tags": ["Saudi Arabia", "fintech", "established"],
-      "logo_url": "https://tabby.ai/sa-en/tabby-logo-color.svg",
+      "logo_url": "https://commercemarketplace.adobe.com/media/catalog/product/2/d/2dee_240x240_3.png", 
       "founding_year": 2019,
       "headquarters": "Riyadh",
       "links": {
@@ -22,12 +22,11 @@
       "id": "jahez",
       "name_ar": "جاهز",
       "name_en": "Jahez",
-      "website": "https://jahez.com",
+      "website": "https://jahezgroup.com/",
       "type": "private",
       "description_ar": "منصة توصيل طعام رائدة في المملكة العربية السعودية.",
       "description_en": "Leading food delivery platform in Saudi Arabia.",
       "tags": ["Saudi Arabia", "food-tech", "established"],
-      "logo_url": "https://jahez.com/src/wp-content/themes/jahez-ar/favicon.png",
       "founding_year": 2016,
       "headquarters": "Riyadh",
       "links": {
@@ -44,7 +43,6 @@
         "description_ar": "شركة الاتصالات الرائدة في المملكة العربية السعودية.",
         "description_en": "Leading telecommunications company in Saudi Arabia.",
         "tags": ["Saudi Arabia", "telecom", "established"],
-        "logo_url": "https://www.stc.com.sa/content/dam/stc/hover-logo.svg",
         "founding_year": 1998,
         "headquarters": "Riyadh",
         "links": {
@@ -61,7 +59,6 @@
         "description_ar": "خدمة 'اشترِ الآن وادفع لاحقًا' متوافقة مع الشريعة الإسلامية.",
         "description_en": "Shariah-compliant buy now, pay later service.",
         "tags": ["Saudi Arabia", "fintech", "startup"],
-        "logo_url": "https://tamara.co/images/icons/tamara-logo.svg",
         "founding_year": 2020,
         "headquarters": "Riyadh",
         "links": {
@@ -78,7 +75,6 @@
         "description_ar": "تطبيق توصيل احتياجاتك من أي مكان.",
         "description_en": "Delivery app for all your needs from anywhere.",
         "tags": ["Saudi Arabia", "logistics", "established"],
-        "logo_url": "https://mrsool.co/images/mrsool-logo.png",
         "founding_year": 2015,
         "headquarters": "Riyadh",
         "links": {

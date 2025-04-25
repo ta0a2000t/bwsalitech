@@ -10,6 +10,10 @@ const nextConfig = {
       { protocol: 'https', hostname: 'www.stc.com.sa' },
       { protocol: 'https', hostname: 'tamara.co' },
       { protocol: 'https', hostname: 'mrsool.co' },
+      {
+        protocol: 'https',
+        hostname: 's2.googleusercontent.com',
+      },
       // Add other domains if needed
     ],
   },
