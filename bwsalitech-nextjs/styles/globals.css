@@ -1,45 +1,44 @@
 /* styles/globals.css */
 :root {
-  /* Core Colors */
-  --primary-color: #3498db;
-  --secondary-color: #2ecc71;
-  --danger-color: #e74c3c;
+  /* Core Colors - Updated Primary for Light Mode */
+  --primary-color: #e91e63; /* Pink */
+  --secondary-color: #2ecc71; /* Green (kept) */
+  --danger-color: #e74c3c; /* Red (kept) */
 
-  /* Light Mode Theme */
+  /* Light Mode Theme - Updated with Pink */
   --bg-color: #f5f7fa;         /* Main background */
   --card-bg: white;           /* Card background */
   --header-bg: white;         /* Header background */
   --text-color: #333;           /* Primary text */
   --text-secondary-color: #666; /* Secondary text (e.g., descriptions) */
   --text-muted-color: #888;    /* Muted text (e.g., meta info) */
-  --link-color: var(--primary-color); /* Standard links */
+  --link-color: var(--primary-color); /* Use Pink for links */
   --border-color: #eee;         /* Borders, dividers */
   --input-bg: white;          /* Input field background */
-  --tag-border-color: var(--primary-color); /* Tag border */
-  --tag-text-color: var(--primary-color); /* Tag text */
+  --tag-border-color: var(--primary-color); /* Pink tag border */
+  --tag-text-color: var(--primary-color); /* Pink tag text */
   --tag-bg-color: transparent; /* Tag background */
-  --tag-active-bg: var(--primary-color); /* Active tag bg */
+  --tag-active-bg: var(--primary-color); /* Active tag bg (Pink) */
   --tag-active-text: white;     /* Active tag text */
-  --button-primary-bg: var(--primary-color);
+  --button-primary-bg: var(--primary-color); /* Pink primary button */
   --button-primary-text: white;
-  --button-secondary-bg: #ecf0f1; /* Using a light gray */
-  --button-secondary-text: var(--primary-color);
-  --button-secondary-border: #ddd;
-  --button-secondary-hover-bg: #ddd;
-  --logo-wrapper-bg: #ecf0f1; /* Background for logo circle */
+  --button-secondary-bg: #fce4ec; /* Lighter pink shade for secondary bg */
+  --button-secondary-text: var(--primary-color); /* Pink text for secondary */
+  --button-secondary-border: #f8bbd0; /* Slightly darker pink shade for border */
+  --button-secondary-hover-bg: #f8bbd0; /* Use border color for hover */
+  --logo-wrapper-bg: #ecf0f1; /* Background for logo circle (kept neutral) */
 
   /* --- Footer Specific (Light Mode Defaults) --- */
   --footer-bg: #2c3e50;           /* Keep footer dark */
   --footer-text-color: #ecf0f1;   /* Light text on dark footer */
-  --footer-link-hover-color: var(--primary-color); /* Hover color */
+  --footer-link-hover-color: var(--primary-color); /* Pink hover color */
 
   /* Layout & Effects */
   --border-radius: 8px;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 
-  /* --- Dark Mode Variables (Refined for "Really Dark" Premium Feel) --- */
-  /* Using a very dark base, slightly lighter surfaces, and ensuring high contrast */
+  /* --- Dark Mode Variables (Keep these unchanged for the dark theme) --- */
   --dm-primary-color: #64b5f6;        /* Material Blue 400 - good vibrancy on dark */
   --dm-secondary-color: #58d68d;
   --dm-danger-color: #f1948a;         /* Lighter red */
@@ -70,11 +69,11 @@
   --dm-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* More noticeable shadow */
 }
 
-/* --- Dark Mode Media Query --- */
+/* --- Dark Mode Media Query (No changes needed here for pink light theme) --- */
 @media (prefers-color-scheme: dark) {
 :root {
     /* Override core colors */
-    --primary-color: var(--dm-primary-color);
+    --primary-color: var(--dm-primary-color); /* Switches to blue */
     --secondary-color: var(--dm-secondary-color);
     --danger-color: var(--dm-danger-color);
 
@@ -102,9 +101,9 @@
     --logo-wrapper-bg: var(--dm-logo-wrapper-bg);
 
     /* --- Footer Specific Overrides (Use a distinct dark shade) --- */
-    --footer-bg: #1a1a1a; /* Make it slightly different from main dark bg if desired, or use var(--dm-bg-color) */
-    --footer-text-color: var(--dm-text-secondary-color); /* Use secondary light text */
-    --footer-link-hover-color: var(--dm-primary-color);
+    --footer-bg: #1a1a1a;
+    --footer-text-color: var(--dm-text-secondary-color);
+    --footer-link-hover-color: var(--dm-primary-color); /* Blue hover in dark mode */
 
     /* Override layout/effects if needed */
     --box-shadow: var(--dm-box-shadow);
@@ -116,10 +115,10 @@
 
 /* Update styles for the download button (applied globally) */
  .footerLinkButton {
-    color: var(--footer-text-color); /* Use updated footer text color */
+    color: var(--footer-text-color); /* Uses dark mode variable */
  }
  .footerLinkButton:hover {
-    color: var(--footer-link-hover-color); /* Use updated footer hover color */
+    color: var(--footer-link-hover-color); /* Uses dark mode variable */
  }
 }
 
@@ -136,7 +135,7 @@ body {
 margin: 0;
 padding: 0;
 font-family: 'Cairo', sans-serif;
-background-color: var(--bg-color); /* Use variable */
+background-color: var(--bg-color); /* Use variable (Pink in light, Dark in dark) */
 color: var(--text-color); /* Use variable */
 line-height: 1.6;
 font-size: 16px;
@@ -152,7 +151,7 @@ padding: 0 20px;
 
 /* Link styles */
 a {
-color: var(--link-color); /* Use variable */
+color: var(--link-color); /* Use variable (Pink in light, Blue in dark) */
 text-decoration: none;
 }
 a:hover {
@@ -184,7 +183,7 @@ text-align: left;
   width: 50px;
   height: 50px;
   border: 5px solid rgba(0, 0, 0, 0.1);
-  border-top-color: var(--primary-color);
+  border-top-color: var(--primary-color); /* Pink in light, Blue in dark */
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 2rem auto; /* Center spinner */
@@ -200,7 +199,7 @@ to {
 .footerLinkButton {
   background: none;
   border: none;
-  color: var(--footer-text-color); /* Use variable */
+  color: var(--footer-text-color); /* Use variable (Light text in both footer modes) */
   padding: 0;
   font: inherit;
   cursor: pointer;
@@ -208,7 +207,7 @@ to {
   transition: var(--transition);
 }
 .footerLinkButton:hover {
-  color: var(--footer-link-hover-color); /* Use variable */
+  color: var(--footer-link-hover-color); /* Use variable (Pink in light, Blue in dark) */
 }
 .footerLinkButton i {
   margin-right: 0.3rem;
