@@ -9,7 +9,7 @@
       "description_ar": "خدمة 'اشترِ الآن وادفع لاحقًا' بدون فوائد.",
       "description_en": "Buy now, pay later service with zero interest.",
       "tags": ["Saudi Arabia", "fintech", "established"],
-      "logo_url": "https://commercemarketplace.adobe.com/media/catalog/product/2/d/2dee_240x240_3.png", 
+      "logo_path": "/logos/tabby.png",
       "founding_year": 2019,
       "headquarters": "Riyadh",
       "links": {

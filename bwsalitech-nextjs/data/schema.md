@@ -16,7 +16,10 @@
         "description_ar": { "type": "string" },
         "description_en": { "type": "string" },
         "tags": { "type": "array", "items": { "type": "string" } },
-        "logo_url": { "type": "string", "format": "uri" },
+        "logo_path": {
+            "type": "string",
+            "pattern": "^/logos/.*\\.(png|jpg|jpeg|svg)$"
+            },
         "founding_year": { "type": "integer" },
         "headquarters": { "type": "string" },
         "links": {

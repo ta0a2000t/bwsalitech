@@ -51,7 +51,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, language }) => {
   // ← new fallback logic
   const hostname = new URL(company.website).hostname;
   const logoSrc =
-    company.logo_url ||
+    company.logo_path ||
     `https://s2.googleusercontent.com/s2/favicons?domain=${hostname}&sz=64`;
 
   return (

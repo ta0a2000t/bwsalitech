@@ -19,7 +19,7 @@ export interface CompanyLinks {
     description_ar: string;
     description_en?: string; // Optional
     tags: string[];
-    logo_url?: string; // Optional
+    logo_path?: string; // Optional
     founding_year?: number; // Optional
     headquarters?: string; // Optional
     links?: CompanyLinks; // Optional, uses the interface above
