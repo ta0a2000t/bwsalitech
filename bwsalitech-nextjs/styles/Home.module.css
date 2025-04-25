@@ -120,16 +120,34 @@ transition: var(--transition);
 font-size: 0.9rem;
 /* color: var(--primary-color); */ /* Use variable */
 color: var(--tag-text-color);
+white-space: nowrap; /* Prevent wrapping inside button/span */
+}
+
+/* --- MODIFICATION START: Style for non-interactive 'Other' tag --- */
+.otherTag {
+  cursor: default; /* Indicate non-interactive */
+  /* Optional: slightly different appearance */
+  opacity: 0.8; /* Example: slightly faded */
 }
 
 .tag:hover,
-.tag.active { /* Style active state */
+.tag.active { /* Style active state - applied only to actual buttons */
 /* background-color: var(--primary-color); */ /* Use variable */
 background-color: var(--tag-active-bg);
 /* color: white; */ /* Use variable */
 color: var(--tag-active-text);
 border-color: var(--tag-active-bg); /* Match border */
+opacity: 1; /* Ensure active/hovered tags are fully opaque */
 }
+
+/* Ensure the non-interactive span doesn't get button hover effects */
+.otherTag:hover {
+    background-color: var(--tag-bg-color); /* Keep original background */
+    color: var(--tag-text-color);          /* Keep original text color */
+    border-color: var(--tag-border-color); /* Keep original border color */
+    opacity: 0.8; /* Keep faded style */
+}
+/* --- MODIFICATION END --- */
 
 
 /* --- Companies List Section --- */
