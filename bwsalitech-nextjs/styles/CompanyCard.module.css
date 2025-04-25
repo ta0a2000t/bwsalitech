@@ -1,169 +1,178 @@
 /* Styles specifically for the CompanyCard component */
 .companyCard {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    display: flex; /* Ensure card takes full height if needed in grid */
-    flex-direction: column;
-  }
-  
+  background-color: var(--card-bg); /* Use variable */
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color); /* Add subtle border */
+}
+
+.companyCard:hover {
+  transform: translateY(-5px);
+  /* Slightly increase shadow on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+@media (prefers-color-scheme: dark) {
   .companyCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
   }
-  
-  .companyInfo {
-    padding: 1.5rem;
-    flex-grow: 1; /* Allow info section to grow */
+}
+
+.companyInfo {
+  padding: 1.5rem;
+  flex-grow: 1; /* Allow info section to grow */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header: Logo + Name */
+.companyHeader {
+  display: flex;
+  align-items: center; /* Vertically align logo and name */
+  gap: 0.75rem; /* Space between logo and name */
+  margin-bottom: 1rem; /* Space below the header */
+}
+
+.logoWrapper {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--logo-wrapper-bg); /* Use variable */
+    border: 1px solid var(--border-color); /* Use variable */
     display: flex;
-    flex-direction: column;
-  }
-  
-  /* Header: Logo + Name */
-  .companyHeader {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the Next Image component */
+.companyHeaderLogo {
+  display: block; /* Ensure block display */
+  object-fit: contain;
+  border-radius: 50%;
+  width: 100%; /* Make image fill wrapper */
+  height: 100%;
+}
+
+.companyName {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  color: var(--text-color); /* Use variable */
+  font-weight: 700;
+}
+
+/* Description */
+.companyDesc {
+  margin-bottom: 1rem;
+  color: var(--text-secondary-color); /* Use secondary text */
+  /* opacity: 0.9; */ /* Let color handle prominence */
+  flex-grow: 1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Meta: Location + Year */
+.companyMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted-color); /* Use muted text */
+}
+.companyMeta i {
+    margin-right: 0.3rem; /* Space icon and text */
+    margin-left: 0.3rem; /* Space for RTL */
+}
+html[dir="rtl"] .companyMeta i {
+    margin-left: 0.3rem;
+    margin-right: 0;
+}
+
+/* Tags */
+.companyTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.companyTag {
+  background-color: var(--tag-bg-color); /* Use variable */
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  color: var(--tag-text-color); /* Use variable */
+  border: 1px solid var(--tag-border-color); /* Use variable */
+}
+
+/* Action Buttons */
+.companyActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto; /* Push actions to the bottom */
+  padding-top: 1rem; /* Add space above buttons */
+  border-top: 1px solid var(--border-color); /* Use variable */
+  /* margin-bottom: 1rem; */ /* Remove bottom margin here */
+}
+
+/* Base button styles */
+.btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  text-align: center;
+  transition: var(--transition);
+  flex: 1;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600; /* Slightly bolder buttons */
+}
+
+.btnPrimary {
+  background-color: var(--button-primary-bg); /* Use variable */
+  color: var(--button-primary-text); /* Use variable */
+}
+
+.btnPrimary:hover {
+  opacity: 0.85; /* Simple hover effect */
+}
+
+.btnSecondary {
+  background-color: var(--button-secondary-bg); /* Use variable */
+  color: var(--button-secondary-text); /* Use variable */
+  border: 1px solid var(--button-secondary-border); /* Use variable */
+}
+
+.btnSecondary:hover {
+  background-color: var(--button-secondary-hover-bg); /* Use variable */
+   color: var(--button-primary-text); /* Ensure text contrast on hover */
+   border-color: var(--button-secondary-hover-bg);
+}
+
+/* Social Links */
+.socialLinksContainer {
     display: flex;
-    align-items: center; /* Vertically align logo and name */
-    gap: 0.75rem; /* Space between logo and name */
-    margin-bottom: 1rem; /* Space below the header */
-  }
-  
-  .logoWrapper {
-      /* Ensures the image container doesn't shrink */
-      flex-shrink: 0;
-      width: 40px; /* Match image width */
-      height: 40px; /* Match image height */
-      border-radius: 50%; /* Make the wrapper circular */
-      overflow: hidden; /* Clip the image if it's not perfectly square/circular */
-      background-color: var(--light-color); /* Fallback bg */
-      border: 1px solid #eee; /* Optional subtle border */
-      display: flex; /* Center image inside if needed */
-      justify-content: center;
-      align-items: center;
-  }
-  
-  /* Style the Next Image component if needed, but size is controlled via props */
-  .companyHeaderLogo {
-    /* display: block; */ /* Default */
-    object-fit: contain; /* Use contain to prevent stretching, or cover if you prefer */
-    border-radius: 50%; /* Ensure image itself is round if needed */
-  }
-  
-  
-  .companyName {
-    font-size: 1.4rem;
-    margin-bottom: 0; /* Reset margin */
-    color: var(--text-color);
-    font-weight: 700;
-  }
-  
-  /* Description */
-  .companyDesc {
-    margin-bottom: 1rem;
-    color: var(--text-color); 
-    opacity: 0.9; /* Slightly less prominent text */
-    flex-grow: 1; /* Allow description to take available space */
-    font-size: 0.95rem; /* Slightly smaller */
-    line-height: 1.5;
-  }
-  
-  /* Meta: Location + Year */
-  .companyMeta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: #888;
-  }
-  .companyMeta i {
-      margin-right: 0.3rem; /* Space icon and text */
-      margin-left: 0.3rem; /* Space for RTL */
-  }
-  html[dir="rtl"] .companyMeta i {
-      margin-left: 0.3rem;
-      margin-right: 0;
-  }
-  
-  /* Tags */
-  .companyTags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .companyTag {
-    background-color: var(--light-color); /* This variable changes in dark mode */
-    padding: 0.3rem 0.8rem;
-    border-radius: 2rem;
-    font-size: 0.8rem;
-    color: var(--primary-color); /* Use primary color text, or adjust */
-    border: 1px solid var(--primary-color); /* Add border for contrast */
-    background-color: transparent; /* Make bg transparent */
-  }
-  
-  /* Action Buttons */
-  .companyActions {
-    display: flex;
+    justify-content: center;
     gap: 1rem;
-    margin-top: auto; /* Push actions to the bottom */
-    padding-top: 1rem; /* Add space above buttons */
-    border-top: 1px solid var(--border-color); /* Optional separator */
-    margin-bottom: 1rem; /* Space before social links */
-  }
-  
-  /* Base button styles (can be global or defined here) */
-  .btn {
-    padding: 0.7rem 1.2rem;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    text-align: center;
-    transition: var(--transition);
-    flex: 1;
-    font-size: 0.9rem;
-    border: none; /* Reset border */
-    cursor: pointer;
-  }
-  
-  .btnPrimary {
-    background-color: var(--primary-color);
-    color: var(--dm-text-color); /* Ensure high contrast text */
-  }
-  
-  .btnPrimary:hover {
-    opacity: 0.85;
-  }
-  
-  .btnSecondary {
-    background-color: var(--light-color); /* This changes in dark mode */
-    color: var(--primary-color);
-    border: 1px solid var(--border-color);
-  }
-  
-  .btnSecondary:hover {
-    background-color: var(--border-color); /* Use variable */
-  }
-  
-  /* Social Links */
-  .socialLinksContainer {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 0.5rem; /* Reduced margin */
-      padding-top: 0.5rem;
-      border-top: 1px solid var(--border-color);  /* Optional: remove border if actions have one */
-  }
-  
-  .socialLink {
-    color: var(--text-color); /* Use variable */
-    opacity: 0.7; /* Slightly less prominent */
-    font-size: 1.2rem;
-    transition: var(--transition);
-    line-height: 1; /* Ensure consistent vertical alignment */
-  }
-  
-  .socialLink:hover {
-    color: var(--primary-color);
-    opacity: 1;
-  }
+    margin-top: 1rem; /* Add margin top to separate from buttons */
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color); /* Use variable */
+}
+
+.socialLink {
+  color: var(--text-muted-color); /* Use muted color */
+  /* opacity: 0.7; */ /* Control via color */
+  font-size: 1.2rem;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.socialLink:hover {
+  color: var(--primary-color); /* Use variable */
+  /* opacity: 1; */
+}

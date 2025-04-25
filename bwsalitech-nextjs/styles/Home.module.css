@@ -1,211 +1,236 @@
-/* Styles specifically for the layout of the main page (pages/index.js) */
+/* Styles specifically for the layout of the main page (pages/index.tsx) */
 
-/* Overall container if not using Layout component */
-.container {
+/* Overall container style if not using a separate Layout component */
+/* Note: This might conflict with the global .container, rename if necessary */
+/* .container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
+} */
 
 .main {
-    flex: 1; /* Make main content area grow */
-    padding-bottom: 3rem; /* Space before footer */
+  flex: 1; /* Make main content area grow */
+  padding-bottom: 3rem; /* Space before footer */
 }
 
 /* --- Header Styles --- */
 .header {
-  background-color: #fff;
-  box-shadow: var(--box-shadow);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* background-color: #fff; */ /* Use variable */
+background-color: var(--header-bg);
+box-shadow: var(--box-shadow);
+padding: 1rem 0;
+position: sticky;
+top: 0;
+z-index: 100;
+border-bottom: 1px solid var(--border-color); /* Add subtle border */
 }
 
+/* Styles for the inner div within the header */
 .header .header-content { /* Target nested class */
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
+/* Removed justify-content: space-between; */
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  text-decoration: none;
+font-size: 1.8rem;
+font-weight: 700;
+color: var(--primary-color);
+text-decoration: none;
 }
 .logo:hover {
-    text-decoration: none;
-    opacity: 0.9;
+  text-decoration: none;
+  opacity: 0.9;
 }
 
 .languageToggle {
-  background: none;
-  border: 1px solid var(--primary-color);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  color: var(--primary-color);
-  transition: var(--transition);
-  font-size: 0.9rem;
-  margin-inline-start: auto;
+background: none;
+border: 1px solid var(--primary-color);
+padding: 0.5rem 1rem;
+border-radius: var(--border-radius);
+cursor: pointer;
+color: var(--primary-color);
+transition: var(--transition);
+font-size: 0.9rem;
+margin-inline-start: auto; /* Pushes button to the end (right in LTR, left in RTL) */
 }
 
 .languageToggle:hover {
-  background-color: var(--primary-color);
-  color: white;
+background-color: var(--primary-color);
+color: var(--button-primary-text); /* Use variable for text color on hover */
 }
 
 
 /* --- Search & Filter Section --- */
 .searchSection {
-  background-color: var(--light-color);
-  padding: 2rem 0;
+background-color: var(--card-bg); /* Use card background for contrast */
+padding: 2rem 0;
+border-bottom: 1px solid var(--border-color);
 }
 
 .searchBar {
-  display: flex;
-  max-width: 600px;
-  margin: 0 auto 1.5rem auto; /* Center and add margin bottom */
-  box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius);
-  overflow: hidden;
+display: flex;
+max-width: 600px;
+margin: 0 auto 1.5rem auto; /* Center and add margin bottom */
+box-shadow: var(--box-shadow);
+border-radius: var(--border-radius);
+overflow: hidden;
+border: 1px solid var(--border-color);
 }
 
 .searchInput {
-  flex: 1;
-  padding: 1rem;
-  border: none;
-  font-family: 'Cairo', sans-serif;
-  font-size: 1rem;
-  width: 100%; /* Ensure it takes full width within flex container */
+flex: 1;
+padding: 1rem;
+border: none;
+font-family: 'Cairo', sans-serif;
+font-size: 1rem;
+width: 100%; /* Ensure it takes full width within flex container */
+background-color: var(--input-bg); /* Use variable */
+color: var(--text-color); /* Use variable */
+}
+.searchInput::placeholder {
+  color: var(--text-muted-color); /* Style placeholder */
+  opacity: 1;
 }
 .searchInput:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: -2px; /* Keep outline inside */
+  outline: 2px solid var(--primary-color);
+  outline-offset: -2px; /* Keep outline inside */
+  box-shadow: none; /* Remove default focus shadow if any */
 }
 
 /* Tag Filters Container */
 .tagFilters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem; /* Slightly more gap */
-    margin-top: 1rem;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem; /* Slightly more gap */
+  margin-top: 1rem;
+}
 
 /* Individual Tag Button */
 .tag {
-  background-color: white;
-  border: 1px solid var(--primary-color);
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 0.9rem;
-  color: var(--primary-color);
+/* background-color: white; */ /* Use variable */
+background-color: var(--tag-bg-color);
+/* border: 1px solid var(--primary-color); */ /* Use variable */
+border: 1px solid var(--tag-border-color);
+padding: 0.5rem 1rem;
+border-radius: 2rem;
+cursor: pointer;
+transition: var(--transition);
+font-size: 0.9rem;
+/* color: var(--primary-color); */ /* Use variable */
+color: var(--tag-text-color);
 }
 
-.tag:hover, .tag.active { /* Style active state */
-  background-color: var(--primary-color);
-  color: white;
+.tag:hover,
+.tag.active { /* Style active state */
+/* background-color: var(--primary-color); */ /* Use variable */
+background-color: var(--tag-active-bg);
+/* color: white; */ /* Use variable */
+color: var(--tag-active-text);
+border-color: var(--tag-active-bg); /* Match border */
 }
 
 
 /* --- Companies List Section --- */
 .companiesSection {
-  padding: 2rem 0;
+padding: 2rem 0;
 }
 
 .companyCount {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: var(--dark-color);
-  font-weight: normal;
-  font-size: 1.2rem;
+text-align: center;
+margin-bottom: 2rem;
+color: var(--text-secondary-color); /* Use secondary text color */
+font-weight: normal;
+font-size: 1.2rem;
 }
 
 .companiesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 2rem;
 }
 
 /* No Results / Loading states */
 .noResults, .loadingOrError {
-    text-align: center;
-    grid-column: 1 / -1; /* Span all columns */
-    padding: 3rem 1rem;
-    color: #666;
-    font-style: italic;
+  text-align: center;
+  grid-column: 1 / -1; /* Span all columns */
+  padding: 3rem 1rem;
+  color: var(--text-muted-color); /* Use muted text color */
+  font-style: italic;
 }
 
 
 /* --- Footer Styles --- */
 .footer {
-  background-color: var(--dark-color);
-  color: white;
-  padding: 2rem 0;
-  text-align: center;
-  margin-top: auto; /* Pushes footer down if content is short */
+background-color: var(--footer-bg);     /* Use footer variable */
+color: var(--footer-text-color);       /* Use footer variable */
+padding: 2rem 0;
+text-align: center;
+margin-top: auto; /* Pushes footer down if content is short */
+border-top: 1px solid var(--dm-border-color); /* Add a border, use dark border color */
 }
 
 .footer .footer-content { /* Target nested class */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
 }
 
 .footerLinks {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center; /* Align button and link */
+display: flex;
+gap: 1.5rem;
+align-items: center; /* Align button and link */
 }
 
 .footerLink { /* Style for the GitHub link */
-  color: white;
-  text-decoration: none;
-  transition: var(--transition);
+color: var(--footer-text-color);    /* Use footer variable */
+text-decoration: none;
+transition: var(--transition);
 }
 .footerLink:hover {
-  color: var(--primary-color);
+color: var(--footer-link-hover-color); /* Use footer variable */
+text-decoration: underline; /* Add underline on hover */
 }
-.footerLink i, .footerLinkButton i { /* Ensure icons have consistent margin */
-    margin-right: 0.3rem;
+.footerLink i { /* Keep icon margin styles */
+  margin-right: 0.3rem;
 }
-html[dir="rtl"] .footerLink i, html[dir="rtl"] .footerLinkButton i {
-    margin-left: 0.3rem;
-    margin-right: 0;
+html[dir="rtl"] .footerLink i {
+  margin-left: 0.3rem;
+  margin-right: 0;
 }
+
+/* Note: .footerLinkButton styles are global in globals.css */
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-  .companiesGrid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust min size */
-    gap: 1.5rem;
-  }
-  .searchBar {
-      max-width: 95%;
-  }
-  .companyCount {
-      font-size: 1.1rem;
-  }
+.companiesGrid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust min size */
+  gap: 1.5rem;
+}
+.searchBar {
+    max-width: 95%;
+}
+.companyCount {
+    font-size: 1.1rem;
+}
 }
 
 @media (max-width: 480px) {
-    .companiesGrid {
-      grid-template-columns: 1fr; /* Single column */
-      gap: 1rem;
-    }
-    .logo {
-        font-size: 1.5rem;
-    }
-    .languageToggle {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
-    .tag {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-    }
+  .companiesGrid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 1rem;
+  }
+  .logo {
+      font-size: 1.5rem;
+  }
+  .languageToggle {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+  }
+  .tag {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+  }
 }

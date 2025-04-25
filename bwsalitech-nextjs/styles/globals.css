@@ -1,145 +1,215 @@
 /* styles/globals.css */
 :root {
+  /* Core Colors */
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
-  --dark-color: #2c3e50; /* Often becomes light text in dark mode */
-  --light-color: #ecf0f1; /* Often becomes dark background in dark mode */
   --danger-color: #e74c3c;
-  --text-color: #333; /* Default text color */
-  --bg-color: #f5f7fa; /* Default background */
-  --card-bg: white;   /* Default card background */
-  --border-color: #eee; /* Default border color */
+
+  /* Light Mode Theme */
+  --bg-color: #f5f7fa;         /* Main background */
+  --card-bg: white;           /* Card background */
+  --header-bg: white;         /* Header background */
+  --text-color: #333;           /* Primary text */
+  --text-secondary-color: #666; /* Secondary text (e.g., descriptions) */
+  --text-muted-color: #888;    /* Muted text (e.g., meta info) */
+  --link-color: var(--primary-color); /* Standard links */
+  --border-color: #eee;         /* Borders, dividers */
+  --input-bg: white;          /* Input field background */
+  --tag-border-color: var(--primary-color); /* Tag border */
+  --tag-text-color: var(--primary-color); /* Tag text */
+  --tag-bg-color: transparent; /* Tag background */
+  --tag-active-bg: var(--primary-color); /* Active tag bg */
+  --tag-active-text: white;     /* Active tag text */
+  --button-primary-bg: var(--primary-color);
+  --button-primary-text: white;
+  --button-secondary-bg: #ecf0f1; /* Using a light gray */
+  --button-secondary-text: var(--primary-color);
+  --button-secondary-border: #ddd;
+  --button-secondary-hover-bg: #ddd;
+  --logo-wrapper-bg: #ecf0f1; /* Background for logo circle */
+
+  /* --- Footer Specific (Light Mode Defaults) --- */
+  --footer-bg: #2c3e50;           /* Keep footer dark */
+  --footer-text-color: #ecf0f1;   /* Light text on dark footer */
+  --footer-link-hover-color: var(--primary-color); /* Hover color */
+
+  /* Layout & Effects */
   --border-radius: 8px;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 
-  /* --- Dark Mode Variables (Define them here or inside the media query) --- */
-  --dm-primary-color: #5dade2; /* Lighter blue for dark bg */
+  /* --- Dark Mode Variables (Define overrides below) --- */
+  --dm-primary-color: #5dade2;        /* Lighter blue for dark bg */
   --dm-secondary-color: #58d68d;
-  --dm-dark-color: #bdc3c7; /* Light text on dark bg */
-  --dm-light-color: #34495e; /* Darker elements on dark bg */
-  --dm-text-color: #ecf0f1; /* Light text */
-  --dm-bg-color: #2c3e50;   /* Dark background */
-  --dm-card-bg: #34495e;   /* Dark card background */
-  --dm-border-color: #4b6073; /* Darker border */
-  --dm-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --dm-danger-color: #f1948a;         /* Lighter red */
+  --dm-bg-color: #2c3e50;            /* Dark background */
+  --dm-card-bg: #34495e;            /* Slightly lighter dark for cards */
+  --dm-header-bg: #34495e;           /* Dark header */
+  --dm-text-color: #ecf0f1;          /* Primary light text */
+  --dm-text-secondary-color: #bdc3c7; /* Secondary light text */
+  --dm-text-muted-color: #95a5a6;   /* Muted light text */
+  --dm-link-color: var(--dm-primary-color);
+  --dm-border-color: #4b6073;        /* Darker borders */
+  --dm-input-bg: #4b6073;           /* Dark input bg */
+  --dm-tag-border-color: var(--dm-primary-color);
+  --dm-tag-text-color: var(--dm-primary-color);
+  --dm-tag-bg-color: transparent;
+  --dm-tag-active-bg: var(--dm-primary-color);
+  --dm-tag-active-text: #2c3e50;     /* Dark text on active tag */
+  --dm-button-primary-bg: var(--dm-primary-color);
+  --dm-button-primary-text: #2c3e50;  /* Dark text for contrast */
+  --dm-button-secondary-bg: #4b6073; /* Using dark border color */
+  --dm-button-secondary-text: var(--dm-primary-color);
+  --dm-button-secondary-border: #5dade2; /* Use primary for border */
+  --dm-button-secondary-hover-bg: #5dade2; /* Use primary for hover */
+  --dm-logo-wrapper-bg: #4b6073;
+  --dm-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* --- Dark Mode Media Query --- */
+@media (prefers-color-scheme: dark) {
+:root {
+    /* Override core colors */
+    --primary-color: var(--dm-primary-color);
+    --secondary-color: var(--dm-secondary-color);
+    --danger-color: var(--dm-danger-color);
 
+    /* Override theme colors */
+    --bg-color: var(--dm-bg-color);
+    --card-bg: var(--dm-card-bg);
+    --header-bg: var(--dm-header-bg);
+    --text-color: var(--dm-text-color);
+    --text-secondary-color: var(--dm-text-secondary-color);
+    --text-muted-color: var(--dm-text-muted-color);
+    --link-color: var(--dm-link-color);
+    --border-color: var(--dm-border-color);
+    --input-bg: var(--dm-input-bg);
+    --tag-border-color: var(--dm-tag-border-color);
+    --tag-text-color: var(--dm-tag-text-color);
+    --tag-bg-color: var(--dm-tag-bg-color);
+    --tag-active-bg: var(--dm-tag-active-bg);
+    --tag-active-text: var(--dm-tag-active-text);
+    --button-primary-bg: var(--dm-button-primary-bg);
+    --button-primary-text: var(--dm-button-primary-text);
+    --button-secondary-bg: var(--dm-button-secondary-bg);
+    --button-secondary-text: var(--dm-button-secondary-text);
+    --button-secondary-border: var(--dm-button-secondary-border);
+    --button-secondary-hover-bg: var(--dm-button-secondary-hover-bg);
+    --logo-wrapper-bg: var(--dm-logo-wrapper-bg);
+
+    /* --- Footer Specific Overrides (Keep it Dark) --- */
+    --footer-bg: #212f3d; /* Make it slightly different from main dark bg if desired, or use var(--dm-bg-color) */
+    --footer-text-color: var(--dm-text-secondary-color); /* Use secondary light text */
+    --footer-link-hover-color: var(--dm-primary-color);
+
+    /* Override layout/effects if needed */
+    --box-shadow: var(--dm-box-shadow);
+}
+
+/* Specific element adjustments for dark mode if needed */
+/* Example: Invert images that don't look good on dark bg */
+/* img.some-specific-logo { filter: invert(1) hue-rotate(180deg); } */
+
+/* Update styles for the download button (applied globally) */
+ .footerLinkButton {
+    color: var(--footer-text-color); /* Use updated footer text color */
+ }
+ .footerLinkButton:hover {
+    color: var(--footer-link-hover-color); /* Use updated footer hover color */
+ }
+}
 
 /* Basic Reset and Body styles */
 html {
-  box-sizing: border-box;
+box-sizing: border-box;
+color-scheme: light dark; /* Inform browser about supported schemes */
 }
 *, *:before, *:after {
-  box-sizing: inherit;
+box-sizing: inherit;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Cairo', sans-serif;
-  background-color: var(--bg-color); /* Use variable */
-  color: var(--text-color); /* Use variable */
-  line-height: 1.6;
-  font-size: 16px;
-  transition: background-color var(--transition), color var(--transition); /* Smooth transition */
-}
-
-/* --- Add the Media Query for Dark Mode --- */
-@media (prefers-color-scheme: dark) {
-  :root {
-      --primary-color: var(--dm-primary-color);
-      --secondary-color: var(--dm-secondary-color);
-      --dark-color: var(--dm-dark-color);
-      --light-color: var(--dm-light-color);
-      /* Keep danger color or adjust if needed */
-      --text-color: var(--dm-text-color);
-      --bg-color: var(--dm-bg-color);
-      --card-bg: var(--dm-card-bg);
-      --border-color: var(--dm-border-color);
-      --box-shadow: var(--dm-box-shadow);
-      /* Other variables like radius/transition usually don't need changing */
-  }
+margin: 0;
+padding: 0;
+font-family: 'Cairo', sans-serif;
+background-color: var(--bg-color); /* Use variable */
+color: var(--text-color); /* Use variable */
+line-height: 1.6;
+font-size: 16px;
+transition: background-color var(--transition), color var(--transition); /* Smooth transition */
 }
 
 /* Global Container */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
 }
 
 /* Link styles */
 a {
-  color: var(--primary-color);
-  text-decoration: none;
+color: var(--link-color); /* Use variable */
+text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+text-decoration: underline;
 }
 
-/* Button Reset (optional, good practice) */
+/* Button Reset */
 button {
-    font-family: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-    color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
 }
 
-
-/* Remove component-specific styles that are now in modules */
-/* e.g., remove .company-card, .company-info, .company-name etc. */
-/* Keep general layout styles if needed globally, or move them to Home.module.css */
-
-
-/* RTL/LTR Base Styles (Keep these global) */
+/* RTL/LTR Base Styles */
 html[dir="rtl"] {
-  text-align: right;
+text-align: right;
 }
 
 html[dir="ltr"] {
-  text-align: left;
+text-align: left;
 }
 
-/* Keep spinner styles if you add a loading indicator */
+/* Spinner styles */
 .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(0, 0, 0, 0.1);
-    border-top-color: var(--primary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto; /* Center spinner */
-  }
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto; /* Center spinner */
+}
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+to {
+  transform: rotate(360deg);
+}
 }
 
-/* Styles for the Download button in footer to look like a link */
+/* Styles for the Download button in footer (applied globally) */
 .footerLinkButton {
-    background: none;
-    border: none;
-    color: white;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    text-decoration: none;
-    transition: var(--transition);
+  background: none;
+  border: none;
+  color: var(--footer-text-color); /* Use variable */
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
 }
 .footerLinkButton:hover {
-    color: var(--primary-color);
+  color: var(--footer-link-hover-color); /* Use variable */
 }
 .footerLinkButton i {
-    margin-right: 0.3rem;
+  margin-right: 0.3rem;
 }
 html[dir="rtl"] .footerLinkButton i {
-    margin-left: 0.3rem;
-    margin-right: 0;
+  margin-left: 0.3rem;
+  margin-right: 0;
 }
