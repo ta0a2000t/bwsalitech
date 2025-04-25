@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ currentLanguage, onDownloadJson }) => {
       <div className="container footer-content">
         <div className={styles.footerLinks}>
           <a
-             href="https://github.com/bawsalatuk/bawsalatuk" // Update link if repo changes
+             href="https://github.com/ta0a2000t/bwsalitech" // Update link if repo changes
              className={styles.footerLink}
              target="_blank"
              rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ currentLanguage, onDownloadJson }) => {
         </div>
         <p>
           {currentLanguage === 'ar'
-            ? 'مشروع مفتوح المصدر - ساهم في بوصلتك!'
+            ? 'مشروع مفتوح المصدر - ساهم في بوصلةك!'
             : 'Open Source Project - Contribute to Bawsalatuk!'}
         </p>
       </div>
