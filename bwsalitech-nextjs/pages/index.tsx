@@ -74,23 +74,28 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
   // --- State Variables ---
   const [language, setLanguage] = useState<Language>('ar');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
+  const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set()); // For general tags
   const [searchIndex, setSearchIndex] = useState<FlexSearch.Document<Company, true> | null>(null);
   const [searchResults, setSearchResults] = useState<Set<string> | null>(null);
+  // --- NEW State for category filters ---
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [selectedSubIndustry, setSelectedSubIndustry] = useState<string | null>(null);
+
 
   // --- Effects ---
   useEffect(() => {
     const index = new FlexSearch.Document<Company, true>({
       document: {
         id: 'id',
-        index: ['name_ar', 'name_en', 'description_ar', 'description_en', 'tags', 'headquarters'],
+        // Ensure index includes relevant fields
+        index: ['name_ar', 'name_en', 'description_ar', 'description_en', 'tags', 'headquarters', 'industry', 'subindustry'],
       },
       tokenize: 'forward',
       cache: 100,
     });
     allCompanies.forEach(company => index.add(company));
     setSearchIndex(index);
-    console.log('FlexSearch index initialized with headquarters.');
+    console.log('FlexSearch index initialized including industry/subindustry.');
   }, [allCompanies]);
 
 
@@ -130,6 +135,7 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     }
   }, [searchIndex, allCompanies.length]);
 
+  // Handler for general tags filter
   const toggleFilter = useCallback((tag: string) => {
     setActiveFilters(prevFilters => {
       const newFilters = new Set(prevFilters);
@@ -142,8 +148,12 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     });
   }, []);
 
+  // Handler to clear general tags filter
   const clearAllFilters = useCallback(() => {
       setActiveFilters(new Set());
+      // Optional: Also clear category filters if desired
+      // setSelectedIndustry(null);
+      // setSelectedSubIndustry(null);
   }, []);
 
 
@@ -157,43 +167,84 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     linkElement.click();
   }, [allCompanies]);
 
-  // --- Derived State: Filtered Companies ---
-  const filteredCompanies = useMemo(() => {
-    let companiesToShow = allCompanies;
+  // --- Derived State: Calculate Filtered Sets & Options with Counts ---
 
+  // 1. Base filtering based on search and tags (used for Industry counts)
+  const baseFilteredCompanies = useMemo(() => {
+    let companies = allCompanies;
     if (searchResults !== null) {
-      companiesToShow = companiesToShow.filter(company => searchResults.has(company.id));
+        companies = companies.filter(company => searchResults.has(company.id));
     }
-
     if (activeFilters.size > 0) {
-      const filters = Array.from(activeFilters);
-      companiesToShow = companiesToShow.filter(company =>
-        filters.every(f => company.tags.includes(f))
-      );
+        const filters = Array.from(activeFilters);
+        companies = companies.filter(company =>
+            filters.every(f => company.tags.includes(f))
+        );
     }
-
-    return companiesToShow;
+    return companies;
   }, [allCompanies, searchResults, activeFilters]);
 
-  // --- Calculate tag counts based on CURRENTLY VISIBLE companies ---
+  // 2. Further filter based on selected industry (used for Subindustry counts)
+  const industryFilteredCompanies = useMemo(() => {
+    if (!selectedIndustry) {
+        return baseFilteredCompanies; // If no industry selected, use the base set
+    }
+    return baseFilteredCompanies.filter(company => company.industry === selectedIndustry);
+  }, [baseFilteredCompanies, selectedIndustry]);
+
+  // 3. Calculate FINAL list of companies to display
+  const filteredCompanies = useMemo(() => {
+    let companiesToShow = industryFilteredCompanies;
+    // Apply the Subindustry filter (if selected)
+    if (selectedSubIndustry) {
+        companiesToShow = companiesToShow.filter(company => company.subindustry === selectedSubIndustry);
+    }
+    return companiesToShow;
+  }, [industryFilteredCompanies, selectedSubIndustry]);
+
+  // 4. Calculate Industry counts and generate options for dropdown
+  const industryOptions = useMemo(() => {
+    const counts: { [key: string]: number } = {};
+    baseFilteredCompanies.forEach(company => {
+        counts[company.industry] = (counts[company.industry] || 0) + 1;
+    });
+    const uniqueIndustries = Array.from(new Set(baseFilteredCompanies.map(c => c.industry))).sort();
+    return uniqueIndustries.map(industry => ({
+        value: industry,
+        label: `${industry} (${counts[industry] || 0})`,
+    }));
+  }, [baseFilteredCompanies]);
+
+  // 5. Calculate Subindustry counts and generate options for dropdown
+  const subIndustryOptions = useMemo(() => {
+    const counts: { [key: string]: number } = {};
+    industryFilteredCompanies.forEach(company => {
+        counts[company.subindustry] = (counts[company.subindustry] || 0) + 1;
+    });
+    const uniqueSubIndustries = Array.from(new Set(industryFilteredCompanies.map(c => c.subindustry))).sort();
+    return uniqueSubIndustries.map(sub => ({
+        value: sub,
+        label: `${sub} (${counts[sub] || 0})`,
+    }));
+  }, [industryFilteredCompanies]);
+
+  // 6. Calculate tag counts based on the FINAL VISIBLE companies (for TagFilter component)
   const currentVisibleTagsWithCounts = useMemo<TagWithCount[]>(() => {
     const counts: { [tag: string]: number } = {};
     filteredCompanies.forEach(company => {
+      // Ensure ONLY tags are counted here
       company.tags.forEach(tag => {
         counts[tag] = (counts[tag] || 0) + 1;
       });
     });
-
     return Object.entries(counts)
       .map(([tag, count]) => ({ tag, count }))
       .sort((a, b) => b.count - a.count);
-  }, [filteredCompanies]);
+  }, [filteredCompanies]); // Depends on the final list
 
   // --- Render ---
   const pageTitle = language === 'ar' ? 'بوصلة➝ك | دليل شركات التقنية العربية' : 'Bawsalatuk | Arab Tech Companies Directory';
   const metaDescription = language === 'ar' ? 'دليل مفتوح المصدر لشركات التقنية في العالم العربي' : 'Open-source directory of tech companies in the Arab world';
-
-  // --- MODIFICATION: Use the helper function ---
   const companyCountText = getCompanyCountText(filteredCompanies.length, language);
 
   return (
@@ -209,21 +260,70 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
       <main className={styles.main}>
         <section className={styles.searchSection}>
           <div className="container">
+             {/* Search Bar */}
              <div className={styles.searchBar}>
               <input
                 type="search"
                 value={searchQuery}
                 onChange={handleSearchChange}
                 className={styles.searchInput}
-                placeholder={language === 'ar' ? 'ابحث (شركة، وسم، مقر)...' : 'Search (company, tag, HQ)...'}
-                aria-label={language === 'ar' ? 'بحث عن شركة أو وسم أو مقر' : 'Search for company, tag, or headquarters'}
+                placeholder={language === 'ar' ? 'ابحث (شركة، وسم، مقر، صناعة)...' : 'Search (company, tag, HQ, industry)...'}
+                aria-label={language === 'ar' ? 'بحث عن شركة أو وسم أو مقر أو صناعة' : 'Search for company, tag, headquarters, or industry'}
               />
             </div>
+
+            {/* --- NEW: Category Filters --- */}
+            <div className={styles.categoryFilters}>
+                {/* Industry Dropdown */}
+                <select
+                    value={selectedIndustry || ''}
+                    onChange={(e) => {
+                        setSelectedIndustry(e.target.value || null);
+                        setSelectedSubIndustry(null); // Reset subindustry
+                    }}
+                    className={styles.categorySelect}
+                    aria-label={language === 'ar' ? 'تصفية حسب الصناعة' : 'Filter by Industry'}
+                >
+                    <option value="">
+                        {language === 'ar'
+                            ? `كل الصناعات (${baseFilteredCompanies.length})`
+                            : `All Industries (${baseFilteredCompanies.length})`}
+                    </option>
+                    {industryOptions.map(option => (
+                        <option key={option.value} value={option.value}>
+                            {option.label}
+                        </option>
+                    ))}
+                </select>
+
+                {/* Subindustry Dropdown */}
+                <select
+                     value={selectedSubIndustry || ''}
+                     onChange={(e) => setSelectedSubIndustry(e.target.value || null)}
+                     className={styles.categorySelect}
+                     aria-label={language === 'ar' ? 'تصفية حسب الصناعة الفرعية' : 'Filter by Subindustry'}
+                     // Disable if there are no sub-industries to show for the current selection
+                     disabled={subIndustryOptions.length === 0 && !!selectedIndustry}
+                >
+                     <option value="">
+                        {language === 'ar'
+                            ? `كل الصناعات الفرعية (${industryFilteredCompanies.length})`
+                            : `All Subindustries (${industryFilteredCompanies.length})`}
+                    </option>
+                    {subIndustryOptions.map(option => (
+                        <option key={option.value} value={option.value}>
+                            {option.label}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            {/* General Tag Filter */}
             <TagFilter
-              tagsWithCounts={currentVisibleTagsWithCounts}
+              tagsWithCounts={currentVisibleTagsWithCounts} // Now uses counts from FINAL filtered list
               activeFilters={activeFilters}
               onToggleFilter={toggleFilter}
-              onClearFilters={clearAllFilters}
+              onClearFilters={clearAllFilters} // Clears only tag filters
               language={language}
              />
           </div>
@@ -231,7 +331,6 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
 
         <section className={styles.companiesSection}>
             <div className="container">
-                {/* --- MODIFICATION: Display the result from the helper function --- */}
                 <h2 className={styles.companyCount}>
                     {companyCountText}
                 </h2>
@@ -250,13 +349,14 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
                             />
                         ))
                     ) : (
-                        (searchQuery || activeFilters.size > 0 || allCompanies.length === 0) && (
+                        // Show "no results" if filters/search are active OR if there are no companies at all
+                        (searchQuery || activeFilters.size > 0 || selectedIndustry || selectedSubIndustry || allCompanies.length === 0) && (
                              <div className={styles.noResults}>
                                 {allCompanies.length === 0
                                  ? (language === 'ar' ? 'لم يتم تحميل بيانات الشركات.' : 'Company data could not be loaded.')
                                  : (language === 'ar'
-                                    ? 'لا توجد نتائج مطابقة للبحث أو التصفية.'
-                                    : 'No matching results found for your search or filters.')
+                                    ? 'لا توجد نتائج مطابقة للبحث أو المرشحات المحددة.'
+                                    : 'No matching results found for your search or selected filters.')
                                 }
                              </div>
                          )

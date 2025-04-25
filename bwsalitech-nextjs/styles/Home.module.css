@@ -38,17 +38,10 @@
   width: 100%;
   box-sizing: border-box;
 
-  /* --- MODIFICATION START --- */
   /* Make it a positioning context for absolute children */
   position: relative;
-  /* Remove flex display properties, not needed for this layout */
-  /* display: flex; */
-  /* align-items: center; */
-
   /* Set a min-height roughly equal to your expected header height */
-  /* This ensures the container doesn't collapse if children are absolute */
   min-height: 60px; /* Adjust as needed based on button/logo size */
-  /* --- MODIFICATION END --- */
 }
 
 .logo { /* Positioned absolutely to the right */
@@ -56,14 +49,12 @@
   font-weight: 700;
   color: var(--primary-color);
   text-decoration: none;
-  /* --- MODIFICATION START --- */
   margin: 0; /* Reset margins */
   position: absolute;
   /* Pin to the right edge, respecting the container's padding */
   right: 20px;
   top: 50%; /* Position top edge at the middle */
   transform: translateY(-50%); /* Shift up by half its height to vertically center */
-  /* --- MODIFICATION END --- */
 }
 .logo:hover {
   text-decoration: none;
@@ -79,15 +70,12 @@
   color: var(--primary-color);
   transition: var(--transition);
   font-size: 0.9rem;
-  /* --- MODIFICATION START --- */
-  /* REMOVED margin-right: auto; */
   margin: 0; /* Reset margins */
   position: absolute;
   /* Pin to the left edge, respecting the container's padding */
   left: 20px;
   top: 50%; /* Position top edge at the middle */
   transform: translateY(-50%); /* Shift up by half its height to vertically center */
-  /* --- MODIFICATION END --- */
 }
 
 .languageToggle:hover {
@@ -97,30 +85,30 @@
 
 /* --- Search & Filter Section --- */
 .searchSection {
-background-color: var(--card-bg); /* Use card background for contrast */
-padding: 2rem 0;
-border-bottom: 1px solid var(--border-color);
+  background-color: var(--card-bg); /* Use card background for contrast */
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .searchBar {
-display: flex;
-max-width: 600px;
-margin: 0 auto 1.5rem auto; /* Center and add margin bottom */
-box-shadow: var(--box-shadow);
-border-radius: var(--border-radius);
-overflow: hidden;
-border: 1px solid var(--border-color);
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto; /* Center and add margin bottom */
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .searchInput {
-flex: 1;
-padding: 1rem;
-border: none;
-font-family: 'Cairo', sans-serif;
-font-size: 1rem;
-width: 100%; /* Ensure it takes full width within flex container */
-background-color: var(--input-bg); /* Use variable */
-color: var(--text-color); /* Use variable */
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+  width: 100%; /* Ensure it takes full width within flex container */
+  background-color: var(--input-bg); /* Use variable */
+  color: var(--text-color); /* Use variable */
 }
 .searchInput::placeholder {
   color: var(--text-muted-color); /* Style placeholder */
@@ -132,14 +120,65 @@ color: var(--text-color); /* Use variable */
   box-shadow: none; /* Remove default focus shadow if any */
 }
 
-/* Tag Filters Container */
+/* --- NEW: Category Filters Container --- */
+.categoryFilters {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center;
+  gap: 1rem; /* Space between dropdowns */
+  margin-bottom: 1.5rem; /* Space below the category filters */
+}
+
+/* --- NEW: Category Select Dropdown --- */
+.categorySelect {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 200px; /* Give dropdowns a decent minimum width */
+  flex-grow: 1; /* Allow them to grow */
+  max-width: 300px; /* Prevent them from becoming too wide */
+  appearance: none; /* Optional: for custom arrow styling later */
+  /* Basic dropdown arrow - SVG URL encoded */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem; /* Make space for the arrow */
+  box-shadow: var(--box-shadow); /* Add subtle shadow */
+}
+/* Add RTL support for arrow */
+html[dir="rtl"] .categorySelect {
+    background-position: left 0.5rem center;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+}
+
+.categorySelect:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--bg-color); /* Indicate disabled state */
+}
+
+.categorySelect:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -1px;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-color-light); /* Optional focus ring */
+}
+
+/* --- Tag Filters Container --- */
 .tagFilters {
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap */
   justify-content: center;
   align-items: center; /* Vertically align items */
   gap: 0.75rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; Removed, now spaced by categoryFilters margin-bottom */
 }
 
 /* Individual Tag Button */
@@ -166,9 +205,7 @@ color: var(--text-color); /* Use variable */
   opacity: 1; /* Ensure active/hovered tags are fully opaque */
 }
 
-/* --- MODIFICATION START: Styles for New Buttons and Container --- */
-
-/* Clear All Button Styling */
+/* Clear All Button Styling (for Tags) */
 .clearButton {
   background-color: var(--danger-color); /* Use danger color for clear */
   color: white;
@@ -186,7 +223,7 @@ color: var(--text-color); /* Use variable */
   font-size: 0.8em; /* Make icon slightly smaller */
 }
 
-/* "Other" Toggle Button Styling */
+/* "Other" Toggle Button Styling (for Tags) */
 .otherToggle {
   /* Slightly different style to indicate it's a toggle */
   font-style: italic; /* Example difference */
@@ -227,37 +264,24 @@ color: var(--text-color); /* Use variable */
     }
 }
 
-/* Non-interactive 'Other' tag (if needed elsewhere - kept from previous logic but not used by expandable) */
-.otherTag {
-  cursor: default;
-  opacity: 0.8;
-}
-.otherTag:hover {
-    background-color: var(--tag-bg-color);
-    color: var(--tag-text-color);
-    border-color: var(--tag-border-color);
-    opacity: 0.8;
-}
-/* --- MODIFICATION END --- */
-
 
 /* --- Companies List Section --- */
 .companiesSection {
-padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 .companyCount {
-text-align: center;
-margin-bottom: 2rem;
-color: var(--text-secondary-color); /* Use secondary text color */
-font-weight: normal;
-font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-secondary-color); /* Use secondary text color */
+  font-weight: normal;
+  font-size: 1.2rem;
 }
 
 .companiesGrid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 /* No Results / Loading states */
@@ -272,35 +296,35 @@ gap: 2rem;
 
 /* --- Footer Styles --- */
 .footer {
-background-color: var(--footer-bg);     /* Use footer variable */
-color: var(--footer-text-color);       /* Use footer variable */
-padding: 2rem 0;
-text-align: center;
-margin-top: auto; /* Pushes footer down if content is short */
-border-top: 1px solid var(--dm-border-color); /* Add a border, use dark border color */
+  background-color: var(--footer-bg);     /* Use footer variable */
+  color: var(--footer-text-color);       /* Use footer variable */
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: auto; /* Pushes footer down if content is short */
+  border-top: 1px solid var(--dm-border-color); /* Add a border, use dark border color */
 }
 
 .footer .footer-content { /* Target nested class */
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .footerLinks {
-display: flex;
-gap: 1.5rem;
-align-items: center; /* Align button and link */
+  display: flex;
+  gap: 1.5rem;
+  align-items: center; /* Align button and link */
 }
 
 .footerLink { /* Style for the GitHub link */
-color: var(--footer-text-color);    /* Use footer variable */
-text-decoration: none;
-transition: var(--transition);
+  color: var(--footer-text-color);    /* Use footer variable */
+  text-decoration: none;
+  transition: var(--transition);
 }
 .footerLink:hover {
-color: var(--footer-link-hover-color); /* Use footer variable */
-text-decoration: underline; /* Add underline on hover */
+  color: var(--footer-link-hover-color); /* Use footer variable */
+  text-decoration: underline; /* Add underline on hover */
 }
 .footerLink i { /* Keep icon margin styles */
   margin-right: 0.3rem;
@@ -314,16 +338,19 @@ html[dir="rtl"] .footerLink i {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-.companiesGrid {
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust min size */
-  gap: 1.5rem;
-}
-.searchBar {
-    max-width: 95%;
-}
-.companyCount {
-    font-size: 1.1rem;
-}
+  .companiesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust min size */
+    gap: 1.5rem;
+  }
+  .searchBar {
+      max-width: 95%;
+  }
+  .companyCount {
+      font-size: 1.1rem;
+  }
+  .categorySelect {
+      min-width: 180px; /* Adjust min width */
+  }
 }
 
 @media (max-width: 480px) {
@@ -341,5 +368,15 @@ html[dir="rtl"] .footerLink i {
   .tag {
       font-size: 0.8rem;
       padding: 0.4rem 0.8rem;
+  }
+  /* Stack category dropdowns vertically */
+  .categoryFilters {
+       flex-direction: column;
+       gap: 0.75rem;
+       align-items: stretch; /* Make dropdowns full width */
+  }
+  .categorySelect {
+      min-width: unset;
+      max-width: 100%;
   }
 }

@@ -76,10 +76,51 @@
   line-height: 1.5;
 }
 
+/* --- NEW: Industry & Subindustry Styles --- */
+.companyIndustryInfo {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 1rem;
+  border-top: 1px dashed var(--border-color); /* Separator line */
+  border-bottom: 1px dashed var(--border-color); /* Separator line */
+  padding: 0.75rem 0; /* Add some vertical padding */
+  line-height: 1.4; /* Adjust line height for better readability */
+  display: flex; /* Use flexbox for alignment */
+  flex-wrap: wrap; /* Allow wrapping if content is long */
+  gap: 0.25rem 0.5rem; /* Row gap and column gap */
+  align-items: center;
+}
+.industryLabel, .subIndustryLabel {
+    font-weight: 600; /* Slightly bolder labels */
+    color: var(--text-muted-color); /* Use muted color for labels */
+}
+.divider {
+    color: var(--text-muted-color);
+    /* margin: 0 0.5rem; Space around the divider */
+}
+/* Hide divider if wrapping makes it first/last */
+.companyIndustryInfo > .divider:first-child,
+.companyIndustryInfo > .divider:last-child {
+    display: none;
+}
+@media (max-width: 360px) { /* On very small cards, stack them */
+    .companyIndustryInfo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+    .divider {
+        display: none; /* Hide divider completely when stacked */
+    }
+}
+
+
 /* Meta: Location + Year */
 .companyMeta {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 0.5rem 1rem; /* Row and column gap */
   margin-bottom: 1rem;
   font-size: 0.9rem;
   color: var(--text-muted-color); /* Use muted text */

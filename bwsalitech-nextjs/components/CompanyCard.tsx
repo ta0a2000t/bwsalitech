@@ -74,6 +74,13 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, language }) => {
         {/* Description */}
         <p className={styles.companyDesc}>{description}</p>
 
+        {/* --- NEW: Industry & Subindustry --- */}
+        <div className={styles.companyIndustryInfo}>
+          <span className={styles.industryLabel}>{language === 'ar' ? 'الصناعة:' : 'Industry:'}</span> {company.industry}
+          <span className={styles.divider}>|</span>
+          <span className={styles.subIndustryLabel}>{language === 'ar' ? 'الفرعية:' : 'Subindustry:'}</span> {company.subindustry}
+        </div>
+
         {/* Meta Info */}
         <div className={styles.companyMeta}>
           <div>
