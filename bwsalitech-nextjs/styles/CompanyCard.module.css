@@ -1,6 +1,6 @@
 /* Styles specifically for the CompanyCard component */
 .companyCard {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
@@ -54,14 +54,15 @@
   .companyName {
     font-size: 1.4rem;
     margin-bottom: 0; /* Reset margin */
-    color: var(--dark-color);
+    color: var(--text-color);
     font-weight: 700;
   }
   
   /* Description */
   .companyDesc {
     margin-bottom: 1rem;
-    color: #666;
+    color: var(--text-color); 
+    opacity: 0.9; /* Slightly less prominent text */
     flex-grow: 1; /* Allow description to take available space */
     font-size: 0.95rem; /* Slightly smaller */
     line-height: 1.5;
@@ -93,11 +94,13 @@
   }
   
   .companyTag {
-    background-color: var(--light-color);
+    background-color: var(--light-color); /* This variable changes in dark mode */
     padding: 0.3rem 0.8rem;
     border-radius: 2rem;
     font-size: 0.8rem;
-    color: #555;
+    color: var(--primary-color); /* Use primary color text, or adjust */
+    border: 1px solid var(--primary-color); /* Add border for contrast */
+    background-color: transparent; /* Make bg transparent */
   }
   
   /* Action Buttons */
@@ -106,7 +109,7 @@
     gap: 1rem;
     margin-top: auto; /* Push actions to the bottom */
     padding-top: 1rem; /* Add space above buttons */
-    border-top: 1px solid #eee; /* Optional separator */
+    border-top: 1px solid var(--border-color); /* Optional separator */
     margin-bottom: 1rem; /* Space before social links */
   }
   
@@ -125,21 +128,21 @@
   
   .btnPrimary {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--dm-text-color); /* Ensure high contrast text */
   }
   
   .btnPrimary:hover {
-    background-color: var(--dark-color);
+    opacity: 0.85;
   }
   
   .btnSecondary {
-    background-color: var(--light-color);
-    color: var(--dark-color);
-    border: 1px solid #ddd; /* Add subtle border */
+    background-color: var(--light-color); /* This changes in dark mode */
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
   }
   
   .btnSecondary:hover {
-    background-color: #ddd;
+    background-color: var(--border-color); /* Use variable */
   }
   
   /* Social Links */
@@ -149,11 +152,12 @@
       gap: 1rem;
       margin-top: 0.5rem; /* Reduced margin */
       padding-top: 0.5rem;
-      /* border-top: 1px solid #eee; */ /* Optional: remove border if actions have one */
+      border-top: 1px solid var(--border-color);  /* Optional: remove border if actions have one */
   }
   
   .socialLink {
-    color: #888;
+    color: var(--text-color); /* Use variable */
+    opacity: 0.7; /* Slightly less prominent */
     font-size: 1.2rem;
     transition: var(--transition);
     line-height: 1; /* Ensure consistent vertical alignment */
@@ -161,4 +165,5 @@
   
   .socialLink:hover {
     color: var(--primary-color);
+    opacity: 1;
   }

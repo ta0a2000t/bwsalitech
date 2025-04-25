@@ -24,7 +24,6 @@
 
 .header .header-content { /* Target nested class */
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -48,6 +47,7 @@
   color: var(--primary-color);
   transition: var(--transition);
   font-size: 0.9rem;
+  margin-inline-start: auto;
 }
 
 .languageToggle:hover {

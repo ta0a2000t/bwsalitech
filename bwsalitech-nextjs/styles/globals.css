@@ -1,15 +1,31 @@
-/* Keep your CSS variables */
+/* styles/globals.css */
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --dark-color: #2c3e50;
-    --light-color: #ecf0f1;
-    --danger-color: #e74c3c;
-    --text-color: #333;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --dark-color: #2c3e50; /* Often becomes light text in dark mode */
+  --light-color: #ecf0f1; /* Often becomes dark background in dark mode */
+  --danger-color: #e74c3c;
+  --text-color: #333; /* Default text color */
+  --bg-color: #f5f7fa; /* Default background */
+  --card-bg: white;   /* Default card background */
+  --border-color: #eee; /* Default border color */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+
+  /* --- Dark Mode Variables (Define them here or inside the media query) --- */
+  --dm-primary-color: #5dade2; /* Lighter blue for dark bg */
+  --dm-secondary-color: #58d68d;
+  --dm-dark-color: #bdc3c7; /* Light text on dark bg */
+  --dm-light-color: #34495e; /* Darker elements on dark bg */
+  --dm-text-color: #ecf0f1; /* Light text */
+  --dm-bg-color: #2c3e50;   /* Dark background */
+  --dm-card-bg: #34495e;   /* Dark card background */
+  --dm-border-color: #4b6073; /* Darker border */
+  --dm-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
+
+
 
 /* Basic Reset and Body styles */
 html {
@@ -23,10 +39,28 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Cairo', sans-serif;
-  background-color: #f5f7fa;
-  color: var(--text-color);
+  background-color: var(--bg-color); /* Use variable */
+  color: var(--text-color); /* Use variable */
   line-height: 1.6;
-  font-size: 16px; /* Base font size */
+  font-size: 16px;
+  transition: background-color var(--transition), color var(--transition); /* Smooth transition */
+}
+
+/* --- Add the Media Query for Dark Mode --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --primary-color: var(--dm-primary-color);
+      --secondary-color: var(--dm-secondary-color);
+      --dark-color: var(--dm-dark-color);
+      --light-color: var(--dm-light-color);
+      /* Keep danger color or adjust if needed */
+      --text-color: var(--dm-text-color);
+      --bg-color: var(--dm-bg-color);
+      --card-bg: var(--dm-card-bg);
+      --border-color: var(--dm-border-color);
+      --box-shadow: var(--dm-box-shadow);
+      /* Other variables like radius/transition usually don't need changing */
+  }
 }
 
 /* Global Container */
