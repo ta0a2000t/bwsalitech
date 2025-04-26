@@ -20,6 +20,8 @@ export const ALLOWED_INDUSTRIES: ReadonlyArray<[string, string]> = [
     ["HR Tech", "تقنية الموارد البشرية"],
     ["Legal Tech", "التقنية القانونية"],
     ["Government Tech", "تقنية الحكومة"],
+    ["AgriTech", "التقنية الزراعية"]
+    
 ];
 
 // --- Allowed Sub-Industries (Array of tuples - Single Source of Truth) ---
@@ -74,6 +76,7 @@ export const ALLOWED_SUBINDUSTRIES: ReadonlyArray<[string, string]> = [
     ["Legal Research", "البحث القانوني"],
     ["Civic Engagement Platforms", "منصات المشاركة المدنية"],
     ["Public Sector Software", "برمجيات القطاع العام"],
+    ["Food Production Tech", "تقنية إنتاج الغذاء"]
 ];
 
 // --- Helper Function to Check Tuple Validity (Runtime Check) ---
