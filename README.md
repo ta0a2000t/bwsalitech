@@ -1,21 +1,15 @@
-Finding Saudi or regional tech companies shouldn't be this hard.  
-No clean lists, no good directories — so I made one.
+<div dir="rtl" style="font-family: sans-serif; line-height: 1.6;">
 
-Link: [https://ta0a2000t.github.io/bwsalitech](https://ta0a2000t.github.io/bwsalitech)
+  <h1>بوصلة➝ك | دليل شركات التقنية المحلية</h1>
+  <p>دليل مفتوح المصدر لشركات التقنية في المملكة العربية السعودية ومحيطها.</p>
+  <p><b>الدليل المباشر:</b> <a href="https://ta0a2000t.github.io/bwsalitech" target="_blank" rel="noopener noreferrer">https://ta0a2000t.github.io/bwsalitech</a></p>
+  <hr>
 
----
+  <h2>ساهم</h2>
+  <p>أسهل طريقة لإضافة شركة جديدة هي عبر النموذج:</p>
+  <p>⬅️ <a href="https://forms.gle/Hrz4Z4FjqeMU1fdFA" target="_blank" rel="noopener noreferrer"><b>نموذج إضافة شركة</b></a></p>
+  <p><i>(للمستخدمين المتقدمين أو للمساهمات الأخرى، انظر <a href="./CONTRIBUTING.md">دليل المساهمة</a>)</i></p>
+  <hr>
 
-# Contribute
-
-If you're tired of digging too, help out.  
-Fix mistakes, add companies, suggest improvements.
-
-Let's map the MENA tech space properly.
-
----
-
-# License
-
-AGPL-3.0 — open source with a constraint.  
-Use it, change it, even commercially; but if you modify and use it, you must share your modified version’s code publicly.
-
+<p><b>الرخصة:</b> <a href="./LICENSE">AGPL-3.0</a> — مفتوح المصدر مع قيد. يمكنك استخدامه وتعديله وحتى استخدامه تجارياً؛ ولكن إذا قمت بتعديله واستخدامه، يجب عليك نشر الكود المعدل للعامة.</p>
+</div>
