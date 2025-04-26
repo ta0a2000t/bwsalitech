@@ -10,7 +10,6 @@
     "subindustry": ["Buy Now Pay Later (BNPL)", "اشتر الآن وادفع لاحقاً"],
     "description_en": "Buy now, pay later service with zero interest.",
     "tags": ["Saudi Arabia", "fintech", "established", "unicorn", "uae"],
-    "logo_path": "/logos/tabby.png",
     "founding_year": 2019,
     "headquarters": "Riyadh",
     "links": {
@@ -895,7 +894,6 @@
     "subindustry": ["IT Consulting & Services", "استشارات وخدمات تكنولوجيا المعلومات"],
     "description_en": "Leading provider of integrated digital solutions and IT services for government and private sectors in Saudi Arabia. Partially owned by PIF and publicly listed.",
     "tags": ["Saudi Arabia", "it-services", "digital-transformation", "govtech", "established", "public", "pif", "tadawul"],
-    "logo_path": "/logos/elm.svg",
     "founding_year": 1988,
     "headquarters": "Riyadh",
     "links": {
@@ -915,7 +913,6 @@
     "subindustry": ["Last-Mile Delivery", "التوصيل للمرحلة الأخيرة"],
     "description_en": "Super App offering multiple services including ride-hailing, food/grocery delivery, digital payments, and more across the MENAP region. Owned by Uber.",
     "tags": ["Saudi Arabia", "uae", "mena", "ride-hailing", "food-delivery", "superapp", "payments", "established", "uber-company"],
-    "logo_path": "/logos/careem.png",
     "founding_year": 2012,
     "headquarters": "Dubai",
     "links": {
@@ -936,7 +933,6 @@
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "Leading e-commerce platform in the Middle East offering a wide range of products including electronics, fashion, home essentials, and groceries. Backed by PIF and other investors.",
     "tags": ["Saudi Arabia", "uae", "egypt", "ecommerce", "marketplace", "established", "pif"],
-    "logo_path": "/logos/noon.svg",
     "founding_year": 2016,
     "headquarters": "Riyadh",
     "links": {
@@ -957,7 +953,6 @@
     "subindustry": ["Recruitment & Talent Acquisition", "التوظيف واكتساب المواهب"],
     "description_en": "On-demand staffing platform connecting businesses needing part-time/temporary workers (especially in retail, hospitality, logistics) with qualified job seekers in Saudi Arabia.",
     "tags": ["Saudi Arabia", "hr-tech", "staffing", "on-demand", "gig-economy", "startup", "retail", "hospitality"],
-    "logo_path": "/logos/sabbar.png",
     "founding_year": 2019,
     "headquarters": "Riyadh",
     "links": {
@@ -978,7 +973,6 @@
     "subindustry": ["Supply Chain Management", "إدارة سلسلة الإمداد"],
     "description_en": "Tech-enabled logistics company providing end-to-end e-commerce fulfillment services (storage, picking, packing, shipping) for businesses in Saudi Arabia.",
     "tags": ["Saudi Arabia", "logistics", "ecommerce-fulfillment", "startup", "warehousing", "last-mile"],
-    "logo_path": "/logos/salasa.png",
     "founding_year": 2016,
     "headquarters": "Riyadh",
     "links": {
@@ -998,7 +992,6 @@
     "subindustry": ["Freight & Shipping", "الشحن والنقل"],
     "description_en": "Digital freight network connecting shippers and carriers across the MENA region, offering an on-demand marketplace for road freight services with real-time tracking. [7, 19, 21, 22, 27]",
     "tags": ["Saudi Arabia", "uae", "logistics", "freight", "marketplace", "established", "mena", "b2b"],
-    "logo_path": "/logos/trukker.png",
     "founding_year": 2016,
     "headquarters": "Riyadh",
     "links": {
@@ -1017,7 +1010,6 @@
     "subindustry": ["Food Production Tech", "تقنية إنتاج الغذاء"],
     "description_en": "AgTech company developing and deploying sustainable agriculture technologies to enable crop cultivation using saltwater in hot, arid environments. [4, 11, 12, 13, 15]",
     "tags": ["Saudi Arabia", "agtech", "sustainability", "kaust", "food-security", "startup", "saltwater-agriculture"],
-    "logo_path": "/logos/redsea.png",
     "founding_year": 2018,
     "headquarters": "Thuwal",
     "links": {
@@ -1036,7 +1028,6 @@
     "subindustry": ["Payments", "المدفوعات"],
     "description_en": "Fintech company providing Payment Infrastructure as a Service (PaaS), specializing in SoftPOS technology that transforms smartphones and tablets into secure payment acceptance devices. [5, 25, 26, 30]",
     "tags": ["Saudi Arabia", "fintech", "payments", "softpos", "paas", "startup", "contactless", "nfc"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Riyadh",
     "links": {
@@ -1055,7 +1046,6 @@
     "subindustry": ["Direct-to-Consumer (DTC)", "البيع المباشر للمستهلك"],
     "description_en": "Food tech company specializing in high-quality, ready-to-eat frozen meals, offering a variety of dishes to consumers through retail and direct delivery. [24, 34, 36, 37]",
     "tags": ["Saudi Arabia", "food-tech", "ready-meals", "frozen-food", "dtc", "startup"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Riyadh",
     "links": {
@@ -1074,7 +1064,6 @@
     "subindustry": ["Wealth Management", "إدارة الثروات"],
     "description_en": "Personal finance management app that helps users automatically track expenses and budgets via bank linking or SMS, aiming to improve financial awareness. [8, 9, 16, 20, 23]",
     "tags": ["Saudi Arabia", "fintech", "personal-finance", "budgeting", "open-banking", "startup", "sama-sandbox"],
-    "logo_path": null,
     "founding_year": 2019,
     "headquarters": "Riyadh",
     "links": {
@@ -1093,7 +1082,6 @@
     "subindustry": ["Payments", "المدفوعات"],
     "description_en": "Digital financial account and payment card designed for everyday financial needs in Saudi Arabia, licensed by the Saudi Central Bank (SAMA). [4, 8, 14]",
     "tags": ["Saudi Arabia", "fintech", "digital-wallet", "payments", "startup", "sama-license", "app"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Riyadh",
     "links": {
@@ -1113,7 +1101,6 @@
     "subindustry": ["Supply Chain Management", "إدارة سلسلة الإمداد"],
     "description_en": "Food and beverage supply chain and finance platform connecting hotels, restaurants, and cafes (HoReCa) with suppliers, simplifying ordering and working capital financing in the MENA region. [23, 24, 25]",
     "tags": ["Saudi Arabia", "food-tech", "supply-chain", "b2b", "saas", "startup", "hospitality", "fintech", "mena"],
-    "logo_path": null,
     "founding_year": 2022,
     "headquarters": "Riyadh",
     "links": {
@@ -1131,7 +1118,6 @@
     "subindustry": ["Real Estate Marketplace", "سوق العقارات"],
     "description_en": "Proptech and fintech platform aiming to simplify the home buying process by offering property search and digital mortgage financing services in the UAE, Saudi Arabia, and Spain. [34, 35, 33]",
     "tags": ["Saudi Arabia", "uae", "spain", "proptech", "fintech", "real-estate", "mortgage", "startup", "marketplace"],
-    "logo_path": "/logos/huspy.png",
     "founding_year": 2020,
     "headquarters": "Dubai",
     "links": {
@@ -1151,7 +1137,6 @@
     "subindustry": ["Construction Tech", "تقنية البناء"],
     "description_en": "Company providing IoT solutions using wearables (like smart hardhats) to improve safety, productivity, and efficiency on construction, industrial, and mining sites through real-time tracking and analytics. [7, 12, 28]",
     "tags": ["Saudi Arabia", "uae", "usa", "construction-tech", "iot", "saas", "safety", "productivity", "startup", "hardware", "wearables"],
-    "logo_path": null,
     "founding_year": 2017,
     "headquarters": "Riyadh",
     "links": {
@@ -1170,7 +1155,6 @@
     "subindustry": ["Payments", "المدفوعات"],
     "description_en": "Fintech platform aiming to be the future bank for SMEs, providing payment solutions (POS, invoicing), business accounts, and financial management tools for merchants in Saudi Arabia and the UAE. [6, 10, 18, 20]",
     "tags": ["Saudi Arabia", "uae", "fintech", "payments", "sme-banking", "pos", "invoicing", "startup", "established"],
-    "logo_path": null,
     "founding_year": 2018,
     "headquarters": "Riyadh",
     "links": {
@@ -1190,7 +1174,6 @@
     "subindustry": ["Online Learning Platforms", "منصات التعلم الإلكتروني"],
     "description_en": "Global social learning platform providing interactive live online classes, contests, and study groups to help students learn with peers and qualified tutors.",
     "tags": ["Saudi Arabia", "edtech", "social-learning", "tutoring", "established", "mena", "global-presence", "k12", "test-prep"],
-    "logo_path": "/logos/noon-academy.png",
     "founding_year": 2013,
     "headquarters": "Riyadh",
     "links": {
@@ -1210,7 +1193,6 @@
     "subindustry": ["Digital Health Platforms", "منصات الصحة الرقمية"],
     "description_en": "Home healthcare application offering a range of medical services including doctor visits, nursing, physiotherapy, lab and radiology services, and medication delivery to the patient's home.",
     "tags": ["Saudi Arabia", "health-tech", "home-healthcare", "digital-health", "startup", "app"],
-    "logo_path": "/logos/sanar.png",
     "founding_year": 2019,
     "headquarters": "Riyadh",
     "links": {
@@ -1230,7 +1212,6 @@
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "B2B e-commerce marketplace specializing in the food and beverage sector, connecting retailers and restaurants directly with suppliers and manufacturers, particularly for products like dates, coffee, nuts, and spices.",
     "tags": ["Saudi Arabia", "food-tech", "ecommerce", "b2b", "marketplace", "logistics", "supply-chain", "startup", "horeca"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Riyadh",
     "links": {
@@ -1249,7 +1230,6 @@
     "subindustry": ["SaaS (Software as a Service)", "البرمجيات كخدمة"],
     "description_en": "Cloud-based platform for automating procurement and spend management for businesses, covering the entire Procure-to-Pay cycle and providing better visibility and control over corporate spending.",
     "tags": ["Saudi Arabia", "saas", "procurement", "fintech", "spend-management", "b2b", "startup", "automation"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Riyadh",
     "links": {
@@ -1269,7 +1249,6 @@
     "subindustry": ["Real Estate Marketplace", "سوق العقارات"],
     "description_en": "Leading real estate portal in the MENA region, helping users search for properties to buy or rent and connect with developers and real estate agents in Saudi Arabia and Egypt.",
     "tags": ["Saudi Arabia", "egypt", "proptech", "real-estate", "marketplace", "established", "mena", "property-search"],
-    "logo_path": "/logos/aqarmap.png",
     "founding_year": 2011,
     "headquarters": "Cairo",
     "links": {
@@ -1289,7 +1268,6 @@
     "subindustry": ["Real Estate Marketplace", "سوق العقارات"],
     "description_en": "Platform for renting unique accommodations like chalets, farms, camps, villas, and apartments in Saudi Arabia, connecting hosts and guests.",
     "tags": ["Saudi Arabia", "proptech", "travel-tech", "short-term-rental", "marketplace", "startup"],
-    "logo_path": null,
     "founding_year": 2017,
     "headquarters": "Riyadh",
     "links": {
@@ -1310,7 +1288,6 @@
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "Reverse logistics and re-commerce platform enabling the purchase of refurbished, open-box, and clearance products, while providing inventory and returns management solutions for businesses in KSA and UAE.",
     "tags": ["Saudi Arabia", "uae", "ecommerce", "recommerce", "reverse-logistics", "sustainability", "marketplace", "startup"],
-    "logo_path": "/logos/cartlow.png",
     "founding_year": 2019,
     "headquarters": "Dubai",
     "links": {
@@ -1331,7 +1308,6 @@
     "subindustry": ["IT Consulting & Services", "استشارات وخدمات تكنولوجيا المعلومات"],
     "description_en": "Saudi technology consulting and solutions company specializing in digital transformation, cloud solutions, data analytics, and AI for government and private sectors.",
     "tags": ["Saudi Arabia", "it-services", "digital-transformation", "cloud", "data-analytics", "ai", "consulting", "startup"],
-    "logo_path": null,
     "founding_year": 2019,
     "headquarters": "Riyadh",
     "links": {
@@ -1351,7 +1327,6 @@
     "subindustry": ["Digital Media", "الإعلام الرقمي"],
     "description_en": "Saudi creative studio and digital entertainment platform, known for producing original, innovative video content and films tailored for Arab audiences. Recently acquired by NEOM Media.",
     "tags": ["Saudi Arabia", "media", "entertainment", "content-creation", "digital-media", "established", "neom-company", "film-production"],
-    "logo_path": "/logos/telfaz11.png",
     "founding_year": 2011,
     "headquarters": "Riyadh",
     "links": {
@@ -1372,7 +1347,6 @@
     "subindustry": ["Insurtech", "التقنية التأمينية"],
     "description_en": "Saudi insurtech company licensed by the Saudi Central Bank (SAMA), focusing on providing innovative digital insurance solutions for individuals and businesses.",
     "tags": ["Saudi Arabia", "fintech", "insurtech", "insurance", "digital-insurance", "startup", "sama-license"],
-    "logo_path": null,
     "founding_year": 2022,
     "headquarters": "Riyadh",
     "links": {
@@ -1391,7 +1365,6 @@
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "B2B e-commerce marketplace and procurement platform connecting retailers and SMEs with wholesalers and manufacturers in KSA, Egypt, and Pakistan.",
     "tags": ["Saudi Arabia", "ecommerce", "b2b", "marketplace", "logistics", "supply-chain", "established", "mena"],
-    "logo_path": "/logos/sary.png",
     "founding_year": 2018,
     "headquarters": "Riyadh",
     "links": {
@@ -1411,7 +1384,6 @@
     "subindustry": ["Lending", "الإقراض"],
     "description_en": "Fintech platform offering Buy Now, Pay Later (BNPL) solutions for construction materials financing, connecting contractors and suppliers in the Saudi construction sector.",
     "tags": ["Saudi Arabia", "fintech", "construction-tech", "bnpl", "lending", "b2b", "startup", "sama-sandbox"],
-    "logo_path": null,
     "founding_year": 2022,
     "headquarters": "Riyadh",
     "links": {
@@ -1430,7 +1402,6 @@
     "subindustry": ["Wealth Management", "إدارة الثروات"],
     "description_en": "WealthTech company offering automated, Sharia-compliant investment solutions (robo-advisory), licensed by the Saudi Capital Market Authority (CMA).",
     "tags": ["Saudi Arabia", "fintech", "wealthtech", "robo-advisory", "investment", "sharia-compliant", "startup", "cma-license"],
-    "logo_path": null,
     "founding_year": 2021,
     "headquarters": "Riyadh",
     "links": {
@@ -1449,7 +1420,6 @@
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "The first licensed NFT marketplace in Saudi Arabia, enabling creators and businesses to build and trade digital assets on the blockchain.",
     "tags": ["Saudi Arabia", "blockchain", "nft", "web3", "marketplace", "startup", "cma-license", "digital-assets"],
-    "logo_path": null,
     "founding_year": 2021,
     "headquarters": "Riyadh",
     "links": {
@@ -1468,7 +1438,6 @@
     "subindustry": ["Data Analytics & BI", "تحليلات البيانات والاستخبارات التجارية"],
     "description_en": "Leading Saudi company specializing in data management, analytics, AI, and digital transformation solutions and services for large enterprises and government entities.",
     "tags": ["Saudi Arabia", "it-services", "data-management", "data-analytics", "ai", "digital-transformation", "established", "consulting"],
-    "logo_path": null,
     "founding_year": 2010,
     "headquarters": "Riyadh",
     "links": {
@@ -1489,7 +1458,6 @@
       "subindustry": ["AI & Machine Learning", "الذكاء الاصطناعي وتعلم الآلة"],
       "description_en": "Leading AI and data analytics company providing specialized solutions for process optimization and decision support for large organizations in the region.",
       "tags": ["Saudi Arabia", "ai", "data-analytics", "machine-learning", "consulting", "optimization", "established"],
-      "logo_path": "/logos/intelmatix.png",
       "founding_year": 2008,
       "headquarters": "Riyadh",
       "links": {
@@ -1508,7 +1476,6 @@
       "subindustry": ["Freight & Shipping", "الشحن والنقل"],
       "description_en": "Platform connecting e-commerce merchants with delivery service providers in Saudi Arabia, allowing shipment management, tracking, and competitive pricing from multiple carriers via a single API.",
       "tags": ["Saudi Arabia", "logistics", "ecommerce", "shipping", "api", "saas", "startup", "delivery-aggregator"],
-      "logo_path": null,
       "founding_year": 2021,
       "headquarters": "Riyadh",
       "links": {
@@ -1528,7 +1495,6 @@
       "subindustry": ["Payments", "المدفوعات"],
       "description_en": "Fintech platform providing e-invoicing and payment solutions for SMEs in Saudi Arabia, compliant with the Zakat, Tax and Customs Authority (ZATCA) requirements.",
       "tags": ["Saudi Arabia", "fintech", "e-invoicing", "payments", "saas", "zatca", "sme", "startup"],
-      "logo_path": null,
       "founding_year": 2018,
       "headquarters": "Dammam",
       "links": {
@@ -1547,7 +1513,6 @@
       "subindustry": ["Lending", "الإقراض"],
       "description_en": "Fintech platform providing supply chain finance and invoice financing solutions for SMEs in Saudi Arabia, Egypt, and UAE, aiming to improve cash flow.",
       "tags": ["Saudi Arabia", "fintech", "supply-chain-finance", "invoice-financing", "lending", "sme", "startup", "mena"],
-      "logo_path": null,
       "founding_year": 2021,
       "headquarters": "Riyadh",
       "links": {
@@ -1566,7 +1531,6 @@
       "subindustry": ["Insurtech", "التقنية التأمينية"],
       "description_en": "Insurtech startup developing decentralized Takaful (Islamic insurance) solutions using blockchain and smart contracts, aiming to offer a community-based insurance alternative.",
       "tags": ["Saudi Arabia", "fintech", "insurtech", "blockchain", "web3", "takaful", "dao", "startup", "islamic-finance"],
-      "logo_path": null,
       "founding_year": 2022,
       "headquarters": "Riyadh",
       "links": {
@@ -1586,7 +1550,6 @@
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "B2B e-marketplace connecting pharmaceutical and medical equipment manufacturers & distributors with pharmacies and hospitals across the MENA region.",
     "tags": ["Saudi Arabia", "health-tech", "b2b", "marketplace", "pharmaceuticals", "medical-supplies", "startup", "mena", "jordan-origin"],
-    "logo_path": null,
     "founding_year": 2015,
     "headquarters": "Amman",
     "links": {
@@ -1606,7 +1569,6 @@
     "subindustry": ["Data Analytics & BI", "تحليلات البيانات والاستخبارات التجارية"],
     "description_en": "Saudi company specializing in data science and artificial intelligence, providing advanced analytics platforms and solutions to help businesses make data-driven decisions.",
     "tags": ["Saudi Arabia", "data-science", "ai", "data-analytics", "saas", "startup", "big-data"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Riyadh",
     "links": {
@@ -1625,7 +1587,6 @@
     "subindustry": ["Gaming", "الألعاب الإلكترونية"],
     "description_en": "Leading mobile games publisher in the Arabic-speaking market, localizing popular global games and developing original titles for the region.",
     "tags": ["Saudi Arabia", "mena", "gaming", "mobile-games", "publishing", "localization", "established", "jordan-origin"],
-    "logo_path": "/logos/tamatem.png",
     "founding_year": 2013,
     "headquarters": "Amman",
     "links": {
@@ -1646,7 +1607,6 @@
     "subindustry": ["Lending", "الإقراض"],
     "description_en": "Saudi fintech platform specializing in Point-of-Sale (POS) lending, enabling merchants to offer flexible payment options to their customers directly at the checkout.",
     "tags": ["Saudi Arabia", "fintech", "lending", "pos-lending", "consumer-finance", "startup", "sama-sandbox"],
-    "logo_path": null,
     "founding_year": 2021,
     "headquarters": "Riyadh",
     "links": {
@@ -1666,7 +1626,6 @@
     "subindustry": ["Payments", "المدفوعات"],
     "description_en": "Saudi rewards application allowing users to earn instant cashback when shopping from a wide range of partner brands and stores.",
     "tags": ["Saudi Arabia", "fintech", "rewards", "cashback", "loyalty", "retail-tech", "startup", "app"],
-    "logo_path": null,
     "founding_year": 2022,
     "headquarters": "Riyadh",
     "links": {
@@ -1686,7 +1645,6 @@
     "subindustry": ["IT Consulting & Services", "استشارات وخدمات تكنولوجيا المعلومات"],
     "description_en": "Enterprise IT solutions and services provider specializing in IT infrastructure, business solutions like SAP and Microsoft, and managed services.",
     "tags": ["Saudi Arabia", "dammam", "it-services", "enterprise-software", "sap", "microsoft", "cloud", "established", "eastern-province"],
-    "logo_path": null,
     "founding_year": 1997,
     "headquarters": "Dammam",
     "links": {
@@ -1704,7 +1662,6 @@
     "subindustry": ["Internet Service Provider (ISP)", "مزود خدمة الإنترنت"],
     "description_en": "Leading Internet Service Provider (ISP) and ICT solutions provider in Saudi Arabia, offering connectivity, cloud computing, cybersecurity, and managed services.",
     "tags": ["Saudi Arabia", "khobar", "telecom", "isp", "it-services", "cloud", "cybersecurity", "established", "eastern-province"],
-    "logo_path": null,
     "founding_year": 1989,
     "headquarters": "Al Khobar",
     "links": {
@@ -1723,7 +1680,6 @@
     "subindustry": ["Recruitment & Talent Acquisition", "التوظيف واكتساب المواهب"],
     "description_en": "Platform connecting businesses with freelance talent across the MENA region, facilitating the sourcing and management of experts for short-term or specialized projects.",
     "tags": ["Saudi Arabia", "khobar", "hr-tech", "freelance", "marketplace", "gig-economy", "startup", "eastern-province", "mena"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Al Khobar",
     "links": {
@@ -1743,7 +1699,6 @@
     "subindustry": ["Supply Chain Management", "إدارة سلسلة الإمداد"],
     "description_en": "Integrated logistics services company providing solutions in supply chain management, warehousing, distribution, and value-added services, focusing on serving e-commerce and other sectors.",
     "tags": ["Saudi Arabia", "dammam", "logistics", "supply-chain", "warehousing", "distribution", "ecommerce-fulfillment", "established", "eastern-province"],
-    "logo_path": null,
     "founding_year": 2005,
     "headquarters": "Dammam",
     "links": {
@@ -1762,7 +1717,6 @@
     "subindustry": ["AI & Machine Learning", "الذكاء الاصطناعي وتعلم الآلة"],
     "description_en": "Company specializing in data analytics and AI, providing solutions for understanding and analyzing Arabic text using NLP and machine learning techniques.",
     "tags": ["Saudi Arabia", "khobar", "ai", "data-analytics", "nlp", "arabic-nlp", "startup", "eastern-province"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Al Khobar",
     "links": {
@@ -1781,7 +1735,6 @@
     "subindustry": ["IT Consulting & Services", "استشارات وخدمات تكنولوجيا المعلومات"],
     "description_en": "IT company offering diverse solutions and services including software development, mobile applications, cloud solutions, and digital transformation consulting.",
     "tags": ["Saudi Arabia", "khobar", "it-services", "software-development", "cloud", "digital-transformation", "established", "eastern-province"],
-    "logo_path": null,
     "founding_year": 2013,
     "headquarters": "Al Khobar",
     "links": {
@@ -1801,7 +1754,6 @@
     "subindustry": ["SaaS (Software as a Service)", "البرمجيات كخدمة"],
     "description_en": "Company specializing in providing CRM and ERP solutions, alongside web development and mobile application services.",
     "tags": ["Saudi Arabia", "khobar", "it-services", "crm", "erp", "software-development", "saas", "established", "eastern-province"],
-    "logo_path": null,
     "founding_year": 2009,
     "headquarters": "Riyadh",
     "links": {
@@ -1821,7 +1773,6 @@
     "subindustry": ["Last-Mile Delivery", "التوصيل للمرحلة الأخيرة"],
     "description_en": "Logistics tech startup providing on-demand, last-mile delivery solutions for individuals and businesses in the Eastern Province and other cities in KSA.",
     "tags": ["Saudi Arabia", "dammam", "logistics", "last-mile-delivery", "on-demand", "startup", "delivery", "eastern-province"],
-    "logo_path": null,
     "founding_year": 2021,
     "headquarters": "Dammam",
     "links": {
@@ -1841,7 +1792,6 @@
     "subindustry": ["AI & Machine Learning", "الذكاء الاصطناعي وتعلم الآلة"],
     "description_en": "Leading conversational AI technology company offering intelligent chatbot and NLU solutions in Arabic and English for customer service and process automation.",
     "tags": ["Saudi Arabia", "uae", "jordan", "ai", "chatbot", "conversational-ai", "nlu", "customer-service", "established", "eastern-province", "jordan-origin"],
-    "logo_path": null,
     "founding_year": 2016,
     "headquarters": "Dubai",
     "links": {
@@ -1861,7 +1811,6 @@
     "subindustry": ["Supply Chain Management", "إدارة سلسلة الإمداد"],
     "description_en": "Platform specializing in fleet management and tracking for businesses, providing solutions to optimize operational efficiency and monitor drivers and assets.",
     "tags": ["Saudi Arabia", "logistics", "fleet-management", "iot", "saas", "startup", "riyadh"],
-    "logo_path": null,
     "founding_year": 2020,
     "headquarters": "Riyadh",
     "links": {
@@ -1880,7 +1829,6 @@
     "subindustry": ["Wealth Management", "إدارة الثروات"],
     "description_en": "Social trading platform licensed by the Capital Market Authority (CMA) allowing users to follow, discuss, and copy trading strategies of other investors in the Saudi market.",
     "tags": ["Saudi Arabia", "fintech", "wealthtech", "social-trading", "investment", "cma-license", "startup", "riyadh"],
-    "logo_path": null,
     "founding_year": 2021,
     "headquarters": "Riyadh",
     "links": {
@@ -1900,7 +1848,6 @@
     "subindustry": ["Booking Platforms", "منصات الحجز"],
     "description_en": "App and platform for booking and discovering local tourism experiences and recreational activities across different regions of Saudi Arabia.",
     "tags": ["Saudi Arabia", "travel-tech", "tourism", "experiences", "booking-platform", "startup", "riyadh"],
-    "logo_path": null,
     "founding_year": 2021,
     "headquarters": "Riyadh",
     "links": {
@@ -1920,7 +1867,6 @@
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "Peer-to-peer (P2P) car rental platform licensed within the SAMA Sandbox, connecting car owners with renters.",
     "tags": ["Saudi Arabia", "automotive-tech", "car-rental", "p2p", "marketplace", "sharing-economy", "startup", "sama-sandbox", "jeddah"],
-    "logo_path": null,
     "founding_year": 2019,
     "headquarters": "Jeddah",
     "links": {
@@ -1940,7 +1886,6 @@
     "subindustry": ["Grocery Tech", "تقنية البقالة"],
     "description_en": "App aiming to reduce food waste by connecting consumers with food retailers like bakeries, restaurants, and grocers to buy surplus food at discounted prices.",
     "tags": ["Saudi Arabia", "food-tech", "food-waste", "sustainability", "marketplace", "startup", "riyadh"],
-    "logo_path": null,
     "founding_year": 2021,
     "headquarters": "Riyadh",
     "links": {
