@@ -21,7 +21,7 @@ export const ALLOWED_INDUSTRIES: ReadonlyArray<[string, string]> = [
     ["Legal Tech", "التقنية القانونية"],
     ["Government Tech", "تقنية الحكومة"],
     ["AgriTech", "التقنية الزراعية"]
-    
+
 ];
 
 // --- Allowed Sub-Industries (Array of tuples - Single Source of Truth) ---
@@ -79,6 +79,35 @@ export const ALLOWED_SUBINDUSTRIES: ReadonlyArray<[string, string]> = [
     ["Food Production Tech", "تقنية إنتاج الغذاء"]
 ];
 
+// --- Allowed Headquarters (MENA Countries - Array of tuples) ---
+// List can be expanded/refined as needed
+export const ALLOWED_HEADQUARTERS: ReadonlyArray<[string, string]> = [
+    ["Algeria", "الجزائر"],
+    ["Bahrain", "البحرين"],
+    ["Comoros", "جزر القمر"],
+    ["Djibouti", "جيبوتي"],
+    ["Egypt", "مصر"],
+    ["Iraq", "العراق"],
+    ["Jordan", "الأردن"],
+    ["Kuwait", "الكويت"],
+    ["Lebanon", "لبنان"],
+    ["Libya", "ليبيا"],
+    ["Mauritania", "موريتانيا"],
+    ["Morocco", "المغرب"],
+    ["Oman", "عُمان"],
+    ["Palestine", "فلسطين"],
+    ["Qatar", "قطر"],
+    ["Saudi Arabia", "المملكة العربية السعودية"],
+    ["Somalia", "الصومال"],
+    ["Sudan", "السودان"],
+    ["Syria", "سوريا"],
+    ["Tunisia", "تونس"],
+    ["United Arab Emirates", "الإمارات العربية المتحدة"],
+    ["Yemen", "اليمن"]
+    // Add other relevant MENA countries if necessary
+];
+
+
 // --- Helper Function to Check Tuple Validity (Runtime Check) ---
 // Checks structure and if the pair exists in the allowed list
 function isTupleAllowed(
@@ -92,7 +121,20 @@ function isTupleAllowed(
     return allowedList.some(allowedTuple => allowedTuple[0] === tuple[0] && allowedTuple[1] === tuple[1]);
 }
 
-// --- Validation Function for a Single Company (Uses isTupleAllowed) ---
+// --- Helper Function to Check if a string value exists in any tuple within a list ---
+function isValueInAllowedTuples(
+    value: any,
+    allowedList: ReadonlyArray<[string, string]>
+): value is string {
+    if (typeof value !== 'string') {
+        return false;
+    }
+    // Check if the value matches either the English or Arabic name in any tuple
+    return allowedList.some(tuple => tuple[0] === value || tuple[1] === value);
+}
+
+
+// --- Validation Function for a Single Company (Updated for Headquarters) ---
 // Returns a type predicate asserting the object conforms to the Company interface
 export function validateCompanySchema(company: any): company is Company {
     const requiredFields = ["id", "name_ar", "name_en", "website", "type", "description_ar", "industry", "subindustry", "tags"];
@@ -139,11 +181,17 @@ export function validateCompanySchema(company: any): company is Company {
          console.warn(`Validation Failed: Company ${company.id} has invalid 'founding_year': ${company.founding_year}`);
          return false;
     }
-    // Optional check for headquarters if present
-     if (company.headquarters !== undefined && company.headquarters !== null && typeof company.headquarters !== 'string') {
-         console.warn(`Validation Failed: Company ${company.id} has invalid 'headquarters' (must be string): ${company.headquarters}`);
-         return false;
+
+    // --- MODIFICATION START: Validate headquarters ---
+    // Optional check for headquarters: must be a string from the allowed list if present
+    if (company.headquarters !== undefined && company.headquarters !== null) {
+        if (!isValueInAllowedTuples(company.headquarters, ALLOWED_HEADQUARTERS)) {
+            console.warn(`Validation Failed: Company ${company.id} has invalid 'headquarters': "${company.headquarters}". Must be one of the defined MENA countries (English or Arabic name) in utils/industries.ts.`);
+            return false;
+        }
     }
+    // --- MODIFICATION END: Validate headquarters ---
+
     // Optional check for links format if present
     if (company.links !== undefined && company.links !== null) {
         if (typeof company.links !== 'object') {
@@ -158,7 +206,6 @@ export function validateCompanySchema(company: any): company is Company {
              }
         }
     }
-
 
     return true; // All checks passed
 }

@@ -73,7 +73,7 @@
          },
         "headquarters": {
             "type": ["string", "null"],
-            "description": "Optional location of the company's headquarters (e.g., 'Dammam')."
+            "description": "Optional location of the company's headquarters. If provided, it must be the English or Arabic name of a MENA country defined in the `ALLOWED_HEADQUARTERS` list within `utils/industries.ts` (e.g., 'Saudi Arabia', 'مصر')."
         },
         "links": {
           "type": ["object", "null"],

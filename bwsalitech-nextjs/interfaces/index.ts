@@ -28,7 +28,8 @@ export interface Company {
   tags: string[];
   logo_path?: string;              // Optional
   founding_year?: number;          // Optional
-  headquarters?: string;           // Optional
+  // Clarify that headquarters should match the allowed list
+  headquarters?: string; // Optional. If present, must be a MENA country from ALLOWED_HEADQUARTERS (utils/industries.ts)
   links?: CompanyLinks;            // Optional, uses the interface above
 }
 

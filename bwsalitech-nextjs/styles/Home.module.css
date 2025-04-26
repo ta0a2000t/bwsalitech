@@ -380,3 +380,65 @@ html[dir="rtl"] .footerLink i {
       max-width: 100%;
   }
 }
+
+
+
+
+.filterSortRow {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 1rem; /* Space between filter groups and sort */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 1.5rem; /* Space before tag filters */
+}
+
+.categoryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Space between dropdowns */
+  flex-grow: 1; /* Allow filters to take available space */
+}
+
+.categorySelect,
+.sortSelect { /* Style sort dropdown similarly to category filters */
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  /* Add specific styles for :focus, :hover */
+}
+
+.categorySelect:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+.sortControl {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between label and select */
+}
+
+.sortLabel {
+  font-weight: 500; /* Or your desired weight */
+  font-size: 0.9rem;
+  color: #555; /* Adjust color */
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+  .filterSortRow {
+    flex-direction: column; /* Stack on smaller screens */
+    align-items: stretch; /* Stretch items full width */
+  }
+  .categoryFilters {
+      justify-content: space-between; /* Or adjust as needed */
+  }
+  .sortControl {
+      justify-content: flex-end; /* Align sort to the right/end */
+  }
+}

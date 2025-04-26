@@ -462,7 +462,7 @@
     "description_en": "Platform allowing anyone to create a professional online store to sell products and services.",
     "tags": ["ecommerce", "startup", "saas", "retail-tech", "ecommerce-enablement"],
     "founding_year": 2016,
-    "headquarters": "Mecca",
+    "headquarters": "Saudi Arabia",
     "links": {
       "careers": "https://careers.salla.sa/",
       "twitter": "https://x.com/SallaApp",
@@ -658,7 +658,7 @@
     "description_en": "Global tech company leader in smart city solutions, specializing in environmental monitoring and traffic management using IoT and AI.",
     "tags": ["smart-city", "iot", "ai", "environmental-monitoring", "traffic-management", "startup", "kaust"],
     "founding_year": 2011,
-    "headquarters": "Thuwal",
+    "headquarters": "Saudi Arabia",
     "links": {
       "careers": "https://sadeem.com/careers/",
       "twitter": "https://x.com/SadeemIO",
@@ -852,7 +852,7 @@
     "description_en": "Super App offering multiple services including ride-hailing, food/grocery delivery, digital payments, and more across the MENAP region. Owned by Uber.",
     "tags": ["uae", "ride-hailing", "food-delivery", "superapp", "payments", "established", "uber-company"],
     "founding_year": 2012,
-    "headquarters": "UAE",
+    "headquarters": "United Arab Emirates",
     "links": {
       "linkedin": "https://www.linkedin.com/company/careem/",
       "twitter": "https://x.com/careem",
@@ -911,8 +911,8 @@
     "headquarters": "Saudi Arabia",
     "links": {
       "careers": "https://salasa.co/careers/",
-      "linkedin": "https://www.linkedin.com/company/salasa-co/",
-      "twitter": "https://x.com/SalasaCo"
+      "linkedin": "https://www.linkedin.com/company/salasa/",
+      "twitter": "https://x.com/salasa_me"
     }
   },
   {
@@ -927,9 +927,8 @@
     "description_en": "Digital freight network connecting shippers and carriers across the MENA region, offering an on-demand marketplace for road freight services with real-time tracking. [7, 19, 21, 22, 27]",
     "tags": ["uae", "logistics", "freight", "marketplace", "established", "b2b"],
     "founding_year": 2016,
-    "headquarters": "Saudi Arabia",
+    "headquarters": "United Arab Emirates",
     "links": {
-      "linkedin": "https://www.linkedin.com/company/trukker/",
       "twitter": "https://x.com/TruKKerTech"
     }
   },
@@ -945,7 +944,7 @@
     "description_en": "AgTech company developing and deploying sustainable agriculture technologies to enable crop cultivation using saltwater in hot, arid environments.",
     "tags": ["agtech", "sustainability", "kaust", "food-security", "startup", "saltwater-agriculture"],
     "founding_year": 2018,
-    "headquarters": "Thuwal",
+    "headquarters": "Saudi Arabia",
     "links": {
       "linkedin": "https://www.linkedin.com/company/red-sea-farms/",
       "twitter": "https://x.com/RedSeaFarms"
@@ -1053,7 +1052,7 @@
     "description_en": "Proptech and fintech platform aiming to simplify the home buying process by offering property search and digital mortgage financing services in the UAE, Saudi Arabia, and Spain. [34, 35, 33]",
     "tags": ["uae", "spain", "proptech", "fintech", "real-estate", "mortgage", "startup", "marketplace"],
     "founding_year": 2020,
-    "headquarters": "UAE",
+    "headquarters": "United Arab Emirates",
     "links": {
       "linkedin": "https://www.linkedin.com/company/huspy/",
       "twitter": "https://x.com/HuspyCo",
@@ -1223,7 +1222,7 @@
     "description_en": "Reverse logistics and re-commerce platform enabling the purchase of refurbished, open-box, and clearance products, while providing inventory and returns management solutions for businesses in KSA and UAE.",
     "tags": ["uae", "ecommerce", "recommerce", "reverse-logistics", "sustainability", "marketplace", "startup"],
     "founding_year": 2019,
-    "headquarters": "UAE",
+    "headquarters": "United Arab Emirates",
     "links": {
       "careers": "https://careers.cartlow.com/",
       "linkedin": "https://www.linkedin.com/company/cartlow/",
@@ -1485,7 +1484,7 @@
     "description_en": "B2B e-marketplace connecting pharmaceutical and medical equipment manufacturers & distributors with pharmacies and hospitals across the MENA region.",
     "tags": ["health-tech", "b2b", "marketplace", "pharmaceuticals", "medical-supplies", "startup", "jordan-origin"],
     "founding_year": 2015,
-    "headquarters": "Amman",
+    "headquarters": "Jordan",
     "links": {
       "careers": "https://aumet.me/careers",
       "linkedin": "https://www.linkedin.com/company/aumet-inc/",
@@ -1522,7 +1521,7 @@
     "description_en": "Leading mobile games publisher in the Arabic-speaking market, localizing popular global games and developing original titles for the region.",
     "tags": ["mena", "gaming", "mobile-games", "publishing", "localization", "established", "jordan-origin"],
     "founding_year": 2013,
-    "headquarters": "Amman",
+    "headquarters": "Jordan",
     "links": {
       "careers": "https://tamatem.co/careers/",
       "linkedin": "https://www.linkedin.com/company/tamatem-games/",
@@ -1616,30 +1615,13 @@
     "industry": ["Logistics & Delivery", "الخدمات اللوجستية والتوصيل"],
     "subindustry": ["Supply Chain Management", "إدارة سلسلة الإمداد"],
     "description_en": "Integrated logistics services company providing solutions in supply chain management, warehousing, distribution, and value-added services, focusing on serving e-commerce and other sectors.",
-    "tags": ["dammam", "logistics", "supply-chain", "warehousing", "distribution", "ecommerce-fulfillment", "established", "eastern-province"],
+    "tags": ["riyadh", "logistics", "supply-chain", "warehousing", "distribution", "ecommerce-fulfillment", "established"],
     "founding_year": 2005,
-    "headquarters": "Dammam",
+    "headquarters": "Saudi Arabia",
     "links": {
-      "linkedin": "https://www.linkedin.com/company/esnad-logistics/",
-      "twitter": "https://x.com/esnadexpress"
-    }
-  },
-  {
-    "id": "tadabur",
-    "name_ar": "تدبر",
-    "name_en": "Tadabur",
-    "website": "https://tadabur.ai/",
-    "type": "private",
-    "description_ar": "شركة متخصصة في تحليل البيانات والذكاء الاصطناعي، تقدم حلولاً لفهم وتحليل النصوص العربية باستخدام تقنيات معالجة اللغات الطبيعية وتعلم الآلة.",
-    "industry": ["Software & IT Services", "البرمجيات وخدمات تكنولوجيا المعلومات"],
-    "subindustry": ["AI & Machine Learning", "الذكاء الاصطناعي وتعلم الآلة"],
-    "description_en": "Company specializing in data analytics and AI, providing solutions for understanding and analyzing Arabic text using NLP and machine learning techniques.",
-    "tags": ["khobar", "ai", "data-analytics", "nlp", "arabic-nlp", "startup", "eastern-province"],
-    "founding_year": 2020,
-    "headquarters": "Al Khobar",
-    "links": {
-      "linkedin": "https://www.linkedin.com/company/tadabur/",
-      "twitter": "https://x.com/tadabur_ai"
+      "twitter": "https://x.com/esnadexpress",
+      "blog": "https://esnadexpress.com/pages/blog.php?lang=en"
+
     }
   },
   {
@@ -1654,11 +1636,10 @@
     "description_en": "IT company offering diverse solutions and services including software development, mobile applications, cloud solutions, and digital transformation consulting.",
     "tags": ["khobar", "it-services", "software-development", "cloud", "digital-transformation", "established", "eastern-province"],
     "founding_year": 2013,
-    "headquarters": "Al Khobar",
+    "headquarters": "Saudi Arabia",
     "links": {
-      "linkedin": "https://www.linkedin.com/company/oceanxsa/",
-      "twitter": "https://x.com/OceanXsa",
-      "instagram": "https://www.instagram.com/oceanx.sa/"
+      "linkedin": "https://www.linkedin.com/company/oceanxorg/",
+      "twitter": "https://x.com/OceanXksa"
     }
   },
   {
@@ -1675,9 +1656,9 @@
     "founding_year": 2009,
     "headquarters": "Saudi Arabia",
     "links": {
-      "careers": "https://ejad.sa/en/careers",
-      "linkedin": "https://www.linkedin.com/company/ejad-solutions/",
-      "twitter": "https://x.com/Ejadsa"
+      "linkedin": "https://www.linkedin.com/company/ejad-digital-solutions/",
+      "twitter": "https://x.com/ejad_sa",
+      "blog": "https://ejad.sa/#blogs"
     }
   },
   {
@@ -1692,29 +1673,11 @@
     "description_en": "Leading conversational AI technology company offering intelligent chatbot and NLU solutions in Arabic and English for customer service and process automation.",
     "tags": ["uae", "jordan", "ai", "chatbot", "conversational-ai", "nlu", "customer-service", "established", "eastern-province", "jordan-origin"],
     "founding_year": 2016,
-    "headquarters": "UAE",
+    "headquarters": "United Arab Emirates",
     "links": {
       "careers": "https://www.arabot.io/careers/",
-      "linkedin": "https://www.linkedin.com/company/arabot-io/",
-      "twitter": "https://x.com/arabot_io"
-    }
-  },
-  {
-    "id": "droob",
-    "name_ar": "دروب",
-    "name_en": "Droob",
-    "website": "https://droob.app/",
-    "type": "private",
-    "description_ar": "منصة متخصصة في إدارة وتتبع أساطيل المركبات للشركات، توفر حلولاً لتحسين كفاءة التشغيل ومراقبة السائقين والأصول.",
-    "industry": ["Logistics & Delivery", "الخدمات اللوجستية والتوصيل"],
-    "subindustry": ["Supply Chain Management", "إدارة سلسلة الإمداد"],
-    "description_en": "Platform specializing in fleet management and tracking for businesses, providing solutions to optimize operational efficiency and monitor drivers and assets.",
-    "tags": ["logistics", "fleet-management", "iot", "saas", "startup", "riyadh"],
-    "founding_year": 2020,
-    "headquarters": "Saudi Arabia",
-    "links": {
-      "linkedin": "https://www.linkedin.com/company/droobsa/",
-      "twitter": "https://x.com/Droob_app"
+      "linkedin": "https://www.linkedin.com/company/arabot/",
+      "twitter": "https://x.com/arabotio"
     }
   },
   {
@@ -1746,7 +1709,7 @@
     "description_en": "Peer-to-peer (P2P) car rental platform licensed within the SAMA Sandbox, connecting car owners with renters.",
     "tags": ["automotive-tech", "car-rental", "p2p", "marketplace", "sharing-economy", "startup", "sama-sandbox", "jeddah"],
     "founding_year": 2019,
-    "headquarters": "Jeddah",
+    "headquarters": "Saudi Arabia",
     "links": {
       "linkedin": "https://www.linkedin.com/company/ejaro/",
       "twitter": "https://x.com/ejaroc",
