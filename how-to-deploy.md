@@ -1,0 +1,4 @@
+- rm -rf out .next       
+- git push origin --delete gh-pages
+- npm run predeploy
+- npm run deploy         
