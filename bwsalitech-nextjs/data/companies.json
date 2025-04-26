@@ -471,25 +471,6 @@
     }
   },
   {
-    "id": "curex",
-    "name_ar": "كيوركس",
-    "name_en": "Curex",
-    "website": "https://curex.sa/",
-    "type": "private",
-    "description_ar": "منصة للمقارنة وشراء وثائق التأمين الصحي والطبي في السعودية.",
-    "industry": ["Fintech", "التقنية المالية"],
-    "subindustry": ["Insurtech", "التقنية التأمينية"],
-    "description_en": "Platform for comparing and purchasing health and medical insurance policies in Saudi Arabia.",
-    "tags": ["insurtech", "fintech", "startup", "comparison", "insurance"],
-    "founding_year": 2019,
-    "headquarters": "Saudi Arabia",
-    "links": {
-      "twitter": "https://x.com/curex_sa",
-      "linkedin": "https://www.linkedin.com/company/curexsa/",
-      "instagram": "https://www.instagram.com/curex.sa/"
-    }
-  },
-  {
     "id": "floward",
     "name_ar": "فلاورد",
     "name_en": "Floward",
@@ -530,25 +511,6 @@
     }
   },
   {
-    "id": "alma",
-    "name_ar": "ألما",
-    "name_en": "Alma",
-    "website": "https://almahr.sa/",
-    "type": "private",
-    "description_ar": "منصة سحابية متكاملة لإدارة الموارد البشرية والرواتب والامتثال في السعودية.",
-    "industry": ["HR Tech", "تقنية الموارد البشرية"],
-    "subindustry": ["Employee Management", "إدارة الموظفين"],
-    "description_en": "Integrated cloud platform for HR, payroll, and compliance management in Saudi Arabia.",
-    "tags": ["hr-tech", "payroll", "startup", "saas", "compliance"],
-    "founding_year": 2020,
-    "headquarters": "Saudi Arabia",
-    "links": {
-      "careers": "https://almahr.sa/careers/",
-      "twitter": "https://x.com/AlmaHrTech",
-      "linkedin": "https://www.linkedin.com/company/alma-hr/"
-    }
-  },
-  {
     "id": "moyasar",
     "name_ar": "ميسر",
     "name_en": "Moyasar",
@@ -562,8 +524,8 @@
     "founding_year": 2015,
     "headquarters": "Saudi Arabia",
     "links": {
-      "careers": "https://moyasar.com/about/careers/",
-      "twitter": "https://x.com/Moyasar",
+      "careers": "https://moyasar.com/ar/careers",
+      "twitter": "https://x.com/moyasarcom",
       "linkedin": "https://www.linkedin.com/company/moyasar/",
       "github": "https://github.com/moyasar",
       "blog": "https://moyasar.com/blog/"
@@ -585,8 +547,7 @@
     "links": {
       "careers": "https://algooru.com/ar/careers",
       "twitter": "https://x.com/AlGooruApp",
-      "linkedin": "https://www.linkedin.com/company/algooru/",
-      "instagram": "https://www.instagram.com/algooruapp/"
+      "linkedin": "https://www.linkedin.com/company/algooru/"
     }
   },
   {
@@ -603,14 +564,13 @@
     "founding_year": 2016,
     "headquarters": "Saudi Arabia",
     "links": {
-      "careers": "https://rasan.co/careers/",
-      "twitter": "https://x.com/rasan_ksa",
-      "linkedin": "https://www.linkedin.com/company/rasaninfotech/"
+      "twitter": "https://x.com/rasantechnology",
+      "linkedin": "https://www.linkedin.com/company/rasan-information-technology/"
     }
   },
   {
     "id": "marn-pos",
-    "name_ar": "مارن",
+    "name_ar": "مرن",
     "name_en": "Marn POS",
     "website": "https://marn.io/",
     "type": "private",
@@ -622,6 +582,7 @@
     "founding_year": 2020,
     "headquarters": "Saudi Arabia",
     "links": {
+      "careers": "https://marn.io/work-with-us/",
       "twitter": "https://x.com/marnpos",
       "linkedin": "https://www.linkedin.com/company/marnpos/",
       "instagram": "https://www.instagram.com/marnpos/"
@@ -978,10 +939,10 @@
     "name_en": "Red Sea Farms",
     "website": "https://redseafarms.com/",
     "type": "private",
-    "description_ar": "شركة تقنية زراعية تطور وتستخدم تقنيات زراعية مستدامة لتمكين زراعة المحاصيل باستخدام المياه المالحة في البيئات الحارة والقاحلة. [4, 12, 13]",
+    "description_ar": "شركة تقنية زراعية تطور وتستخدم تقنيات زراعية مستدامة لتمكين زراعة المحاصيل باستخدام المياه المالحة في البيئات الحارة والقاحلة. ",
     "industry": ["AgriTech", "التقنية الزراعية"],
     "subindustry": ["Food Production Tech", "تقنية إنتاج الغذاء"],
-    "description_en": "AgTech company developing and deploying sustainable agriculture technologies to enable crop cultivation using saltwater in hot, arid environments. [4, 11, 12, 13, 15]",
+    "description_en": "AgTech company developing and deploying sustainable agriculture technologies to enable crop cultivation using saltwater in hot, arid environments.",
     "tags": ["agtech", "sustainability", "kaust", "food-security", "startup", "saltwater-agriculture"],
     "founding_year": 2018,
     "headquarters": "Thuwal",
@@ -1014,10 +975,10 @@
     "name_en": "Siwar",
     "website": "https://siwar.com/",
     "type": "private",
-    "description_ar": "شركة تقنية أغذية متخصصة في الوجبات الجاهزة عالية الجودة والمجمدة، تقدم مجموعة متنوعة من الأطباق للمستهلكين عبر متاجر التجزئة والتوصيل المباشر. [24, 34, 36]",
+    "description_ar": "شركة تقنية أغذية متخصصة في الوجبات الجاهزة عالية الجودة والمجمدة، تقدم مجموعة متنوعة من الأطباق للمستهلكين عبر متاجر التجزئة والتوصيل المباشر.",
     "industry": ["Foodtech", "تقنية الأغذية"],
     "subindustry": ["Direct-to-Consumer (DTC)", "البيع المباشر للمستهلك"],
-    "description_en": "Food tech company specializing in high-quality, ready-to-eat frozen meals, offering a variety of dishes to consumers through retail and direct delivery. [24, 34, 36, 37]",
+    "description_en": "Food tech company specializing in high-quality, ready-to-eat frozen meals, offering a variety of dishes to consumers through retail and direct delivery.",
     "tags": ["food-tech", "ready-meals", "frozen-food", "dtc", "startup"],
     "founding_year": 2020,
     "headquarters": "Saudi Arabia",
@@ -1123,7 +1084,7 @@
     "name_en": "Hala",
     "website": "https://hala.com/sa/",
     "type": "private",
-    "description_ar": "منصة تقنية مالية تهدف لأن تكون البنك المستقبلي للشركات الصغيرة والمتوسطة، تقدم حلول دفع (نقاط بيع، فواتير) وحسابات تجارية وإدارة مالية للتجار في السعودية والإمارات. [6, 10, 18, 20]",
+    "description_ar": "منصة تقنية مالية تهدف لأن تكون البنك المستقبلي للشركات الصغيرة والمتوسطة، تقدم حلول دفع (نقاط بيع، فواتير) وحسابات تجارية وإدارة مالية للتجار في السعودية والإمارات. ",
     "industry": ["Fintech", "التقنية المالية"],
     "subindustry": ["Payments", "المدفوعات"],
     "description_en": "Fintech platform aiming to be the future bank for SMEs, providing payment solutions (POS, invoicing), business accounts, and financial management tools for merchants in Saudi Arabia and the UAE. [6, 10, 18, 20]",
