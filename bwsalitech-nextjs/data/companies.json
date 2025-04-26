@@ -322,19 +322,20 @@
     "industry": ["Fintech", "التقنية المالية"],
     "subindustry": ["Payments", "المدفوعات"],
     "description_en": "Payments infrastructure company providing simple, secure, and scalable payment solutions to drive e-commerce.",
-    "tags": ["fintech", "payments", "established", "payment-gateway", "mena"],
+    "tags": ["fintech", "payments", "established", "payment-gateway"],
     "founding_year": 2014,
     "headquarters": "Saudi Arabia",
     "links": {
-      "careers": "https://site.paytabs.com/en/careers/",
+      "careers": "https://paytabs.com/en/career/",
       "twitter": "https://x.com/paytabs",
       "linkedin": "https://www.linkedin.com/company/paytabs/",
-      "instagram": "https://www.instagram.com/paytabs/"
+      "instagram": "https://www.instagram.com/paytabs/",
+      "blog": "https://paytabs.com/en/blog/"
     }
   },
   {
     "id": "nana",
-    "name_ar": "نانا",
+    "name_ar": "نعناع",
     "name_en": "Nana",
     "website": "https://nana.sa",
     "type": "private",
@@ -346,7 +347,7 @@
     "founding_year": 2016,
     "headquarters": "Saudi Arabia",
     "links": {
-      "careers": "https://blog.nana.sa/jobs/",
+      "careers": "https://hiring.nana.co/jobs",
       "twitter": "https://x.com/NanaAppSA",
       "linkedin": "https://www.linkedin.com/company/nana-direct/",
       "instagram": "https://www.instagram.com/nanaappsa/"
@@ -354,7 +355,7 @@
   },
   {
     "id": "mozn",
-    "name_ar": "موزن",
+    "name_ar": "مزن",
     "name_en": "Mozn",
     "website": "https://mozn.ai/",
     "type": "private",
@@ -368,7 +369,7 @@
     "links": {
       "careers": "https://mozn.ai/careers/",
       "twitter": "https://x.com/mozn_ai",
-      "linkedin": "https://www.linkedin.com/company/mozn-sa/"
+      "linkedin": "https://www.linkedin.com/company/mozn/"
     }
   },
   {
@@ -385,30 +386,10 @@
     "founding_year": 2012,
     "headquarters": "Saudi Arabia",
     "links": {
-      "careers": "https://careers.hungerstation.com/",
+      "careers": "https://deliveryhero-1481174-gb-engb.sr-attrax.com/jobs?q=&options=254&page=1",
       "twitter": "https://x.com/hungerstation",
-      "linkedin": "https://www.linkedin.com/company/hungerstation/",
+      "linkedin": "https://www.linkedin.com/company/hungerstation-com",
       "instagram": "https://www.instagram.com/hungerstation/"
-    }
-  },
-  {
-    "id": "cofynd",
-    "name_ar": "كوفايند",
-    "name_en": "CoFynd",
-    "website": "https://cofynd.com/",
-    "type": "private",
-    "description_ar": "منصة لحجز وتأجير مساحات العمل المشتركة والمكاتب المرنة في الهند والإمارات والسعودية.",
-    "industry": ["Real Estate Tech (PropTech)", "تقنية العقارات"],
-    "subindustry": ["Real Estate Marketplace", "سوق العقارات"],
-    "description_en": "Platform for booking and renting coworking spaces and flexible offices in India, UAE, and KSA.",
-    "tags": ["real-estate-tech", "startup", "coworking", "flexible-office", "india-origin", "uae"],
-    "founding_year": 2019,
-    "headquarters": "Saudi Arabia",
-    "links": {
-      "careers": "https://cofynd.com/careers",
-      "twitter": "https://x.com/cofynd",
-      "linkedin": "https://www.linkedin.com/company/cofynd/",
-      "instagram": "https://www.instagram.com/cofynd/"
     }
   },
   {
@@ -425,8 +406,6 @@
     "founding_year": 2018,
     "headquarters": "Saudi Arabia",
     "links": {
-      "careers": "https://careers.telgani.com/",
-      "twitter": "https://x.com/telganiapp",
       "linkedin": "https://www.linkedin.com/company/telgani/",
       "instagram": "https://www.instagram.com/telganiapp/"
     }
@@ -520,7 +499,7 @@
     "industry": ["Ecommerce & Retail", "التجارة الإلكترونية وتجارة التجزئة"],
     "subindustry": ["Direct-to-Consumer (DTC)", "البيع المباشر للمستهلك"],
     "description_en": "Leading online destination for flower and gift delivery in the MENA region and the UK.",
-    "tags": ["ecommerce", "gifting", "startup", "delivery", "mena", "uk"],
+    "tags": ["ecommerce", "gifting", "startup", "delivery", "riyadh"],
     "founding_year": 2017,
     "headquarters": "Saudi Arabia",
     "links": {
@@ -755,7 +734,7 @@
     "industry": ["Fintech", "التقنية المالية"],
     "subindustry": ["Payments", "المدفوعات"],
     "description_en": "Leading payment gateway in the MENA region offering diverse and secure payment solutions for online merchants.",
-    "tags": ["fintech", "payments", "payment-gateway", "mena", "established"],
+    "tags": ["fintech", "payments", "payment-gateway", "established"],
     "founding_year": 2014,
     "headquarters": "Saudi Arabia",
     "links": {
@@ -910,7 +889,7 @@
     "industry": ["Logistics & Delivery", "الخدمات اللوجستية والتوصيل"],
     "subindustry": ["Last-Mile Delivery", "التوصيل للمرحلة الأخيرة"],
     "description_en": "Super App offering multiple services including ride-hailing, food/grocery delivery, digital payments, and more across the MENAP region. Owned by Uber.",
-    "tags": ["uae", "mena", "ride-hailing", "food-delivery", "superapp", "payments", "established", "uber-company"],
+    "tags": ["uae", "ride-hailing", "food-delivery", "superapp", "payments", "established", "uber-company"],
     "founding_year": 2012,
     "headquarters": "UAE",
     "links": {
@@ -985,7 +964,7 @@
     "industry": ["Logistics & Delivery", "الخدمات اللوجستية والتوصيل"],
     "subindustry": ["Freight & Shipping", "الشحن والنقل"],
     "description_en": "Digital freight network connecting shippers and carriers across the MENA region, offering an on-demand marketplace for road freight services with real-time tracking. [7, 19, 21, 22, 27]",
-    "tags": ["uae", "logistics", "freight", "marketplace", "established", "mena", "b2b"],
+    "tags": ["uae", "logistics", "freight", "marketplace", "established", "b2b"],
     "founding_year": 2016,
     "headquarters": "Saudi Arabia",
     "links": {
@@ -1094,7 +1073,7 @@
     "industry": ["Foodtech", "تقنية الأغذية"],
     "subindustry": ["Supply Chain Management", "إدارة سلسلة الإمداد"],
     "description_en": "Food and beverage supply chain and finance platform connecting hotels, restaurants, and cafes (HoReCa) with suppliers, simplifying ordering and working capital financing in the MENA region. [23, 24, 25]",
-    "tags": ["food-tech", "supply-chain", "b2b", "saas", "startup", "hospitality", "fintech", "mena"],
+    "tags": ["food-tech", "supply-chain", "b2b", "saas", "startup", "hospitality", "fintech",],
     "founding_year": 2022,
     "headquarters": "Saudi Arabia",
     "links": {
@@ -1167,7 +1146,7 @@
     "industry": ["Education Tech (EdTech)", "تقنية التعليم"],
     "subindustry": ["Online Learning Platforms", "منصات التعلم الإلكتروني"],
     "description_en": "Global social learning platform providing interactive live online classes, contests, and study groups to help students learn with peers and qualified tutors.",
-    "tags": ["edtech", "social-learning", "tutoring", "established", "mena", "global-presence", "k12", "test-prep"],
+    "tags": ["edtech", "social-learning", "tutoring", "established", "global-presence", "k12", "test-prep"],
     "founding_year": 2013,
     "headquarters": "Saudi Arabia",
     "links": {
@@ -1242,7 +1221,7 @@
     "industry": ["Real Estate Tech (PropTech)", "تقنية العقارات"],
     "subindustry": ["Real Estate Marketplace", "سوق العقارات"],
     "description_en": "Leading real estate portal in the MENA region, helping users search for properties to buy or rent and connect with developers and real estate agents in Saudi Arabia and Egypt.",
-    "tags": ["egypt", "proptech", "real-estate", "marketplace", "established", "mena", "property-search"],
+    "tags": ["egypt", "proptech", "real-estate", "marketplace", "established", "property-search"],
     "founding_year": 2011,
     "headquarters": "Egypt",
     "links": {
@@ -1358,7 +1337,7 @@
     "industry": ["Ecommerce & Retail", "التجارة الإلكترونية وتجارة التجزئة"],
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "B2B e-commerce marketplace and procurement platform connecting retailers and SMEs with wholesalers and manufacturers in KSA, Egypt, and Pakistan.",
-    "tags": ["ecommerce", "b2b", "marketplace", "logistics", "supply-chain", "established", "mena"],
+    "tags": ["ecommerce", "b2b", "marketplace", "logistics", "supply-chain", "established"],
     "founding_year": 2018,
     "headquarters": "Saudi Arabia",
     "links": {
@@ -1506,7 +1485,7 @@
       "industry": ["Fintech", "التقنية المالية"],
       "subindustry": ["Lending", "الإقراض"],
       "description_en": "Fintech platform providing supply chain finance and invoice financing solutions for SMEs in Saudi Arabia, Egypt, and UAE, aiming to improve cash flow.",
-      "tags": ["fintech", "supply-chain-finance", "invoice-financing", "lending", "sme", "startup", "mena"],
+      "tags": ["fintech", "supply-chain-finance", "invoice-financing", "lending", "sme", "startup"],
       "founding_year": 2021,
       "headquarters": "Saudi Arabia",
       "links": {
@@ -1543,7 +1522,7 @@
     "industry": ["Healthcare Tech", "تقنية الرعاية الصحية"],
     "subindustry": ["Online Marketplace", "السوق الإلكتروني"],
     "description_en": "B2B e-marketplace connecting pharmaceutical and medical equipment manufacturers & distributors with pharmacies and hospitals across the MENA region.",
-    "tags": ["health-tech", "b2b", "marketplace", "pharmaceuticals", "medical-supplies", "startup", "mena", "jordan-origin"],
+    "tags": ["health-tech", "b2b", "marketplace", "pharmaceuticals", "medical-supplies", "startup", "jordan-origin"],
     "founding_year": 2015,
     "headquarters": "Amman",
     "links": {
