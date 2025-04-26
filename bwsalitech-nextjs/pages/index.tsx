@@ -31,6 +31,11 @@ interface TagWithCount {
   count: number;
 }
 
+interface FlexSearchResultField {
+  field: string;
+  result: Array<string | number>;
+}
+
 // Props Type for the Page
 interface HomeProps {
   allCompanies: Company[]; // Receives only validated companies
@@ -104,30 +109,27 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
   const [language, setLanguage] = useState<Language>('ar');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set()); // For general tags
-  const [searchIndex, setSearchIndex] = useState<FlexSearch.Document<any, true> | null>(null);
+  const [searchIndex, setSearchIndex] = useState<unknown>(null);
   const [searchResults, setSearchResults] = useState<Set<string> | null>(null);
   const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null); // Stores English name (tuple[0])
   const [selectedSubIndustry, setSelectedSubIndustry] = useState<string | null>(null); // Stores English name (tuple[0])
-  // --- MODIFICATION START: Add Sorting State ---
   const [sortCriteria, setSortCriteria] = useState<SortCriteria>('name'); // Default sort
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc'); // Default direction
-  // --- MODIFICATION END ---
 
   // --- Effects ---
   useEffect(() => {
     // Initialize FlexSearch index
-    const index = new FlexSearch.Document<any, true>({
+    const index = new FlexSearch.Document({
       document: {
         id: 'id',
         index: [
-            'name_ar', 'name_en', 'description_ar', 'description_en', 'tags', 'headquarters',
-            // Index both languages from the tuple
-            'industry_en', 'industry_ar', 'subindustry_en', 'subindustry_ar',
+          'name_ar', 'name_en', 'description_ar', 'description_en', 'tags', 'headquarters',
+          'industry_en', 'industry_ar', 'subindustry_en', 'subindustry_ar',
         ],
-        store: false, // We don't need to store the doc in the index itself
+        store: false,
       },
-      tokenize: 'forward', // Basic forward tokenization
-      cache: 100, // Enable caching for performance
+      tokenize: 'forward',
+      cache: 100,
     });
 
     allCompanies.forEach(company => {
@@ -136,10 +138,10 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
             id: company.id,
             name_ar: company.name_ar,
             name_en: company.name_en,
-            description_ar: company.description_ar,
-            description_en: company.description_en,
+            description_ar: company.description_ar || company.description_en || '',
+            description_en: company.description_en || company.description_ar || '',
             tags: company.tags.join(' '), // Index tags as space-separated string
-            headquarters: company.headquarters, // Index headquarters
+            headquarters: company.headquarters || 'MENA', // Index headquarters
             industry_en: company.industry[0],     // English name
             industry_ar: company.industry[1],     // Arabic name
             subindustry_en: company.subindustry[0], // English name
@@ -174,7 +176,7 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
     if (searchIndex) {
       try {
         // Perform asynchronous search
-        const results = await searchIndex.searchAsync(query, {
+        const results =  await (searchIndex as any).searchAsync(query, {
              limit: allCompanies.length, // Adjust limit as needed, here showing all matches
              index: [ // Explicitly define fields to search in for this query
                 'name_ar', 'name_en', 'description_ar', 'description_en', 'tags',
@@ -184,8 +186,8 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
          });
         const matchedIds = new Set<string>();
         // FlexSearch returns results grouped by field; flatten them into a single Set of IDs
-        results.forEach(fieldResult => {
-            fieldResult.result.forEach(id => {
+        results.forEach((fieldResult: FlexSearchResultField) => {
+          fieldResult.result.forEach((id: string | number) => {
                 matchedIds.add(id.toString()); // Ensure IDs are strings
             });
         });
