@@ -7,8 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // Disable default image optimization
   },
-  assetPrefix: isProd ? '/your-repository-name/' : '',
-  basePath: isProd ? '/your-repository-name' : '',
+  assetPrefix: isProd ? '/bwsalitech/' : '',
+  basePath: isProd ? '/bwsalitech' : '',
   output: 'export'
 };
 
