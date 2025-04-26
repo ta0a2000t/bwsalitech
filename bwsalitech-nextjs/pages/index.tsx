@@ -219,30 +219,12 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
       setSelectedSubIndustry(null); // Clear subindustry dropdown
   }, []); // No external dependencies needed
 
-  // --- MODIFICATION START: Add Sort Handler ---
   // Handler for sort dropdown change
   const handleSortChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
       const [criteria, direction] = event.target.value.split('-') as [SortCriteria, SortDirection];
       setSortCriteria(criteria);
       setSortDirection(direction);
   }, []); // No external dependencies needed
-  // --- MODIFICATION END ---
-
-  // Handler to download the current company data as JSON
-  const downloadJson = useCallback(() => {
-    // Stringify the *original validated* data passed to the component
-    const dataStr = JSON.stringify(allCompanies, null, 2); // Use 'allCompanies' prop
-    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
-    const exportFileName = 'companies.json';
-
-    // Create a temporary link element to trigger the download
-    const linkElement = document.createElement('a');
-    linkElement.setAttribute('href', dataUri);
-    linkElement.setAttribute('download', exportFileName);
-    document.body.appendChild(linkElement); // Append temporarily to ensure click works
-    linkElement.click();
-    document.body.removeChild(linkElement); // Clean up the temporary link
-  }, [allCompanies]); // Depends on the original allCompanies data
 
   // --- Derived State: Calculate Filtered & Sorted Sets & Options ---
 
@@ -559,7 +541,7 @@ const Home: NextPage<HomeProps> = ({ allCompanies }) => {
         </section>
       </main>
 
-      <Footer currentLanguage={language} onDownloadJson={downloadJson} />
+      <Footer currentLanguage={language} />
     </div>
   );
 };
