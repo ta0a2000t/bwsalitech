@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "predeploy": "next build && echo > out/.nojekyll",
+    "deploy": "gh-pages --dotfiles -d out"
   },
   "dependencies": {
     "flexsearch": "^0.8.158",

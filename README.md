@@ -1,6 +1,6 @@
-Built this because finding Saudi or regional tech companies shouldn't be this hard.  
+Finding Saudi or regional tech companies shouldn't be this hard.  
 No clean lists, no good directories — so I made one.  
-Simple, open, bilingual, and fast.
+
 
 ---
 
