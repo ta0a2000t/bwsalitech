@@ -298,7 +298,7 @@
     "id": "classera",
     "name_ar": "كلاسيرا",
     "name_en": "Classera",
-    "website": "https://www.classera.com/",
+    "website": "https://www.classera.com",
     "type": "private",
     "description_ar": "نظام إدارة تعلم إلكتروني ومنصة تعليمية ذكية تركز على التعلم الممتع والتحفيز.",
     "industry": ["Education Tech (EdTech)", "تقنية التعليم"],
@@ -308,10 +308,8 @@
     "founding_year": 2011,
     "headquarters": "Riyadh",
     "links": {
-      "careers": "https://corp.classera.com/careers/",
       "twitter": "https://x.com/classera",
-      "linkedin": "https://www.linkedin.com/company/classera/",
-      "instagram": "https://www.instagram.com/classera_inc/"
+      "linkedin": "https://www.linkedin.com/company/classera/"
     }
   },
   {
@@ -788,7 +786,7 @@
   },
   {
     "id": "hakbah",
-    "name_ar": "حكبة",
+    "name_ar": "هكبه",
     "name_en": "Hakbah",
     "website": "https://hakbah.com/",
     "type": "private",
@@ -847,8 +845,8 @@
   {
     "id": "stc-solutions",
     "name_ar": "حلول اس تي سي",
-    "name_en": "solutions by stc",
-    "website": "https://www.solutions.com.sa/",
+    "name_en": "Solutions by STC",
+    "website": "https://solutions.com.sa/",
     "type": "private",
     "description_ar": "شركة رائدة في تمكين التحول الرقمي في المملكة، تقدم خدمات وحلول متكاملة في مجال تكنولوجيا المعلومات والاتصالات للقطاعين الحكومي والخاص. مدرجة في السوق المالية السعودية. [35, 36]",
     "industry": ["Software & IT Services", "البرمجيات وخدمات تكنولوجيا المعلومات"],
@@ -869,15 +867,15 @@
     "name_en": "Saudi Data & Artificial Intelligence Authority (SDAIA)",
     "website": "https://sdaia.gov.sa/",
     "type": "government",
-    "description_ar": "الجهة الحكومية المسؤولة عن تنظيم وتطوير قطاع البيانات والذكاء الاصطناعي في المملكة لتحقيق أهداف رؤية 2030. [4, 8, 13]",
+    "description_ar": "الجهة الحكومية المسؤولة عن تنظيم وتطوير قطاع البيانات والذكاء الاصطناعي في المملكة لتحقيق أهداف رؤية 2030.",
     "industry": ["Government Tech", "تقنية الحكومة"],
     "subindustry": ["Public Sector Software", "برمجيات القطاع العام"],
-    "description_en": "The government authority responsible for organizing and developing the data and AI sector in the Kingdom to achieve Vision 2030 goals. [4, 8, 13]",
+    "description_en": "The government authority responsible for organizing and developing the data and AI sector in the Kingdom to achieve Vision 2030 goals. ",
     "tags": ["Saudi Arabia", "government", "data", "ai", "vision-2030", "governance", "strategy", "established"],
     "founding_year": 2019,
     "headquarters": "Riyadh",
     "links": {
-      "careers": "https://sdaia.gov.sa/ar/SDAIACareers/Pages/index.aspx",
+      "careers": "https://sdaia.gov.sa/en/Contact/Pages/JoinUs.aspx",
       "linkedin": "https://www.linkedin.com/company/sdaia/",
       "twitter": "https://x.com/SDAIA_SA"
     }
@@ -897,7 +895,7 @@
     "founding_year": 1988,
     "headquarters": "Riyadh",
     "links": {
-      "careers": "https://careers.elm.sa/",
+      "careers": "https://www.elm.sa/ar/recruitment/recruitment/Pages/join-our-family.aspx",
       "linkedin": "https://www.linkedin.com/company/elm/",
       "twitter": "https://x.com/Elm"
     }
@@ -916,7 +914,6 @@
     "founding_year": 2012,
     "headquarters": "Dubai",
     "links": {
-      "careers": "https://careers.careem.com/",
       "linkedin": "https://www.linkedin.com/company/careem/",
       "twitter": "https://x.com/careem",
       "instagram": "https://www.instagram.com/careem/"
@@ -936,7 +933,6 @@
     "founding_year": 2016,
     "headquarters": "Riyadh",
     "links": {
-      "careers": "https://careers.noon.com/",
       "linkedin": "https://www.linkedin.com/company/nooncom/",
       "twitter": "https://x.com/noon",
       "instagram": "https://www.instagram.com/noon/"
@@ -956,10 +952,8 @@
     "founding_year": 2019,
     "headquarters": "Riyadh",
     "links": {
-      "careers": "https://apply.workable.com/sabbar/",
-      "linkedin": "https://www.linkedin.com/company/sabbarapp/",
-      "twitter": "https://x.com/SabbarApp",
-      "instagram": "https://www.instagram.com/sabbarapp/"
+      "linkedin": "https://www.linkedin.com/company/sabbarhq/",
+      "blog": "https://sabbar.com/en/blog"
     }
   },
   {
@@ -1763,25 +1757,6 @@
     }
   },
   {
-    "id": "klick",
-    "name_ar": "كليك للخدمات اللوجستية",
-    "name_en": "Klick Logistics",
-    "website": "https://klickksa.com/",
-    "type": "private",
-    "description_ar": "شركة لوجستية تقنية ناشئة توفر حلول توصيل عند الطلب للميل الأخير للأفراد والشركات في المنطقة الشرقية ومدن أخرى بالمملكة.",
-    "industry": ["Logistics & Delivery", "الخدمات اللوجستية والتوصيل"],
-    "subindustry": ["Last-Mile Delivery", "التوصيل للمرحلة الأخيرة"],
-    "description_en": "Logistics tech startup providing on-demand, last-mile delivery solutions for individuals and businesses in the Eastern Province and other cities in KSA.",
-    "tags": ["Saudi Arabia", "dammam", "logistics", "last-mile-delivery", "on-demand", "startup", "delivery", "eastern-province"],
-    "founding_year": 2021,
-    "headquarters": "Dammam",
-    "links": {
-      "linkedin": "https://www.linkedin.com/company/klick-logistics/",
-      "twitter": "https://x.com/klickksa",
-      "instagram": "https://www.instagram.com/klickksa/"
-    }
-  },
-  {
     "id": "arabot",
     "name_ar": "أرابوت",
     "name_en": "Arabot",
@@ -1838,29 +1813,10 @@
     }
   },
   {
-    "id": "voyage",
-    "name_ar": "ڤوياج",
-    "name_en": "VOYAGE",
-    "website": "https://voyageapp.sa/",
-    "type": "private",
-    "description_ar": "تطبيق ومنصة لحجز واستكشاف التجارب السياحية والأنشطة الترفيهية المحلية في مختلف مناطق المملكة العربية السعودية.",
-    "industry": ["Travel & Hospitality Tech", "تقنية السفر والضيافة"],
-    "subindustry": ["Booking Platforms", "منصات الحجز"],
-    "description_en": "App and platform for booking and discovering local tourism experiences and recreational activities across different regions of Saudi Arabia.",
-    "tags": ["Saudi Arabia", "travel-tech", "tourism", "experiences", "booking-platform", "startup", "riyadh"],
-    "founding_year": 2021,
-    "headquarters": "Riyadh",
-    "links": {
-      "linkedin": "https://www.linkedin.com/company/voyageappsa/",
-      "twitter": "https://x.com/VoyageAppSA",
-      "instagram": "https://www.instagram.com/voyageappsa/"
-    }
-  },
-  {
-    "id": "ejaroc",
+    "id": "ejaro",
     "name_ar": "إيجارو",
     "name_en": "Ejaro",
-    "website": "https://ejaroc.com/",
+    "website": "https://ejaro.com/",
     "type": "private",
     "description_ar": "منصة تأجير سيارات من شخص لشخص (P2P) مرخصة ضمن البيئة التجريبية التشريعية للبنك المركزي السعودي (SAMA Sandbox)، تربط أصحاب السيارات بالمستأجرين.",
     "industry": ["Automotive Tech", "تقنية السيارات"],
