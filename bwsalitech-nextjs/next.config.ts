@@ -1,17 +1,17 @@
 // This file usually remains JavaScript (.js)
 /** @type {import('next').NextConfig} */
+
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    // Add the hostnames for all external logo URLs here
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 's2.googleusercontent.com',
-      },
-      // Add other domains if needed
-    ],
+    unoptimized: true, // Disable default image optimization
   },
+  assetPrefix: isProd ? '/your-repository-name/' : '',
+  basePath: isProd ? '/your-repository-name' : '',
+  output: 'export'
 };
+
+export default nextConfig;
 
 module.exports = nextConfig;
