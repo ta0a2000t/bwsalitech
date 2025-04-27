@@ -1,32 +1,43 @@
 // bwsalitech-nextjs/components/CompanyCard.tsx
 import Image from 'next/image';
 import React from 'react';
-// Import the updated Company interface
 import type { Company, CompanyLinks, Language } from '../interfaces';
+// Import the specific CSS module for this component
 import styles from '../styles/CompanyCard.module.css';
 
-// Props Interface remains the same
 interface CompanyCardProps {
-  company: Company; // Expects a validated Company object
+  company: Company;
   language: Language;
 }
 
-// Helper function to render social links (no changes needed)
+// Helper function to render social links
 const renderSocialLinks = (links: CompanyLinks | undefined, language: Language): React.ReactNode => {
     if (!links) return null;
+    // Use Font Awesome classes as defined in _document.tsx
     const socialIcons: { [key in keyof CompanyLinks]?: string } = {
-      twitter: 'fab fa-twitter', linkedin: 'fab fa-linkedin', facebook: 'fab fa-facebook',
-      instagram: 'fab fa-instagram', github: 'fab fa-github', blog: 'fas fa-blog',
+      twitter: 'fab',
+      linkedin: 'fab fa-linkedin',
+      facebook: 'fab fa-facebook',
+      instagram: 'fab fa-instagram',
+      github: 'fab fa-github',
+      blog: 'fas fa-blog',
     };
     return Object.entries(links)
       .filter(([platform, url]) => socialIcons[platform as keyof CompanyLinks] && url)
       .map(([platform, url]) => (
-        <a key={platform} href={url} className={styles.socialLink} target="_blank" rel="noopener noreferrer" title={platform} aria-label={`${language === 'ar' ? 'زيارة' : 'Visit'} ${platform}`}>
-          <i className={socialIcons[platform as keyof CompanyLinks]}></i>
+        <a
+            key={platform}
+            href={url as string} // Ensure URL is treated as string
+            className={styles.socialLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={platform.charAt(0).toUpperCase() + platform.slice(1)} // Capitalize title
+            aria-label={`${language === 'ar' ? 'زيارة صفحة' : 'Visit'} ${platform}`}
+        >
+          <i className={socialIcons[platform as keyof CompanyLinks]}>{platform === 'twitter' ? '𝕏' : null}</i>
         </a>
       ));
 };
-
 
 // Component Logic
 const CompanyCard: React.FC<CompanyCardProps> = ({ company, language }) => {
@@ -34,7 +45,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, language }) => {
   const name = language === 'ar' ? company.name_ar : company.name_en;
   const description = language === 'ar'
     ? company.description_ar
-    : (company.description_en || company.description_ar); // Fallback to Arabic description if English is missing
+    : (company.description_en || company.description_ar); // Fallback
 
   // Get localized industry/subindustry from the tuple
   const industryName = language === 'ar' ? company.industry[1] : company.industry[0];
@@ -50,55 +61,55 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, language }) => {
       <div className={styles.companyInfo}>
         {/* Header */}
         <div className={styles.companyHeader}>
-          <div className={styles.logoWrapper}>
-            <Image
-              src={logoSrc}
-              alt={`${name} logo`}
-              width={40} // Fixed size for consistency
-              height={40}
-              className={styles.companyHeaderLogo}
-              unoptimized={logoSrc.includes('googleusercontent.com')} // Avoid optimizing external favicons
-              onError={(e) => { // Optional: Handle broken favicon links
-                e.currentTarget.style.display = 'none'; // Hide broken image icon
-              }}
-            />
-          </div>
-          <h3 className={styles.companyName}>{name}</h3>
+             <div className={styles.logoWrapper}>
+                {/* Use Next.js Image component */}
+                <Image
+                    src={logoSrc}
+                    alt={`${name} logo`}
+                    width={40} // Intrinsic size for layout calculation
+                    height={40}
+                    className={styles.companyHeaderLogo} // Apply style to the Image component itself
+                    unoptimized={logoSrc.includes('googleusercontent.com')} // Don't optimize favicons
+                    onError={(e) => { // Fallback if image fails
+                        // Optionally hide the wrapper or show placeholder
+                        e.currentTarget.style.display = 'none';
+                        // e.currentTarget.parentElement?.classList.add(styles.imageError); // Add class to wrapper if needed
+                    }}
+                />
+            </div>
+            <h3 className={styles.companyName}>{name}</h3>
         </div>
 
         {/* Description */}
         <p className={styles.companyDesc}>{description}</p>
 
-        {/* Industry & Subindustry */}
+        {/* --- Structure matches user's CSS expectations --- */}
         <div className={styles.companyIndustryInfo}>
-          <span className={styles.industryLabel}>{language === 'ar' ? 'الصناعة:' : 'Industry:'}</span> {industryName}
-          <span className={styles.divider}>|</span>
-          <span className={styles.subIndustryLabel}>{language === 'ar' ? 'الفرعية:' : 'Subindustry:'}</span> {subIndustryName}
+          <span className={styles.industryLabel}>{language === 'ar' ? 'الصناعة:' : 'Industry:'}</span>
+          <span>{industryName}</span>
+          <span className={styles.divider}>|</span> {/* Divider as expected by CSS */}
+          <span className={styles.subIndustryLabel}>{language === 'ar' ? 'الفرعية:' : 'Subindustry:'}</span>
+          <span>{subIndustryName}</span>
         </div>
+        {/* --- End Structure --- */}
+
 
         {/* Meta Info (Headquarters & Founding Year) */}
         <div className={styles.companyMeta}>
-          <div>
-             {/* Use conditional rendering for potentially missing HQ */}
-            {company.headquarters ? (
-                <><i className="fas fa-map-marker-alt"></i> {company.headquarters}</>
-            ) : (
-                 <><i className="fas fa-map-marker-alt"></i> {'-'}</> // Placeholder if missing
-            )}
-          </div>
-          <div>
-             {/* Use conditional rendering for potentially missing year */}
-             {company.founding_year ? (
-                 <><i className="fas fa-calendar-alt"></i> {company.founding_year}</>
-             ) : (
-                  <><i className="fas fa-calendar-alt"></i> {'-'}</> // Placeholder if missing
-             )}
-          </div>
+            {/* Headquarters */}
+             <span> {/* Wrap each meta item for flex gap */}
+                <i className="fas fa-map-marker-alt"></i> {/* Font Awesome icon */}
+                {company.headquarters ? company.headquarters : '-'}
+             </span>
+            {/* Founding Year */}
+             <span> {/* Wrap each meta item for flex gap */}
+                <i className="fas fa-calendar-alt"></i> {/* Font Awesome icon */}
+                {company.founding_year ? company.founding_year : '-'}
+             </span>
         </div>
 
         {/* Tags */}
         <div className={styles.companyTags}>
-          {/* Ensure tags is always an array before mapping */}
           {(company.tags || []).map(tag => (
             <span key={tag} className={styles.companyTag}>
               {tag}
@@ -106,36 +117,36 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, language }) => {
           ))}
         </div>
 
-        {/* Action Buttons */}
+        {/* Action Buttons - Placed within companyInfo to allow flex-grow on description */}
         <div className={styles.companyActions}>
-          <a
-            href={company.website}
-            className={`${styles.btn} ${styles.btnPrimary}`}
-            target="_blank"
-            rel="noopener noreferrer" // Important for security/SEO
-          >
-            {language === 'ar' ? 'زيارة الموقع' : 'Visit Website'}
-          </a>
-          {/* Conditionally render Careers button only if link exists */}
-          {company.links?.careers && (
             <a
-              href={company.links.careers}
-              className={`${styles.btn} ${styles.btnSecondary}`}
-              target="_blank"
-              rel="noopener noreferrer"
+                href={company.website}
+                className={`${styles.btn} ${styles.btnPrimary}`}
+                target="_blank"
+                rel="noopener noreferrer"
             >
-              {language === 'ar' ? 'الوظائف' : 'Careers'}
+                {language === 'ar' ? 'زيارة الموقع' : 'Visit Website'}
             </a>
-          )}
+            {/* Conditionally render Careers button */}
+            {company.links?.careers && (
+                <a
+                    href={company.links.careers}
+                    className={`${styles.btn} ${styles.btnSecondary}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                {language === 'ar' ? 'الوظائف' : 'Careers'}
+                </a>
+            )}
         </div>
 
-        {/* Social Links */}
-        <div className={styles.socialLinksContainer}>
-            {renderSocialLinks(company.links, language)}
-        </div>
+         {/* Social Links - Placed within companyInfo */}
+         <div className={styles.socialLinksContainer}>
+             {renderSocialLinks(company.links, language)}
+         </div>
 
-      </div>
-    </div>
+      </div> {/* End companyInfo */}
+    </div> // End companyCard
   );
 };
 
